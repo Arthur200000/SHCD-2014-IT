@@ -9,14 +9,14 @@ What does it include?
 ###General/Qisi.General:
 + FTP-based Client-Server structure.
 + Zip-based Compression with AES encryption to transfer exam data.
-+ Xlsx file reading ability.
++ `.xlsx` file reading ability.
 
 ###Ctrl/Qisi.General.Control:
 + CoreAudioApi
 + Buttons, imebar and so on
 
 ###Editor/Qisi.Editor:
-+ An RTF Editor with Maths functions availablities.
++ An RTF Editor with Maths functions available.
 
 ###ExamCtrl/ExamClientControlsLibrary:
 + RTF Reading for test papers.
