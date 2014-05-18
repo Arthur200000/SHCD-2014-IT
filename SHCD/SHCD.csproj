@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{532D9F6B-5350-4C7F-8EC9-9FA997D1C335}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SHCD</RootNamespace>
+    <AssemblyName>SHCD</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <ReleaseVersion>1.0.1.0</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <StartupObject>SHCD.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="upload.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="score.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="MdiBase.cs" />
+    <Compile Include="Login.cs" />
+    <Compile Include="Key.cs" />
+    <Compile Include="FormTemplate.cs" />
+    <Compile Include="FormSel.cs" />
+    <Compile Include="FormReg.cs" />
+    <Compile Include="CountDown.cs" />
+    <Compile Include="ChooseSubject.cs" />
+    <Compile Include="Properties\Global.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\SHCD.upload.resources" />
+    <None Include="Properties\SHCD.Test.resources" />
+    <None Include="Properties\SHCD.score.resources" />
+    <None Include="Properties\SHCD.Properties.Resources.resources" />
+    <None Include="Properties\SHCD.MdiBase.resources" />
+    <None Include="Properties\SHCD.Login.resources" />
+    <None Include="Properties\SHCD.Key.resources" />
+    <None Include="Properties\SHCD.FormTemplate.resources" />
+    <None Include="Properties\SHCD.FormSel.resources" />
+    <None Include="Properties\SHCD.FormReg.resources" />
+    <None Include="Properties\SHCD.CountDown.resources" />
+    <None Include="Properties\SHCD.ChooseSubject.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ctrl\Ctrl.csproj">
+      <Project>{00B7F2EB-EB7B-4201-933D-B6F8ED9CC753}</Project>
+      <Name>Ctrl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\General\General.csproj">
+      <Project>{68CC8FDC-68AB-4F35-8564-59989C0E423C}</Project>
+      <Name>General</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExamCtrl\ExamCtrl.csproj">
+      <Project>{30BC4452-491F-4E67-8F1B-167754FDA2B2}</Project>
+      <Name>ExamCtrl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+</Project>

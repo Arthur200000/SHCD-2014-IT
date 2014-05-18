@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <ProjectGuid>5A250F4E-9E87-485C-B64E-704FBD4D3934</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>Qisi.General.Controls</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <RootNamespace>Qisi.General.Controls</RootNamespace>
+    <ReleaseVersion>1.0.1.0</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Qisi\General\Controls\animateImage.cs" />
+    <Compile Include="Qisi\General\Controls\Clock.cs" />
+    <Compile Include="Qisi\General\Controls\CrystalButton.cs" />
+    <Compile Include="Qisi\General\Controls\CrystalButtonLeftRight.cs" />
+    <Compile Include="Qisi\General\Controls\CrystalButtonUpDown.cs" />
+    <Compile Include="Qisi\General\Controls\DataGridViewAutoFilterColumnHeaderCell.cs" />
+    <Compile Include="Qisi\General\Controls\DataGridViewAutoFilterTextBoxColumn.cs" />
+    <Compile Include="Qisi\General\Controls\DataGridViewAutoFilterTextAndPictureBoxColumn.cs" />
+    <Compile Include="Qisi\General\Controls\FlatMessageBox.cs" />
+    <Compile Include="Qisi\General\Controls\imeBar.cs" />
+    <Compile Include="Qisi\General\Controls\ImeModeEventArgs.cs" />
+    <Compile Include="Qisi\General\Controls\NativeMethods.cs" />
+    <Compile Include="Qisi\General\Controls\QisiTabControl.cs" />
+    <Compile Include="Qisi\General\Controls\PopupHost.cs" />
+    <Compile Include="Qisi\General\Controls\Properties\Resources.cs" />
+    <Compile Include="Qisi\General\Controls\QisiTreeView.cs" />
+    <Compile Include="Qisi\General\Controls\ReadOnlyRichTextBox.cs" />
+    <Compile Include="Qisi\General\Controls\StartForm.cs" />
+    <Compile Include="Qisi\General\Controls\TextAndImageCell.cs" />
+    <Compile Include="Qisi\General\Controls\VolumeControl.cs" />
+    <EmbeddedResource Include="Qisi.General.Controls.CrystalButton.resources">
+      <LogicalName>Qisi.General.Controls.CrystalButton.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qisi.General.Controls.imeBar.resources">
+      <LogicalName>Qisi.General.Controls.imeBar.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qisi.General.Controls.Properties.Resources.resources">
+      <LogicalName>Qisi.General.Controls.Properties.Resources.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qisi.General.Controls.StartForm.resources">
+      <LogicalName>Qisi.General.Controls.StartForm.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qisi.General.Controls.VolumeControl.resources">
+      <LogicalName>Qisi.General.Controls.VolumeControl.resources</LogicalName>
+    </EmbeddedResource>
+    <Reference Include="CoreAudioApi">
+      <HintPath>..\CoreAudioApi\bin\Debug\CoreAudioApi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

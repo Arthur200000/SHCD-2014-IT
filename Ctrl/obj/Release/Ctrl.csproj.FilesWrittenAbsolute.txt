@@ -1,0 +1,5 @@
+/Users/apple/Desktop/SHCD-2014-IT/Ctrl/bin/Release/Ctrl.dll.mdb
+/Users/apple/Desktop/SHCD-2014-IT/Ctrl/bin/Release/Ctrl.dll
+/Users/apple/Desktop/SHCD-2014-IT/Ctrl/obj/Release/Ctrl.dll
+/Users/apple/Desktop/SHCD-2014-IT/Ctrl/obj/Release/Ctrl.dll.mdb
+/Users/apple/Desktop/SHCD-2014-IT/Ctrl/bin/Release/CoreAudioApi.dll

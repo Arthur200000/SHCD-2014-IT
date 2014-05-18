@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BDD0FF82-C6E0-466B-A6B9-63B578E3477F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Editor</RootNamespace>
+    <AssemblyName>Editor</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Expressions\" />
+    <Folder Include="Documents\" />
+    <Folder Include="Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Qisi.Editor.Properties.Resources.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.TextBox.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.TextBar.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.SuperBox.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.FrmInsertTable.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.FormulaEditor.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.FormOptionInfo.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.FormFormatSelect.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.FormFlow.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.FormBlankInfo.resources" />
+    <None Include="Properties\Qisi.Editor.Controls.FLabel.resources" />
+    <None Include="Controls\SuperBox_ILSpy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Global.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="CommonMethods.cs" />
+    <Compile Include="Expressions\max.cs" />
+    <Compile Include="Expressions\min.cs">
+      <DependentUpon>max.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\sin_2.cs" />
+    <Compile Include="Expressions\sinh_2.cs" />
+    <Compile Include="Expressions\specialchar.cs" />
+    <Compile Include="Expressions\tan_2.cs" />
+    <Compile Include="Expressions\tan.cs" />
+    <Compile Include="Expressions\tanh_2.cs" />
+    <Compile Include="Expressions\tanh.cs" />
+    <Compile Include="Expressions\tijifen1.cs" />
+    <Compile Include="Expressions\tijifen2.cs" />
+    <Compile Include="Expressions\tijifen3.cs" />
+    <Compile Include="Expressions\weidao1.cs" />
+    <Compile Include="Expressions\weidao2.cs" />
+    <Compile Include="Expressions\weidao3.cs" />
+    <Compile Include="Expressions\xiabiao.cs" />
+    <Compile Include="Expressions\xiafangdakuohao.cs" />
+    <Compile Include="Expressions\xiefenshi.cs" />
+    <Compile Include="Expressions\yiyinfuhao.cs" />
+    <Compile Include="Expressions\youjiantou1.cs" />
+    <Compile Include="Expressions\youjiantou2.cs" />
+    <Compile Include="Expressions\youjiantou3.cs" />
+    <Compile Include="Expressions\youjiantouzaishang.cs" />
+    <Compile Include="Expressions\youxiangjianshijiantouzaishang.cs" />
+    <Compile Include="Expressions\zuojiantou1.cs" />
+    <Compile Include="Expressions\zuojiantou2.cs" />
+    <Compile Include="Expressions\zuojiantou3.cs" />
+    <Compile Include="Expressions\zuojiantouzaishang.cs" />
+    <Compile Include="Expressions\zuoxiangjianshijiantouzaishang.cs" />
+    <Compile Include="Expressions\jiao24.cs">
+      <DependentUpon>jiao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jiao25.cs">
+      <DependentUpon>jiao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jifen1.cs" />
+    <Compile Include="Expressions\jifen3.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jifen2.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jueduizhi1.cs" />
+    <Compile Include="Expressions\jueduizhi2.cs">
+      <DependentUpon>jueduizhi1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\juzheng.cs" />
+    <Compile Include="Expressions\kuohao.cs" />
+    <Compile Include="Expressions\lg.cs" />
+    <Compile Include="Expressions\lifanggen.cs" />
+    <Compile Include="Expressions\lim.cs" />
+    <Compile Include="Expressions\ln.cs">
+      <DependentUpon>log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\log.cs" />
+    <Compile Include="Expressions\logx.cs">
+      <DependentUpon>log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\mianjifen1.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\mianjifen2.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\mianjifen3.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\pingfanggen.cs" />
+    <Compile Include="Expressions\qiuhe1.cs" />
+    <Compile Include="Expressions\qiuhe2.cs">
+      <DependentUpon>qiuhe1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\qiuhe3.cs">
+      <DependentUpon>qiuhe1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\qiuhe4.cs">
+      <DependentUpon>qiuhe1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\qiuhe5.cs">
+      <DependentUpon>qiuhe1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\sanchongjifen1.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\sanchongjifen2.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\sanchongjifen3.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\sandian.cs" />
+    <Compile Include="Expressions\sec_2.cs" />
+    <Compile Include="Expressions\sec.cs" />
+    <Compile Include="Expressions\sech_2.cs" />
+    <Compile Include="Expressions\sech.cs" />
+    <Compile Include="Expressions\shangbiao.cs" />
+    <Compile Include="Expressions\shangfangdakuohao.cs" />
+    <Compile Include="Expressions\shangxiabiaoyou.cs" />
+    <Compile Include="Expressions\shangxiabiaozuo.cs" />
+    <Compile Include="Expressions\shuangdian.cs" />
+    <Compile Include="Expressions\shuangdingxian.cs" />
+    <Compile Include="Expressions\shuangxiangjiantou1.cs" />
+    <Compile Include="Expressions\shuangxiangjiantou2.cs" />
+    <Compile Include="Expressions\shuangxiangjiantou3.cs" />
+    <Compile Include="Expressions\shuangxiangjiantouzaishang.cs" />
+    <Compile Include="Expressions\sin.cs" />
+    <Compile Include="Expressions\sinh.cs" />
+    <Compile Include="Expressions\dakuohao.cs" />
+    <Compile Include="Expressions\danbiandakuohao.cs" />
+    <Compile Include="Expressions\denghao1.cs" />
+    <Compile Include="Expressions\denghao2.cs">
+      <DependentUpon>denghao1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\denghao3.cs">
+      <DependentUpon>denghao1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\dh1.cs" />
+    <Compile Include="Expressions\dh2.cs">
+      <DependentUpon>dh1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\dh3.cs">
+      <DependentUpon>dh1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\dian.cs" />
+    <Compile Include="Expressions\dixian.cs" />
+    <Compile Include="Expressions\duanyinfuhao.cs" />
+    <Compile Include="Expressions\duihao.cs" />
+    <Compile Include="Expressions\ehuafu.cs" />
+    <Compile Include="Expressions\erchongjifen1.cs" />
+    <Compile Include="Expressions\erchongjifen2.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\erchongjifen3.cs">
+      <DependentUpon>jifen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\fangkuohao.cs" />
+    <Compile Include="Expressions\fenshi.cs" />
+    <Compile Include="Expressions\fenzuzifuzaishang.cs" />
+    <Compile Include="Expressions\fenzuzifuzaixia.cs" />
+    <Compile Include="Expressions\FType.cs" />
+    <Compile Include="Expressions\fuji1.cs" />
+    <Compile Include="Expressions\fuji2.cs">
+      <DependentUpon>fuji1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\fuji3.cs">
+      <DependentUpon>fuji1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\fuji4.cs">
+      <DependentUpon>fuji1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\fuji5.cs">
+      <DependentUpon>fuji1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\genshi.cs" />
+    <Compile Include="Expressions\hanshuxiabiao.cs" />
+    <Compile Include="Expressions\henggang.cs" />
+    <Compile Include="Expressions\jiankuohao.cs">
+      <DependentUpon>kuohao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jianyinfuhao.cs" />
+    <Compile Include="Expressions\jiao11.cs" />
+    <Compile Include="Expressions\jiao23.cs">
+      <DependentUpon>jiao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jiao12.cs">
+      <DependentUpon>jiao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jiao22.cs">
+      <DependentUpon>jiao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jiao13.cs">
+      <DependentUpon>jiao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jiao14.cs">
+      <DependentUpon>jiao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jiao15.cs">
+      <DependentUpon>jiao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\jiao21.cs">
+      <DependentUpon>jiao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\kuohaoexpression.cs">
+      <DependentUpon>kuohao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\arccos_2.cs">
+      <DependentUpon>arccos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\arccot_2.cs">
+      <DependentUpon>arccot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\arccot.cs">
+    </Compile>
+    <Compile Include="Expressions\arcsin_2.cs">
+      <DependentUpon>arcsin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\arcsin.cs" />
+    <Compile Include="Expressions\arctan_2.cs">
+      <DependentUpon>arctan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\arctan.cs" />
+    <Compile Include="Expressions\bing11.cs" />
+    <Compile Include="Expressions\bing12.cs">
+      <DependentUpon>bing11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\bing13.cs">
+      <DependentUpon>bing11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\bing14.cs">
+      <DependentUpon>bing11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\bing15.cs">
+      <DependentUpon>bing11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\bing21.cs">
+      <DependentUpon>bing11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\bing22.cs">
+      <DependentUpon>bing11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\bing23.cs">
+      <DependentUpon>bing11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\bing24.cs">
+      <DependentUpon>bing11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\bing25.cs">
+      <DependentUpon>bing11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\charexpression.cs" />
+    <Compile Include="Expressions\chengji1.cs" />
+    <Compile Include="Expressions\chengji2.cs">
+      <DependentUpon>chengji1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\chengji3.cs">
+      <DependentUpon>chengji1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\chengji4.cs">
+      <DependentUpon>chengji1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\chengji5.cs">
+      <DependentUpon>chengji1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\chengmihao.cs" />
+    <Compile Include="Expressions\containerexpression.cs" />
+    <Compile Include="Expressions\cos_2.cs">
+      <DependentUpon>cos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\cos.cs" />
+    <Compile Include="Expressions\cosh_2.cs">
+      <DependentUpon>cosh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\cosh.cs" />
+    <Compile Include="Expressions\cot_2.cs">
+      <DependentUpon>cot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\cot.cs" />
+    <Compile Include="Expressions\coth_2.cs">
+      <DependentUpon>coth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\coth.cs" />
+    <Compile Include="Expressions\csc_2.cs">
+      <DependentUpon>csc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\csc.cs" />
+    <Compile Include="Expressions\csch_2.cs">
+      <DependentUpon>csch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expressions\csch.cs" />
+    <Compile Include="Expressions\daikuanggongshi.cs" />
+    <Compile Include="Expressions\dexpression.cs" />
+    <Compile Include="Expressions\hanshushangbiao.cs" />
+    <Compile Include="Expressions\imageexpression.cs" />
+    <Compile Include="Expressions\lineexpression.cs" />
+    <Compile Include="Expressions\type1.cs" />
+    <Compile Include="Expressions\type2.cs" />
+    <Compile Include="Expressions\type3.cs" />
+    <Compile Include="Expressions\type4.cs" />
+    <Compile Include="Expressions\type5.cs" />
+    <Compile Include="Expressions\arccos.cs" />
+    <Compile Include="Expressions\expression.cs" />
+    <Compile Include="Expressions\hanshu.cs" />
+    <Compile Include="Expressions\structexpression.cs" />
+    <Compile Include="Documents\Blank.cs" />
+    <Compile Include="Documents\ContentType.cs" />
+    <Compile Include="Documents\Document.cs" />
+    <Compile Include="Documents\ImageAlign.cs" />
+    <Compile Include="Documents\Line.cs" />
+    <Compile Include="Documents\Option.cs" />
+    <Compile Include="Documents\Options.cs" />
+    <Compile Include="Documents\TrueOrFalse.cs" />
+    <Compile Include="Documents\UnderLine.cs" />
+    <Compile Include="Documents\Elements\CharInfo.cs" />
+    <Compile Include="Documents\Elements\DrawInfo.cs" />
+    <Compile Include="Documents\Elements\Element.cs" />
+    <Compile Include="Documents\Elements\ExpressionInfo.cs" />
+    <Compile Include="Documents\Elements\MemoryFile.cs" />
+    <Compile Include="Documents\Elements\OperationInfo.cs" />
+    <Compile Include="Documents\Elements\Pic_Tab.cs" />
+    <Compile Include="Documents\Elements\PictureInfo.cs" />
+    <Compile Include="Documents\Elements\TableInfo.cs" />
+    <Compile Include="Documents\Table\Cell.cs" />
+    <Compile Include="Documents\Table\Column.cs" />
+    <Compile Include="Documents\Table\Row.cs" />
+    <Compile Include="Controls\ColorEventArgs.cs" />
+    <Compile Include="Controls\ExpressionEventArgs.cs" />
+    <Compile Include="Controls\FLabel.cs" />
+    <Compile Include="Controls\FLabelList.cs" />
+    <Compile Include="Controls\FontEventArgs.cs" />
+    <Compile Include="Controls\FormBlankInfo.cs" />
+    <Compile Include="Controls\FormFlow.cs" />
+    <Compile Include="Controls\FormFormatSelect.cs" />
+    <Compile Include="Controls\FormOptionInfo.cs" />
+    <Compile Include="Controls\FormulaEditor.cs" />
+    <Compile Include="Controls\FrmInsertTable.cs" />
+    <Compile Include="Controls\ImageEventArgs.cs" />
+    <Compile Include="Controls\TableEventArgs.cs" />
+    <Compile Include="Controls\TextBar.cs" />
+    <Compile Include="Controls\TextBox.cs" />
+    <Compile Include="Controls\SuperBox_Reflector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\General\General.csproj">
+      <Project>{68CC8FDC-68AB-4F35-8564-59989C0E423C}</Project>
+      <Name>General</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ctrl\Ctrl.csproj">
+      <Project>{00B7F2EB-EB7B-4201-933D-B6F8ED9CC753}</Project>
+      <Name>Ctrl</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

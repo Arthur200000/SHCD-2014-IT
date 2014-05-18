@@ -1,0 +1,4 @@
+/Users/apple/Desktop/SHCD-2014-IT/Updater/bin/Release/Updater.exe.mdb
+/Users/apple/Desktop/SHCD-2014-IT/Updater/bin/Release/Updater.exe
+/Users/apple/Desktop/SHCD-2014-IT/Updater/obj/x86/Release/Updater.exe
+/Users/apple/Desktop/SHCD-2014-IT/Updater/obj/x86/Release/Updater.exe.mdb

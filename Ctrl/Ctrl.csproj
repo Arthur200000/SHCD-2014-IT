@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{00B7F2EB-EB7B-4201-933D-B6F8ED9CC753}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Qisi.General.Control</RootNamespace>
+    <AssemblyName>Ctrl</AssemblyName>
+    <ReleaseVersion>1.0.1.0</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="CoreAudioApi">
+      <HintPath>..\CoreAudioApi\bin\Release\CoreAudioApi.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="VolumeControl.cs" />
+    <Compile Include="TextAndImageCell.cs" />
+    <Compile Include="StartForm.cs" />
+    <Compile Include="ReadOnlyRichTextBox.cs" />
+    <Compile Include="QisiTreeView.cs" />
+    <Compile Include="QisiTabControl.cs" />
+    <Compile Include="PopupHost.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="ImeModeEventArgs.cs" />
+    <Compile Include="imeBar.cs" />
+    <Compile Include="FlatMessageBox.cs" />
+    <Compile Include="DataGridViewAutoFilterTextBoxColumn.cs" />
+    <Compile Include="DataGridViewAutoFilterTextAndPictureBoxColumn.cs" />
+    <Compile Include="DataGridViewAutoFilterColumnHeaderCell.cs" />
+    <Compile Include="CrystalButtonUpDown.cs" />
+    <Compile Include="CrystalButtonLeftRight.cs" />
+    <Compile Include="CrystalButton.cs" />
+    <Compile Include="Clock.cs" />
+    <Compile Include="animateImage.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Global.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Qisi.General.Controls.VolumeControl.resources" />
+    <None Include="Properties\Qisi.General.Controls.StartForm.resources" />
+    <None Include="Properties\Qisi.General.Controls.Properties.Resources.resources" />
+    <None Include="Properties\Qisi.General.Controls.imeBar.resources" />
+    <None Include="Properties\Qisi.General.Controls.csproj" />
+    <None Include="Properties\Qisi.General.Controls.CrystalButton.resources" />
+  </ItemGroup>
+</Project>

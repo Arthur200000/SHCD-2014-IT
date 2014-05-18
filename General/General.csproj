@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{68CC8FDC-68AB-4F35-8564-59989C0E423C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Qisi.General</RootNamespace>
+    <AssemblyName>General</AssemblyName>
+    <ReleaseVersion>1.0.1.0</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <CodePage>54936</CodePage>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="BeforeBuild" />
+      </CustomCommands>
+    </CustomCommands>
+    <DocumentationFile>bin\Debug\General.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>bin\Release\General.xml</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="BoolEventArgs.cs" />
+    <Compile Include="BoolIndexEventArgs.cs" />
+    <Compile Include="CommonMethods.cs" />
+    <Compile Include="FTPClient.cs" />
+    <Compile Include="FTPServer.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="IndexEventArgs.cs" />
+    <Compile Include="IniSection.cs" />
+    <Compile Include="MemoryIniFile.cs" />
+    <Compile Include="MessageEventArgs.cs" />
+    <Compile Include="MessageEventHandler.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserSeesion.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Qisi.General.Properties.Resources.resources" />
+    <None Include="CommonMethods_Reflector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System" />
+  </ItemGroup>
+</Project>

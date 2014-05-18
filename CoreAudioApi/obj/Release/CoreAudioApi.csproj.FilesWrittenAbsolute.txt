@@ -1,0 +1,2 @@
+/Users/apple/Desktop/SHCD-2014-IT/CoreAudioApi/bin/Release/CoreAudioApi.dll
+/Users/apple/Desktop/SHCD-2014-IT/CoreAudioApi/obj/Release/CoreAudioApi.dll
