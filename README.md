@@ -1,6 +1,6 @@
 SHCD-2014-InfoTech
 ====
-A C#-based exam application used for really basic IT exams, decompiled and released by a stupid student since he found that the DLLs included something GPL. Only the mock test system and included libraries are available. 
+A C#-based exam application used for really basic IT exams.A stupid student found that the DLLs included something GPL, and he decompiled the whole app and made it GPL. Only the mock test system and included libraries are available. 
 
 **Always use at your own risk -- It is said that GNU GPL is against the Chinese Copyright Act.**
 
