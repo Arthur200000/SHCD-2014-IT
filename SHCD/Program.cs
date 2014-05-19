@@ -1,4 +1,6 @@
-﻿namespace SHCD
+﻿using System.Management;
+
+namespace SHCD
 {
     using Microsoft.Win32;
     using Qisi.General.Controls;
@@ -24,58 +26,56 @@
         internal static string tempAnswerDir;
         private static uint WM_SETTINGCHANGE = 0x1a;
 
-        internal static bool CheckListCode(string mylistcode)
+        internal static bool CheckListCode(string strListCode)
         {
-            if (mylistcode.Length == 0x12)
+            if (strListCode.Length == 18)
             {
-                int num;
-                if (!mylistcode.StartsWith("14"))
+                int i;
+                if (!strListCode.StartsWith("14"))
                 {
                     return false;
                 }
-                int[] numArray = new int[0x12];
-                for (num = 0; num < mylistcode.Length; num++)
+				int[] intListCode = new int[18];
+				for (i = 0; i < strListCode.Length; i++)
                 {
-                    numArray[num] = Convert.ToInt32(mylistcode[num].ToString());
+                    intListCode[i] = Convert.ToInt32(strListCode[i].ToString());
                 }
-                int num2 = 0;
-                num2 = Convert.ToInt32((double) ((numArray[2] * Math.Pow(17.0, (double) numArray[2])) % 10.0));
-                if (numArray[3] == (num2 % 10))
+				int intVerify = 0;
+                intVerify = Convert.ToInt32((double) ((intListCode[2] * Math.Pow(17.0, (double) intListCode[2])) % 10.0));
+				// 4*(17^4) = 334084
+				if (intListCode[3] == (intVerify % 10)) // ListCode[3] = 4
                 {
-                    num2 = 0;
-                    num = 2;
-                    while (num <= 4)
+					for (i=3; i <= 4; i++) 
+					{
+						intVerify += Convert.ToInt32((double) ((intListCode[i] * Math.Pow(17.0, (double) intListCode[i])) % 10.0));
+					}
+                    if (intListCode[5] == (intVerify % 10))
                     {
-                        num2 += Convert.ToInt32((double) ((numArray[num] * Math.Pow(17.0, (double) numArray[num])) % 10.0));
-                        num++;
-                    }
-                    if (numArray[5] == (num2 % 10))
-                    {
-                        num2 = 0;
+                        intVerify = 0;
                     }
                     else
                     {
                         return false;
                     }
-                    for (num = 2; num <= 8; num++)
+                    for (i = 2; i <= 8; i++)
                     {
-                        num2 += Convert.ToInt32((double) ((numArray[num] * Math.Pow(17.0, (double) numArray[num])) % 10.0));
+                        intVerify += Convert.ToInt32((double) ((intListCode[i] * Math.Pow(17.0, (double) intListCode[i])) % 10.0));
                     }
-                    if (numArray[9] == (num2 % 10))
+                    if (intListCode[9] == (intVerify % 10))
                     {
-                        num2 = 0;
+                        intVerify = 0;
                     }
                     else
                     {
                         return false;
                     }
-                    for (num = 2; num <= 0x10; num++)
+                    for (i = 2; i <= 16; i++)
                     {
-                        num2 += Convert.ToInt32((double) ((numArray[num] * Math.Pow(17.0, (double) numArray[num])) % 10.0));
+                        intVerify += Convert.ToInt32((double) ((intListCode[i] * Math.Pow(17.0, (double) intListCode[i])) % 10.0));
                     }
-                    if (numArray[0x11] == (num2 % 10))
+                    if (intListCode [17] == (intVerify % 10))
                     {
-                        num2 = 0;
+                        intVerify = 0;
                     }
                     else
                     {
@@ -202,15 +202,15 @@
             else
             {
                 string tempPath;
-                if (Environment.OSVersion.Version.Major >= 6)
-                {
-                    RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System");
-                    if ((key != null) && (((int) key.GetValue("EnableLUA", 1)) != 0))
-                    {
-                        FlatMessageBox.Show("请在控制面板->用户帐户和家庭安全->用户帐户中将“用户账户控制设置”更改为“从不通知”，并重新启动后，再运行本程序。", "错误", FlatMessageBox.KeysButtons.OK, FlatMessageBox.KeysIcon.Error);
-                        return;
-                    }
-                }
+				//if (Environment.OSVersion.Version.Major >= 6)
+				//{
+				//    RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System");
+				//    if ((key != null) && (((int) key.GetValue("EnableLUA", 1)) != 0))
+				//    {
+				//        FlatMessageBox.Show("请在控制面板->用户帐户和家庭安全->用户帐户中将“用户账户控制设置”更改为“从不通知”，并重新启动后，再运行本程序。", "错误", FlatMessageBox.KeysButtons.OK, FlatMessageBox.KeysIcon.Error);
+				//        return;
+				//    }
+				//}
                 new StartForm { OpacityIncreaseMilliseconds = 500, OpacityDecreaseMilliseconds = 500, KeepOpacityMilliseconds = 0x3e8 }.ShowDialog();
                 try
                 {
@@ -302,6 +302,16 @@
                     {
                         Directory.CreateDirectory(answerDir);
                     }
+					// REG ABSTRACT:
+					// The base64 string of the Machine's only code is stored in %USERPROFILE%\\SHCD.ini.
+					// When it is converted to ASCII, it meets the following requirements:
+					// 0 1 2 3 ……………………………………………………… 15 16 17| 18 ……………… 25 | 26 … 33 | junk
+					// ListCode, something like a product ID | Machine-Hash | Verify  | ignored
+					// ListCode:
+					// Starts with 14(actually 144), and the nth digits equals to
+					// (Sum(x*(17^x), 1, n-1) mod 10) ,n={5, 9, 16} (Psuedo-CASIO fx-991es Sum :) )
+					// Machine-Hash:
+
                     if (!File.Exists(Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini"))
                     {
                         reg = new FormReg();
@@ -312,40 +322,40 @@
                     }
                     else
                     {
-                        string str4 = Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini";
-                        string s = "";
-                        bool flag2 = false;
+						string cfgPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini";
+						string strCfgKey = "";
+						bool unregistered = false;
                         try
                         {
-                            s = File.ReadAllText(Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini");
+                            strCfgKey = File.ReadAllText(Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini");
                         }
                         catch
                         {
-                            s = "";
+                            strCfgKey = "";
                         }
                         finally
                         {
-                            byte[] bytes = Convert.FromBase64String(s);
-                            s = Encoding.ASCII.GetString(bytes);
-                            if (s.Length < 0x22)
+							byte[] keyTmp = Convert.FromBase64String(strCfgKey);
+                            strCfgKey = Encoding.ASCII.GetString(keyTmp);
+                            if (strCfgKey.Length < 34)
                             {
-                                flag2 = true;
+                                unregistered = true;
                             }
                             else
                             {
                                 int num;
-                                string mylistcode = s.Substring(0, 0x12);
-                                string str7 = s.Substring(0x12, 8);
-                                string str8 = s.Substring(0x1a, 8);
-                                flag2 = !CheckListCode(mylistcode);
-                                if (str7 != (doString(getCpuId()) + doString(getBaseBoardId()) + doString(getBIOSId()) + doString(getPhysicalMediaId())))
+								string listCode = strCfgKey.Substring (0, 18);
+								string machineHash = strCfgKey.Substring (18, 8);
+								string verify = strCfgKey.Substring (26, 8);
+                                unregistered = !CheckListCode(listCode);
+                                if (machineHash != (doString(getCpuId()) + doString(getBaseBoardId()) + doString(getBIOSId()) + doString(getPhysicalMediaId())))
                                 {
-                                    flag2 = true;
+                                    unregistered = true;
                                 }
                                 int[] array = new int[8];
-                                for (num = 0; num < str7.Length; num++)
+                                for (num = 0; num < machineHash.Length; num++)
                                 {
-                                    array[num] = Convert.ToInt32(str7[num].ToString());
+                                    array[num] = Convert.ToInt32(machineHash[num].ToString());
                                 }
                                 Array.Sort<int>(array);
                                 int num2 = 0;
@@ -353,15 +363,15 @@
                                 {
                                     num2 += array[num] * ((int) Math.Pow(10.0, (double) ((array.Length - 1) - num)));
                                 }
-                                num2 = 0x5f5e100 - num2;
-                                long num5 = Convert.ToInt64(mylistcode.Substring(2)) % ((long) num2);
-                                if (str8 != num5.ToString().PadLeft(8, '0'))
+                                num2 = 100000000 - num2;
+                                long num5 = Convert.ToInt64(listCode.Substring(2)) % ((long) num2);
+                                if (verify != num5.ToString().PadLeft(8, '0'))
                                 {
-                                    flag2 = true;
+                                    unregistered = true;
                                 }
                             }
                         }
-                        if (flag2)
+                        if (unregistered)
                         {
                             reg = new FormReg();
                             if (reg.ShowDialog() != DialogResult.OK)

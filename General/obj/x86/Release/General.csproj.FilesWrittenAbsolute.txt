@@ -1,2 +1,0 @@
-/Users/apple/Desktop/SHCD-2014-IT/General/bin/Release/General.dll
-/Users/apple/Desktop/SHCD-2014-IT/General/obj/x86/Release/General.dll

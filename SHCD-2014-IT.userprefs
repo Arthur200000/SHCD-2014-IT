@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Editor/Controls/SuperBox_Reflector.cs">
     <Files>
-      <File FileName="ExamCtrl/Part.cs" Line="1" Column="36" />
+      <File FileName="ExamCtrl/Part.cs" Line="1" Column="1" />
       <File FileName="Editor/Controls/SuperBox_Reflector.cs" Line="1858" Column="99" />
     </Files>
   </MonoDevelop.Ide.Workbench>

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHCD", "SHCD\SHCD.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{E6422A1A-7F54-4864-88E3-10908C387DD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyGen", "KeyGen\KeyGen.csproj", "{15824834-310B-48E7-B67E-F8938AEF60DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -23,6 +25,10 @@ Global
 		{00B7F2EB-EB7B-4201-933D-B6F8ED9CC753}.Debug|x86.Build.0 = Debug|Any CPU
 		{00B7F2EB-EB7B-4201-933D-B6F8ED9CC753}.Release|x86.ActiveCfg = Release|Any CPU
 		{00B7F2EB-EB7B-4201-933D-B6F8ED9CC753}.Release|x86.Build.0 = Release|Any CPU
+		{15824834-310B-48E7-B67E-F8938AEF60DC}.Debug|x86.ActiveCfg = Debug|x86
+		{15824834-310B-48E7-B67E-F8938AEF60DC}.Debug|x86.Build.0 = Debug|x86
+		{15824834-310B-48E7-B67E-F8938AEF60DC}.Release|x86.ActiveCfg = Release|x86
+		{15824834-310B-48E7-B67E-F8938AEF60DC}.Release|x86.Build.0 = Release|x86
 		{30BC4452-491F-4E67-8F1B-167754FDA2B2}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{30BC4452-491F-4E67-8F1B-167754FDA2B2}.Debug|x86.Build.0 = Debug|Any CPU
 		{30BC4452-491F-4E67-8F1B-167754FDA2B2}.Release|x86.ActiveCfg = Release|Any CPU

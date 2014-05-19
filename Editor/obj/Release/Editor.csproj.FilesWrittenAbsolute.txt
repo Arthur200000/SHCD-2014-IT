@@ -1,6 +1,0 @@
-/Users/apple/Desktop/SHCD-2014-IT/Editor/bin/Release/General.dll
-/Users/apple/Desktop/SHCD-2014-IT/Editor/bin/Release/General.xml
-/Users/apple/Desktop/SHCD-2014-IT/Editor/bin/Release/Ctrl.dll
-/Users/apple/Desktop/SHCD-2014-IT/Editor/bin/Release/Ctrl.dll.mdb
-/Users/apple/Desktop/SHCD-2014-IT/Editor/bin/Release/CoreAudioApi.dll
-/Users/apple/Desktop/SHCD-2014-IT/Editor/bin/Release/CoreAudioApi.dll.mdb
