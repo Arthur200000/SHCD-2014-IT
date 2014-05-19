@@ -343,7 +343,7 @@ namespace SHCD
                             }
                             else
                             {
-                                int num;
+                                int j;
 								string listCode = strCfgKey.Substring (0, 18);
 								string machineHash = strCfgKey.Substring (18, 8);
 								string verify = strCfgKey.Substring (26, 8);
@@ -352,20 +352,20 @@ namespace SHCD
                                 {
                                     unregistered = true;
                                 }
-                                int[] array = new int[8];
-                                for (num = 0; num < machineHash.Length; num++)
+								int[] intMachineHash = new int[8];
+								for (j = 0; j < 8; j++) // machineHash.Length = 8
                                 {
-                                    array[num] = Convert.ToInt32(machineHash[num].ToString());
-                                }
-                                Array.Sort<int>(array);
-                                int num2 = 0;
-                                for (num = 0; num < array.Length; num++)
+                                    intMachineHash[j] = Convert.ToInt32(machineHash[j].ToString());
+								}
+                                Array.Sort<int>(intMachineHash);
+								int machineHashVerify = 0;
+                                for (j = 0; j < intMachineHash.Length; j++)
                                 {
-                                    num2 += array[num] * ((int) Math.Pow(10.0, (double) ((array.Length - 1) - num)));
+                                    machineHashVerify += intMachineHash[j] * ((int) Math.Pow(10.0, (double) ((intMachineHash.Length - 1) - j)));
                                 }
-                                num2 = 100000000 - num2;
-                                long num5 = Convert.ToInt64(listCode.Substring(2)) % ((long) num2);
-                                if (verify != num5.ToString().PadLeft(8, '0'))
+                                machineHashVerify = 100000000 - machineHashVerify;
+                                long num5 = Convert.ToInt64(listCode.Substring(2)) % ((long) machineHashVerify);
+								if (verify != num5.ToString().PadLeft(8, '0')) //
                                 {
                                     unregistered = true;
                                 }
