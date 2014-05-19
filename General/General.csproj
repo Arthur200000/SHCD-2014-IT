@@ -70,4 +70,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ctrl\Ctrl.csproj">
+      <Project>{00B7F2EB-EB7B-4201-933D-B6F8ED9CC753}</Project>
+      <Name>Ctrl</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

@@ -2,8 +2,6 @@
 
 namespace SHCD
 {
-    using Microsoft.Win32;
-    using Qisi.General.Controls;
     using System;
     using System.Diagnostics;
     using System.IO;
@@ -15,6 +13,8 @@ namespace SHCD
     using System.Threading;
     using System.Windows.Forms;
     using System.Xml;
+    using Microsoft.Win32;
+    using Qisi.General.Controls;
 
     internal static class Program
     {
@@ -304,14 +304,14 @@ namespace SHCD
                     }
 					// REG ABSTRACT:
 					// The base64 string of the Machine's only code is stored in %USERPROFILE%\\SHCD.ini.
-					// When it is converted to ASCII, it meets the following requirements:
+					// When it is converted as ASCII, it meets the following requirements:
 					// 0 1 2 3 ……………………………………………………… 15 16 17| 18 ……………… 25 | 26 … 33 | junk
 					// ListCode, something like a product ID | Machine-Hash | Verify  | ignored
 					// ListCode:
 					// Starts with 14(actually 144), and the nth digits equals to
 					// (Sum(x*(17^x), 1, n-1) mod 10) ,n={5, 9, 16} (Psuedo-CASIO fx-991es Sum :) )
 					// Machine-Hash:
-
+					// 
                     if (!File.Exists(Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini"))
                     {
                         reg = new FormReg();

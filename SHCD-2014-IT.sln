@@ -224,5 +224,6 @@ Global
 		$0.DotNetNamingPolicy = $29
 		$29.DirectoryNamespaceAssociation = PrefixedHierarchical
 		$29.ResourceNamePolicy = FileName
+		outputpath = ..\SHCD-2014-IT
 	EndGlobalSection
 EndGlobal

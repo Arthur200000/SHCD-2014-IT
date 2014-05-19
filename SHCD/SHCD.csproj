@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{532D9F6B-5350-4C7F-8EC9-9FA997D1C335}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>SHCD</RootNamespace>
     <AssemblyName>SHCD</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>

@@ -15,7 +15,7 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label1;
         private NumericUpDown numericUpDown1;
-        private List<SuperBox> superBoxList = new List<SuperBox>();
+		private List<SuperBox> superBoxList = new List<SuperBox>();
 
         public FormOptionInfo()
         {
