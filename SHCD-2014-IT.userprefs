@@ -1,9 +1,9 @@
-﻿<Properties>
+﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SHCD/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="KeyGen\Program.cs">
     <Files>
-      <File FileName="SHCD/Program.cs" Line="306" Column="9" />
-      <File FileName="Editor/Controls/SuperBox_Reflector.cs" Line="1850" Column="59" />
+      <File FileName="SHCD\Program.cs" Line="506" Column="21" />
+      <File FileName="KeyGen\Program.cs" Line="204" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

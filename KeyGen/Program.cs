@@ -20,6 +20,19 @@ namespace KeyGen
 			return 1;
 		}
 
+		internal static int pow(int a, int e)
+		{
+			if (e > 1)
+			{
+				return (MainClass.pow(a, e - 1) % 100);
+			}
+			if (e == 1)
+			{
+				return (a % 100);
+			}
+			return 1;
+		}
+
 		internal static bool CheckListCode(string mylistcode)
 		{
 			if (mylistcode.Length == 18)
@@ -63,11 +76,11 @@ namespace KeyGen
 					{
 						return false;
 					}
-					for (num = 2; num <= 0x10; num++)
+					for (num = 2; num <= 16; num++)
 					{
 						num2 += Convert.ToInt32((double) ((numArray[num] * Math.Pow(17.0, (double) numArray[num])) % 10.0));
 					}
-					if (numArray[0x11] == (num2 % 10))
+					if (numArray [17] == (num2 % 10))
 					{
 						num2 = 0;
 					}
@@ -108,7 +121,7 @@ namespace KeyGen
 				{
 					num3 = str2[i] - '0';
 				}
-				num += num3 * RecursiveMod(0x24, i);
+				num += num3 * RecursiveMod (36, i);
 				num = num % 100;
 			}
 			return num.ToString().PadLeft(2, '0');
@@ -194,10 +207,14 @@ namespace KeyGen
 			Console.Write ("If you have a machine code, enter from below:\n");
 			string machcode = Console.ReadLine ();
 			if (machcode.Length < 18) {
-				// GenerateMachineCode ();
+				GenerateMachineCode ();
+				Console.WriteLine ("Invalid machcode detected. Generating one.");
 			}
+			string foo;
+			Console.WriteLine ();
 			Console.WriteLine ("Using {0}.", machcode);
-			CheckListCode (machcode);
+			// CheckListCode (machcode);
+			// Console.WriteLine (string.Format ("pow({0}, {1})={2}", args [0], args [1], Convert.ToString(pow (Convert.ToInt32 (args[0]), Convert.ToInt32 (args[1])))));
 		}
 	}
 }

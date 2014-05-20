@@ -91,30 +91,31 @@ namespace SHCD
         {
         }
 
-        internal static string doString(string str)
+        internal static string doString(string stringDoing)
         {
-            string str2 = "";
-            foreach (char ch in str.ToCharArray())
+			string strUpperDoing = "";
+            foreach (char ch in stringDoing.ToCharArray())
             {
+				// Filters string to be limited inside [a-zA-Z0-9]
                 if ((((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z'))) || ((ch >= '0') && (ch <= '9')))
                 {
-                    str2 = str2 + ch.ToString();
+					strUpperDoing += ch.ToString();
                 }
             }
-            str2 = str2.ToUpper();
+			strUpperDoing = strUpperDoing.ToUpper(); // Change to UPPERCASE
             int num = 0;
-            for (int i = 0; i < str2.Length; i++)
+			for (int i = 0; i < strUpperDoing.Length; i++)
             {
                 int num3;
-                if (str2[i] > 'A')
+				if (strUpperDoing[i] > 'A')
                 {
-                    num3 = (str2[i] - 'A') + 10;
+					num3 = (strUpperDoing[i] - 'A') + 10;
                 }
                 else
                 {
-                    num3 = str2[i] - '0';
+					num3 = strUpperDoing[i] - '0';
                 }
-                num += num3 * pow(0x24, i);
+				num += num3 * 36; // num += num3 * modBy100 (36, i);
                 num = num % 100;
             }
             return num.ToString().PadLeft(2, '0');
@@ -359,7 +360,7 @@ namespace SHCD
 								}
                                 Array.Sort<int>(intMachineHash);
 								int machineHashVerify = 0;
-                                for (j = 0; j < intMachineHash.Length; j++)
+								for (j = 0; j < 8; j++) // intMachineHash.Length = 8
                                 {
                                     machineHashVerify += intMachineHash[j] * ((int) Math.Pow(10.0, (double) ((intMachineHash.Length - 1) - j)));
                                 }
@@ -465,7 +466,7 @@ namespace SHCD
                     {
                     }
                     IntPtr result = new IntPtr();
-                    SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, IntPtr.Zero, IntPtr.Zero, SendMessageTimeoutFlags.SMTO_ABORTIFHUNG | SendMessageTimeoutFlags.SMTO_BLOCK, 0xbb8, out result);
+                    SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, IntPtr.Zero, IntPtr.Zero, SendMessageTimeoutFlags.SMTO_AbortIfHung | SendMessageTimeoutFlags.SMTO_Block, 0xbb8, out result);
                     Application.Run(new FormSel());
                     for (char ch2 = str9[0]; ch2 <= 'Z'; ch2 = (char) (ch2 + '\x0001'))
                     {
@@ -494,16 +495,16 @@ namespace SHCD
                     }
                     byte[] buffer3 = new byte[4];
                     key2.SetValue("NoDrives", buffer3, RegistryValueKind.Binary);
-                    SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, IntPtr.Zero, IntPtr.Zero, SendMessageTimeoutFlags.SMTO_ABORTIFHUNG | SendMessageTimeoutFlags.SMTO_BLOCK, 0xbb8, out result);
+					SendMessageTimeout (HWND_BROADCAST, WM_SETTINGCHANGE, IntPtr.Zero, IntPtr.Zero, SendMessageTimeoutFlags.SMTO_AbortIfHung | SendMessageTimeoutFlags.SMTO_Block, 3000, out result);
                 }
             }
         }
 
-        internal static int pow(int a, int e)
+        internal static int modBy100(int a, int e)
         {
             if (e > 1)
             {
-                return (pow(a, e - 1) % 100);
+				return (Program.modBy100(a, e - 1) % 100);
             }
             if (e == 1)
             {
@@ -521,10 +522,10 @@ namespace SHCD
         [Flags]
         private enum SendMessageTimeoutFlags : uint
         {
-            SMTO_ABORTIFHUNG = 2,
-            SMTO_BLOCK = 1,
-            SMTO_NORMAL = 0,
-            SMTO_NOTIMEOUTIFNOTHUNG = 8
+            SMTO_AbortIfHung = 2,
+            SMTO_Block = 1,
+            SMTO_Normal = 0,
+            SMTO_NoTimeoutIfHung = 8
         }
     }
 }
