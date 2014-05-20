@@ -76,4 +76,15 @@
       <Name>Ctrl</Name>
     </ProjectReference>
   </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <VersionControlPolicy inheritsSet="Mono">
+            <CommitMessageStyle Header="MonoDevelop Commit&#xA;&#xA;" FileSeparator=", " LastFilePostfix=":&#xA;  " IncludeDirectoryPaths="True" Wrap="False" />
+          </VersionControlPolicy>
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>

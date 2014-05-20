@@ -221,6 +221,7 @@ Global
 		$26.IncludeStaticEntities = True
 		$0.VersionControlPolicy = $28
 		$28.CommitMessageStyle = $29
+		$29.Header = @MonoDevelop Commit\n\n
 		$29.FileSeparator = ", "
 		$29.LastFilePostfix = "@:\n  "
 		$29.IncludeDirectoryPaths = True

@@ -24,7 +24,7 @@ namespace SHCD
         private static readonly IntPtr HWND_BROADCAST = new IntPtr(0xffff);
         internal static string paperDir;
         internal static string tempAnswerDir;
-        private static uint WM_SETTINGCHANGE = 0x1a;
+        private static uint WM_SETTINGCHANGE = 26;
 
         internal static bool CheckListCode(string strListCode)
         {
@@ -115,7 +115,7 @@ namespace SHCD
                 {
 					num3 = strUpperDoing[i] - '0';
                 }
-				num += num3 * 36; // num += num3 * modBy100 (36, i);
+				num += num3 * modBy100 (36, i); // i = 0 -> modBy100 returns 1, and i > 0 -> modBy100(a,b) returns a % 100
                 num = num % 100;
             }
             return num.ToString().PadLeft(2, '0');
@@ -212,7 +212,7 @@ namespace SHCD
 				//        return;
 				//    }
 				//}
-                new StartForm { OpacityIncreaseMilliseconds = 500, OpacityDecreaseMilliseconds = 500, KeepOpacityMilliseconds = 0x3e8 }.ShowDialog();
+                new StartForm { OpacityIncreaseMilliseconds = 500, OpacityDecreaseMilliseconds = 500, KeepOpacityMilliseconds = 1000 }.ShowDialog();
                 try
                 {
                     XmlDocument document = new XmlDocument();
@@ -489,7 +489,7 @@ namespace SHCD
                     info.VolumeLabel = volumeLabel;
                     key2 = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", true);
                     if (key2 == null)
-                    {
+					{
                         Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", RegistryKeyPermissionCheck.ReadWriteSubTree);
                         key2 = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", true);
                     }
@@ -502,16 +502,12 @@ namespace SHCD
 
         internal static int modBy100(int a, int e)
         {
-            if (e > 1)
-            {
-				return (Program.modBy100(a, e - 1) % 100);
-            }
-            if (e == 1)
-            {
-                return (a % 100);
-            }
-            return 1;
-        }
+			if (e >= 1) {
+				return e % 100;
+			} else {
+				return 1;
+			}
+			}
 
         [DllImport("user32.dll", CharSet=CharSet.Auto, SetLastError=true)]
         private static extern IntPtr SendMessageTimeout(IntPtr windowHandle, uint Msg, IntPtr wParam, IntPtr lParam, SendMessageTimeoutFlags flags, uint timeout, out IntPtr result);

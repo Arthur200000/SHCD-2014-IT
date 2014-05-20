@@ -88,7 +88,7 @@
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Thread.Sleep(0x3e8);
+            Thread.Sleep(1000);
             string paper = "";
             if (this.button1.Enabled)
             {

@@ -131,7 +131,7 @@
             }
             if (this.mymode == TestPaperPlayer.RunMode.CDAnalysis)
             {
-                Thread.Sleep(0x3e8);
+                Thread.Sleep(1000);
                 MemoryIniFile file = new MemoryIniFile();
                 num = 0;
                 while (!File.Exists(Path.Combine(Program.tempAnswerDir, "Answer.ini")) && (num < 5))
@@ -417,7 +417,7 @@
             }
             this.Title.Visible = false;
             this.testpaper.Visible = true;
-            Thread.Sleep(0x3e8);
+            Thread.Sleep(1000);
             base.Controls.Add(this.testpaper);
             this.testpaper.StartCounting();
         }

@@ -154,11 +154,11 @@
             FileStream stream = new FileInfo(filePath).OpenRead();
             byte[] buffer = new byte[stream.Length];
             stream.Read(buffer, 0, Convert.ToInt32(stream.Length));
-            byte[] buffer2 = new byte[stream.Length - 0x40L];
+            byte[] buffer2 = new byte[stream.Length - 64L];
             stream.Close();
-            for (num = 0; num < (buffer.Length - 0x40); num++)
+            for (num = 0; num < (buffer.Length - 64); num++)
             {
-                buffer2[num] = buffer[(buffer.Length - 0x21) - num];
+                buffer2[num] = buffer[(buffer.Length - 33) - num];
             }
             byte[] buffer3 = new MD5CryptoServiceProvider().ComputeHash(buffer2);
             StringBuilder builder = new StringBuilder();
@@ -167,7 +167,7 @@
                 builder.Append(buffer3[num].ToString("x2"));
             }
             byte[] bytes = Encoding.UTF8.GetBytes(builder.ToString());
-            for (num = 0; num < 0x20; num++)
+            for (num = 0; num < 32; num++)
             {
                 if (bytes[num] != buffer[num])
                 {
@@ -184,7 +184,7 @@
             FileStream stream = new FileInfo(filePath).OpenRead();
             byte[] buffer = new byte[stream.Length];
             stream.Read(buffer, 0, Convert.ToInt32(stream.Length));
-            filebuffer = new byte[stream.Length - 0x40L];
+            filebuffer = new byte[stream.Length - 64L];
             stream.Close();
             for (num = 0; num < (buffer.Length - 0x40); num++)
             {
@@ -522,8 +522,8 @@
                     {
                         continue;
                     }
-                    int count = 0x800;
-                    byte[] buffer3 = new byte[0x800];
+                    int count = 2048;
+                    byte[] buffer3 = new byte[2048];
                     Stream stream3 = new MemoryStream();
                     goto Label_00C9;
                 Label_0067:
@@ -598,8 +598,8 @@
                     {
                         continue;
                     }
-                    int count = 0x800;
-                    byte[] buffer2 = new byte[0x800];
+                    int count = 2048;
+                    byte[] buffer2 = new byte[2048];
                     stream4 = File.Create(str);
                     goto Label_0113;
                 Label_00E2:
@@ -676,8 +676,8 @@
                     {
                         continue;
                     }
-                    int count = 0x800;
-                    byte[] buffer = new byte[0x800];
+                    int count = 2048;
+                    byte[] buffer = new byte[2048];
                     stream3 = File.Create(str);
                     goto Label_00DE;
                 Label_00AE:
@@ -747,8 +747,8 @@
                     {
                         goto Label_00DD;
                     }
-                    int count = 0x800;
-                    byte[] buffer3 = new byte[0x800];
+                    int count = 2048;
+                    byte[] buffer3 = new byte[2048];
                     Stream stream3 = new MemoryStream();
                     goto Label_00D7;
                 Label_0075:
@@ -815,8 +815,8 @@
                     {
                         goto Label_00DE;
                     }
-                    int count = 0x800;
-                    byte[] buffer3 = new byte[0x800];
+                    int count = 2048;
+                    byte[] buffer3 = new byte[2048];
                     Stream stream3 = new MemoryStream();
                     goto Label_00D8;
                 Label_0076:

@@ -369,7 +369,7 @@
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new EventHandler(this.pictureBox3_Click);
-            this.timer1.Interval = 0x3e8;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new EventHandler(this.timer1_Tick);
             base.Controls.Add(this.pictureBox3);
             base.Controls.Add(this.pictureBox2);

@@ -23,36 +23,36 @@
         {
             this.myTcpListener = null;
             this.FTPRoot = "";
-            this.port = 0x15;
+			this.port = 21;
             this.users = new Dictionary<string, string>();
             this.users.Add("KeysAdmin", "Keys1009");
             this.FTPRoot = Environment.SystemDirectory;
-            ThreadPool.SetMaxThreads(0x3e8, 0x3e8);
-            ThreadPool.SetMinThreads(0x3e8, 0x3e8);
+			ThreadPool.SetMaxThreads (1000, 1000);
+			ThreadPool.SetMinThreads (1000, 1000);
         }
 
         public FTPServer(string root)
         {
             this.myTcpListener = null;
             this.FTPRoot = "";
-            this.port = 0x15;
+			this.port = 21;
             this.users = new Dictionary<string, string>();
             this.users.Add("KeysAdmin", "Keys1009");
             this.FTPRoot = root;
-            ThreadPool.SetMaxThreads(0x3e8, 0x3e8);
-            ThreadPool.SetMinThreads(0x3e8, 0x3e8);
+			ThreadPool.SetMaxThreads (1000, 1000);
+			ThreadPool.SetMinThreads (1000, 1000);
         }
 
         public FTPServer(string username, string password, string root)
         {
             this.myTcpListener = null;
             this.FTPRoot = "";
-            this.port = 0x15;
+			this.port = 21;
             this.users = new Dictionary<string, string>();
             this.users.Add(username, password);
             this.FTPRoot = root;
-            ThreadPool.SetMaxThreads(0x3e8, 0x3e8);
-            ThreadPool.SetMinThreads(0x3e8, 0x3e8);
+            ThreadPool.SetMaxThreads(1000, 1000);
+            ThreadPool.SetMinThreads(1000, 1000);
         }
 
         private void AddInfo(string str)
@@ -536,7 +536,7 @@
             {
                 if (user.isBinary)
                 {
-                    byte[] buffer = new byte[0x400];
+                    byte[] buffer = new byte[1024];
                     BinaryWriter writer = new BinaryWriter(fs);
                     for (int i = user.dataSession.binaryReader.Read(buffer, 0, buffer.Length); i > 0; i = user.dataSession.binaryReader.Read(buffer, 0, buffer.Length))
                     {
@@ -596,7 +596,7 @@
             {
                 if (user.isBinary)
                 {
-                    byte[] buffer = new byte[0x400];
+                    byte[] buffer = new byte[1024];
                     BinaryReader reader = new BinaryReader(fs);
                     for (int i = reader.Read(buffer, 0, buffer.Length); i > 0; i = reader.Read(buffer, 0, buffer.Length))
                     {

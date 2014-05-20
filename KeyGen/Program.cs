@@ -205,16 +205,16 @@ namespace KeyGen
 		{
 			Console.WriteLine ("CLI KeyGen for SHCD-2014");
 			Console.Write ("If you have a machine code, enter from below:\n");
-			string machcode = Console.ReadLine ();
-			if (machcode.Length < 18) {
-				GenerateMachineCode ();
-				Console.WriteLine ("Invalid machcode detected. Generating one.");
-			}
+			// string machcode = Console.ReadLine ();
+			// if (machcode.Length < 18) {
+			// 	GenerateMachineCode ();
+			// 	Console.WriteLine ("Invalid machcode detected. Generating one.");
+			// }
 			string foo;
 			Console.WriteLine ();
-			Console.WriteLine ("Using {0}.", machcode);
+			// Console.WriteLine ("Using {0}.", machcode);
 			// CheckListCode (machcode);
-			// Console.WriteLine (string.Format ("pow({0}, {1})={2}", args [0], args [1], Convert.ToString(pow (Convert.ToInt32 (args[0]), Convert.ToInt32 (args[1])))));
+			Console.WriteLine (string.Format ("pow({0}, {1})={2}", args [0], args [1], Convert.ToString(pow (Convert.ToInt32 (args[0]), Convert.ToInt32 (args[1])))));
 		}
 	}
 }

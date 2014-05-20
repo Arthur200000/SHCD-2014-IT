@@ -13,7 +13,7 @@
         private string currentDir = "/";
         private List<string> DirList = null;
         private List<string> FileList = null;
-        private const int ftpport = 0x15;
+        private const int ftpport = 21;
         private string ftpUristring = null;
         private NetworkCredential networkCredential;
 
@@ -60,7 +60,7 @@
                     this.ShowFtpFileAndDirectory();
                 }
             }
-            else if (this.DirList.Contains(newDir.PadRight(0x22, ' ')))
+            else if (this.DirList.Contains(newDir.PadRight (34, ' ')))
             {
                 if (this.currentDir == "/")
                 {
@@ -89,7 +89,7 @@
 
         private bool Delete(string filename)
         {
-            if (!this.FileList.Contains(filename.PadRight(0x22, ' ')))
+            if (!this.FileList.Contains(filename.PadRight (34, ' ')))
             {
                 this.AddInfo("要删除的文件不存在");
                 return false;
@@ -114,7 +114,7 @@
 
         public bool download(string fileName, string filePath)
         {
-            if (!this.FileList.Contains(fileName.PadRight(0x22, ' ')))
+            if (!this.FileList.Contains(fileName.PadRight (34, ' ')))
             {
                 this.AddInfo("要下载的文件不存在");
                 return false;
@@ -131,7 +131,7 @@
                 }
                 Stream responseStream = ftpResponse.GetResponseStream();
                 FileStream stream2 = System.IO.File.Create(filePath);
-                int count = 0x2004;
+                int count = 8196;
                 byte[] buffer = new byte[count];
                 int num2 = 1;
                 this.AddInfo("打开下载通道，文件下载中...");
@@ -217,7 +217,7 @@
                     this.ShowFtpFileAndDirectory();
                 }
             }
-            else if (this.DirList.Contains(newDir.PadRight(0x22, ' ')))
+            else if (this.DirList.Contains(newDir.PadRight (34, ' ')))
             {
                 if (this.currentDir == "/")
                 {
@@ -305,7 +305,7 @@
                 {
                     strArray3 = str3.Split(new char[] { ' ' });
                     length = strArray3.Length;
-                    str3 = strArray3[length - 1].PadRight(0x22, ' ');
+                    str3 = strArray3 [length - 1].PadRight (34, ' ');
                     this.DirList.Add(str3);
                     this.AddInfo("[目录]" + str3);
                 }
@@ -332,7 +332,7 @@
                 {
                     strArray3 = str3.Split(new char[] { ' ' });
                     length = strArray3.Length;
-                    str3 = strArray3[length - 1].PadRight(0x22, ' ');
+                    str3 = strArray3 [length - 1].PadRight (34, ' ');
                     this.FileList.Add(str3);
                     this.AddInfo(str3);
                 }
@@ -352,7 +352,7 @@
                 string uriString = this.GetUriString(info.Name);
                 FtpWebRequest request = this.CreateFtpWebRequest(uriString, "STOR");
                 request.ContentLength = info.Length;
-                int count = 0x2004;
+                int count = 8196;
                 byte[] buffer = new byte[count];
                 FileStream stream = info.OpenRead();
                 Stream requestStream = request.GetRequestStream();
