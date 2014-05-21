@@ -42,8 +42,7 @@ namespace SHCD
                 }
 				int intVerify = 0;
                 intVerify = Convert.ToInt32((double) ((intListCode[2] * Math.Pow(17.0, (double) intListCode[2])) % 10.0));
-				// 4*(17^4) = 334084
-				if (intListCode[3] == (intVerify % 10)) // ListCode[3] = 4
+				if (intListCode[3] == (intVerify % 10))
                 {
 					for (i=3; i <= 4; i++) 
 					{
@@ -309,10 +308,14 @@ namespace SHCD
 					// 0 1 2 3 ……………………………………………………… 15 16 17| 18 ……………… 25 | 26 … 33 | junk
 					// ListCode, something like a product ID | Machine-Hash | Verify  | ignored
 					// ListCode:
-					// Starts with 14(actually 144), and the nth digits equals to
-					// (Sum(x*(17^x), 1, n-1) mod 10) ,n={5, 9, 16} (Psuedo-CASIO fx-991es Sum :) )
+					// Starts with 14, and Listcode[n] equals to
+					// (Sum(Listcode[x]*(17^Listcode[x]), x=2, n-1) mod 10) ,n={3, 5, 9, 16} (Psuedo-CASIO fx-991es Sum :) )
+					// TODO: I have to find a way to generate a number that meets the requirements. 
 					// Machine-Hash:
-					// 
+					// doString (getCpuId ()) + doString (getBaseBoardId ()) + doString (getBIOSId ()) + doString (getPhysicalMediaId ())
+					// See Dostring().
+					// Verify:
+					// equals to 1E8 - (Sum(machineHash[x] * 10^(7-x), x=0, 8)).
                     if (!File.Exists(Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini"))
                     {
                         reg = new FormReg();
@@ -362,7 +365,7 @@ namespace SHCD
 								int machineHashVerify = 0;
 								for (j = 0; j < 8; j++) // intMachineHash.Length = 8
                                 {
-                                    machineHashVerify += intMachineHash[j] * ((int) Math.Pow(10.0, (double) ((intMachineHash.Length - 1) - j)));
+									machineHashVerify += intMachineHash[j] * ((int) Math.Pow(10.0, (double) (7 - j))); // intMachineHash.Length = 8
                                 }
                                 machineHashVerify = 100000000 - machineHashVerify;
                                 long num5 = Convert.ToInt64(listCode.Substring(2)) % ((long) machineHashVerify);
@@ -507,7 +510,7 @@ namespace SHCD
 			} else {
 				return 1;
 			}
-			}
+		}
 
         [DllImport("user32.dll", CharSet=CharSet.Auto, SetLastError=true)]
         private static extern IntPtr SendMessageTimeout(IntPtr windowHandle, uint Msg, IntPtr wParam, IntPtr lParam, SendMessageTimeoutFlags flags, uint timeout, out IntPtr result);

@@ -20,12 +20,12 @@
         private const int WM_RBUTTONUP = 0x205;
         private const int WM_SETCURSOR = 0x20;
         private const int WM_SETFOCUS = 7;
-        private const int WS_BORDER = 2048000;
+        private const int WS_BORDER = 0x800000;
         private const long WS_CAPTION = 0xc00000L;
         private const long WS_CHILD = 0x40000000L;
         private const long WS_CLIPCHILDREN = 0x2000000L;
         private const long WS_CLIPSIBLINGS = 0x4000000L;
-        private const long WS_DISABLED = 20480000L;
+        private const long WS_DISABLED = 0x8000000L;
         private const long WS_DLGFRAME = 0x400000L;
         private const int WS_EX_ACCEPTFILES = 0x40000000;
         private const int WS_EX_LEFT = 0x40000000;
@@ -38,7 +38,7 @@
         private const long WS_MINIMIZE = 0x20000000L;
         private const long WS_MINIMIZEBOX = 0x20000L;
         private const long WS_OVERLAPPED = 0L;
-        private const long WS_POPUP = 204800000L;
+        private const long WS_POPUP = 0x80000000L;
         private const long WS_SYSMENU = 204800L;
         private const long WS_TABSTOP = 0x10000L;
         private const long WS_THICKFRAME = 0x40000L;
@@ -96,7 +96,7 @@
                         }
                     }
                 }
-                if ((BorderStyle.FixedSingle == base.BorderStyle) && ((createParams.Style & 2048000) != 0))
+                if ((BorderStyle.FixedSingle == base.BorderStyle) && ((createParams.Style & 0x800000) != 0))
                 {
                     createParams.ExStyle |= 0x200;
                 }

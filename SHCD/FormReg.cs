@@ -1,7 +1,7 @@
-﻿namespace SHCD
+﻿// FormReg.cs: The Reg window.
+
+namespace SHCD
 {
-    using Qisi.General.Controls;
-    using SHCD.Properties;
     using System;
     using System.ComponentModel;
     using System.Drawing;
@@ -9,6 +9,8 @@
     using System.Net;
     using System.Text;
     using System.Windows.Forms;
+    using Qisi.General.Controls;
+    using SHCD.Properties;
 
     public class FormReg : Form
     {

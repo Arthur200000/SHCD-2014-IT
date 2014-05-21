@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHCD", "SHCD\SHCD.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{E6422A1A-7F54-4864-88E3-10908C387DD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyGen", "KeyGen\KeyGen.csproj", "{15824834-310B-48E7-B67E-F8938AEF60DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegMachine", "RegMachine\RegMachine.csproj", "{15824834-310B-48E7-B67E-F8938AEF60DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +49,10 @@ Global
 		{E6422A1A-7F54-4864-88E3-10908C387DD5}.Debug|x86.Build.0 = Debug|x86
 		{E6422A1A-7F54-4864-88E3-10908C387DD5}.Release|x86.ActiveCfg = Release|x86
 		{E6422A1A-7F54-4864-88E3-10908C387DD5}.Release|x86.Build.0 = Release|x86
+		{15824834-310B-48E7-B67E-F8938AEF60DC}.Debug|x86.ActiveCfg = Debug|x86
+		{15824834-310B-48E7-B67E-F8938AEF60DC}.Debug|x86.Build.0 = Debug|x86
+		{15824834-310B-48E7-B67E-F8938AEF60DC}.Release|x86.ActiveCfg = Release|x86
+		{15824834-310B-48E7-B67E-F8938AEF60DC}.Release|x86.Build.0 = Release|x86
 		{2B82967C-E333-49AF-A721-DAACE6BAD051}.Debug|x86.ActiveCfg = Debug|x86
 		{2B82967C-E333-49AF-A721-DAACE6BAD051}.Debug|x86.Build.0 = Debug|x86
 		{2B82967C-E333-49AF-A721-DAACE6BAD051}.Release|x86.ActiveCfg = Release|x86
