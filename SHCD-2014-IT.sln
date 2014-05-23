@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegMachine", "RegMachine\RegMachine.csproj", "{15824834-310B-48E7-B67E-F8938AEF60DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForceListCode", "ForceListCode\ForceListCode.csproj", "{5C958C1B-BC27-4703-BC9D-34F3EE560BE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -37,6 +39,10 @@ Global
 		{532D9F6B-5350-4C7F-8EC9-9FA997D1C335}.Debug|x86.Build.0 = Debug|x86
 		{532D9F6B-5350-4C7F-8EC9-9FA997D1C335}.Release|x86.ActiveCfg = Release|x86
 		{532D9F6B-5350-4C7F-8EC9-9FA997D1C335}.Release|x86.Build.0 = Release|x86
+		{5C958C1B-BC27-4703-BC9D-34F3EE560BE6}.Debug|x86.ActiveCfg = Debug|x86
+		{5C958C1B-BC27-4703-BC9D-34F3EE560BE6}.Debug|x86.Build.0 = Debug|x86
+		{5C958C1B-BC27-4703-BC9D-34F3EE560BE6}.Release|x86.ActiveCfg = Release|x86
+		{5C958C1B-BC27-4703-BC9D-34F3EE560BE6}.Release|x86.Build.0 = Release|x86
 		{68CC8FDC-68AB-4F35-8564-59989C0E423C}.Debug|x86.ActiveCfg = Debug|x86
 		{68CC8FDC-68AB-4F35-8564-59989C0E423C}.Debug|x86.Build.0 = Debug|x86
 		{68CC8FDC-68AB-4F35-8564-59989C0E423C}.Release|x86.ActiveCfg = Release|x86
@@ -49,10 +55,6 @@ Global
 		{E6422A1A-7F54-4864-88E3-10908C387DD5}.Debug|x86.Build.0 = Debug|x86
 		{E6422A1A-7F54-4864-88E3-10908C387DD5}.Release|x86.ActiveCfg = Release|x86
 		{E6422A1A-7F54-4864-88E3-10908C387DD5}.Release|x86.Build.0 = Release|x86
-		{15824834-310B-48E7-B67E-F8938AEF60DC}.Debug|x86.ActiveCfg = Debug|x86
-		{15824834-310B-48E7-B67E-F8938AEF60DC}.Debug|x86.Build.0 = Debug|x86
-		{15824834-310B-48E7-B67E-F8938AEF60DC}.Release|x86.ActiveCfg = Release|x86
-		{15824834-310B-48E7-B67E-F8938AEF60DC}.Release|x86.Build.0 = Release|x86
 		{2B82967C-E333-49AF-A721-DAACE6BAD051}.Debug|x86.ActiveCfg = Debug|x86
 		{2B82967C-E333-49AF-A721-DAACE6BAD051}.Debug|x86.Build.0 = Debug|x86
 		{2B82967C-E333-49AF-A721-DAACE6BAD051}.Release|x86.ActiveCfg = Release|x86

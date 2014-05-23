@@ -197,7 +197,7 @@ namespace RegMachine
 			}
 			machineHashVerify = 100000000 - machineHashVerify;
 			long num5 = Convert.ToInt64(listcodeverify.Substring(2)) % ((long) machineHashVerify);
-			return Convert.ToString (num5);
+			return num5.ToString().PadLeft(8, '0');
 		}
 			
 
