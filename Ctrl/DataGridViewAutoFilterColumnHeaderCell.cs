@@ -11,7 +11,9 @@
     using System.Reflection;
     using System.Windows.Forms;
     using System.Windows.Forms.VisualStyles;
-
+	/// <summary>
+	/// Data grid view auto filter column header cell.
+	/// </summary>
     public class DataGridViewAutoFilterColumnHeaderCell : DataGridViewColumnHeaderCell
     {
         private bool automaticSortingEnabledValue;
@@ -26,7 +28,9 @@
         private OrderedDictionary filters;
         private bool lostFocusOnDropDownButtonClick;
         private string selectedFilterValue;
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.Controls.DataGridViewAutoFilterColumnHeaderCell"/> class.
+		/// </summary>
         public DataGridViewAutoFilterColumnHeaderCell()
         {
             this.filters = new OrderedDictionary();
@@ -37,7 +41,10 @@
             this.automaticSortingEnabledValue = true;
             this.dropDownListBoxMaxLinesValue = 20;
         }
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.Controls.DataGridViewAutoFilterColumnHeaderCell"/> class.
+		/// </summary>
+		/// <param name="oldHeaderCell">Old header cell.</param>
         public DataGridViewAutoFilterColumnHeaderCell(DataGridViewColumnHeaderCell oldHeaderCell)
         {
             this.filters = new OrderedDictionary();
@@ -77,7 +84,9 @@
                 base.Style.Padding = Padding.Add(base.InheritedStyle.Padding, padding);
             }
         }
-
+		/// <summary>
+		/// Clone this instance.
+		/// </summary>
         public override object Clone()
         {
             return new DataGridViewAutoFilterColumnHeaderCell(this);
@@ -192,7 +201,11 @@
             }
             return string.Empty;
         }
-
+		/// <summary>
+		/// Gets the filter status.
+		/// </summary>
+		/// <returns>The filter status.</returns>
+		/// <param name="dataGridView">Data grid view.</param>
         public static string GetFilterStatus(DataGridView dataGridView)
         {
             if (dataGridView == null)
@@ -237,7 +250,9 @@
             dropDownListBox.LostFocus += new EventHandler(this.DropDownListBox_LostFocus);
             dropDownListBox.KeyDown += new KeyEventHandler(this.DropDownListBox_KeyDown);
         }
-
+		/// <summary>
+		/// Hides the drop down list.
+		/// </summary>
         public void HideDropDownList()
         {
             Debug.Assert(base.DataGridView != null, "DataGridView is null");
@@ -441,7 +456,10 @@
                 }
             }
         }
-
+		/// <summary>
+		/// Removes the filter.
+		/// </summary>
+		/// <param name="dataGridView">Data grid view.</param>
         public static void RemoveFilter(DataGridView dataGridView)
         {
             if (dataGridView == null)
@@ -588,7 +606,9 @@
             }
             dropDownListBox.Bounds = new Rectangle(x, this.DropDownButtonBounds.Bottom, width, height);
         }
-
+		/// <summary>
+		/// Shows the drop down list.
+		/// </summary>
         public void ShowDropDownList()
         {
             Debug.Assert(base.DataGridView != null, "DataGridView is null");
@@ -702,6 +722,11 @@
         }
 
         [DefaultValue(true)]
+		/// <summary>
+		/// Gets or sets a value indicating whether this
+		/// <see cref="Qisi.General.Controls.DataGridViewAutoFilterColumnHeaderCell"/> automatic sorting is enabled.
+		/// </summary>
+		/// <value><c>true</c> if automatic sorting enabled; otherwise, <c>false</c>.</value>
         public bool AutomaticSortingEnabled
         {
             get
@@ -760,6 +785,10 @@
         }
 
         [DefaultValue(20)]
+		/// <summary>
+		/// Gets or sets the drop down list box max lines, default is 20.
+		/// </summary>
+		/// <value>The drop down list box max lines, default is 20.</value>
         public int DropDownListBoxMaxLines
         {
             get
@@ -773,6 +802,11 @@
         }
 
         [DefaultValue(true)]
+		/// <summary>
+		/// Gets or sets a value indicating whether this
+		/// <see cref="Qisi.General.Controls.DataGridViewAutoFilterColumnHeaderCell"/> filtering enabled.
+		/// </summary>
+		/// <value><c>true</c> if filtering enabled (default); otherwise, <c>false</c>.</value>
         public bool FilteringEnabled
         {
             get
@@ -797,7 +831,11 @@
         }
 
         private class FilterListBox : ListBox
-        {
+		{
+			/// <summary>
+			/// Initializes a new instance of the
+			/// <see cref="Qisi.General.Controls.DataGridViewAutoFilterColumnHeaderCell+FilterListBox"/> class.
+			/// </summary>
             public FilterListBox()
             {
                 base.Visible = false;

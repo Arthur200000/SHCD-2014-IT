@@ -220,7 +220,7 @@
                 fileToZip = fileToZip.EndsWith(@"\") ? fileToZip : (fileToZip + @"\");
                 if (CommonMethods.Zip(fileToZip, Path.Combine(Program.answerDir, this.paperName + ".dat"), "CKKC37F423"))
                 {
-                    CommonMethods.Ency(Path.Combine(Program.answerDir, this.paperName + ".dat"));
+                    CommonMethods.Encrypt(Path.Combine(Program.answerDir, this.paperName + ".dat"));
                 }
             }
         }

@@ -7,13 +7,20 @@
     {
         private Dictionary<string, string> FDictionary;
         private string FSectionName;
-
-        public IniSection(string SName)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.IniSection"/> class.
+		/// </summary>
+		/// <param name="SectionName">Section name.</param>
+        public IniSection(string SectionName)
         {
-            this.FSectionName = SName;
+            this.FSectionName = SectionName;
             this.FDictionary = new Dictionary<string, string>();
         }
-
+		/// <summary>
+		/// Adds the key value.
+		/// </summary>
+		/// <param name="key">Key.</param>
+		/// <param name="value">Value.</param>
         public void AddKeyValue(string key, string value)
         {
             if (this.FDictionary.ContainsKey(key))

@@ -3,7 +3,9 @@
     using System;
     using System.Drawing;
     using System.Runtime.InteropServices;
-
+	/// <summary>
+	/// Native methods with lots of magic numbers but seven.
+	/// </summary>
     internal static class NativeMethods
     {
         internal const int ASPECTX = 40;

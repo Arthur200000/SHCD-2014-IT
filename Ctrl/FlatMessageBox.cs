@@ -5,7 +5,9 @@
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Flat message box.
+	/// </summary>
     public class FlatMessageBox : Form
     {
         private static Button btnAbort;
@@ -218,7 +220,12 @@
             this.components = new Container();
             base.AutoScaleMode = AutoScaleMode.Font;
         }
-
+		/// <Docs>To be added.</Docs>
+		/// <remarks>To be added.</remarks>
+		/// <summary>
+		/// Show the specified Message.
+		/// </summary>
+		/// <param name="Message">Message.</param>
         public static DialogResult Show(string Message)
         {
             BuildMessageBox("");
@@ -227,7 +234,11 @@
             newMessageBox.ShowDialog();
             return KeysReturnButton;
         }
-
+		/// <summary>
+		/// Show the specified Message and Title.
+		/// </summary>
+		/// <param name="Message">Message.</param>
+		/// <param name="Title">Title.</param>
         public static DialogResult Show(string Message, string Title)
         {
             BuildMessageBox(Title);
@@ -236,7 +247,11 @@
             newMessageBox.ShowDialog();
             return KeysReturnButton;
         }
-
+		/// <summary>
+		/// Show the specified win32 window and Message.
+		/// </summary>
+		/// <param name="win32">Win32 window.</param>
+		/// <param name="Message">Message.</param>
         public static DialogResult Show(IWin32Window win32, string Message)
         {
             BuildMessageBox("");
@@ -245,7 +260,12 @@
             newMessageBox.ShowDialog(win32);
             return KeysReturnButton;
         }
-
+		/// <summary>
+		/// Show the specified Message, Title and MButtons.
+		/// </summary>
+		/// <param name="Message">Message.</param>
+		/// <param name="Title">Title.</param>
+		/// <param name="MButtons">Message buttons.</param>
         public static DialogResult Show(string Message, string Title, KeysButtons MButtons)
         {
             BuildMessageBox(Title);
@@ -254,7 +274,12 @@
             newMessageBox.ShowDialog();
             return KeysReturnButton;
         }
-
+		/// <summary>
+		/// Show the specified win32 window, Message and Title.
+		/// </summary>
+		/// <param name="win32">Win32 window.</param>
+		/// <param name="Message">Message.</param>
+		/// <param name="Title">Title.</param>
         public static DialogResult Show(IWin32Window win32, string Message, string Title)
         {
             BuildMessageBox(Title);
@@ -263,7 +288,13 @@
             newMessageBox.ShowDialog(win32);
             return KeysReturnButton;
         }
-
+		/// <summary>
+		/// Show the specified Message, Title, MessageButtons and MessageIcon.
+		/// </summary>
+		/// <param name="Message">Message.</param>
+		/// <param name="Title">Title.</param>
+		/// <param name="MButtons">Message buttons.</param>
+		/// <param name="MIcon">Message icon.</param>
         public static DialogResult Show(string Message, string Title, KeysButtons MButtons, KeysIcon MIcon)
         {
             BuildMessageBox(Title);
@@ -274,7 +305,13 @@
             newMessageBox.ShowDialog();
             return KeysReturnButton;
         }
-
+		/// <summary>
+		/// Show the specified win32 window, Message, Title and MessageButtons.
+		/// </summary>
+		/// <param name="win32">Win32 window.</param>
+		/// <param name="Message">Message.</param>
+		/// <param name="Title">Title.</param>
+		/// <param name="MButtons">Message buttons.</param>
         public static DialogResult Show(IWin32Window win32, string Message, string Title, KeysButtons MButtons)
         {
             BuildMessageBox(Title);
@@ -283,7 +320,14 @@
             newMessageBox.ShowDialog(win32);
             return KeysReturnButton;
         }
-
+		/// <summary>
+		/// Show the specified win32 window, Message, Title, MessageButtons and MessageIcon.
+		/// </summary>
+		/// <param name="win32">Win32 window.</param>
+		/// <param name="Message">Message.</param>
+		/// <param name="Title">Title.</param>
+		/// <param name="MButtons">Message buttons.</param>
+		/// <param name="MIcon">Message icon.</param>
         public static DialogResult Show(IWin32Window win32, string Message, string Title, KeysButtons MButtons, KeysIcon MIcon)
         {
             BuildMessageBox(Title);

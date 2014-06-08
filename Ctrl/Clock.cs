@@ -6,7 +6,9 @@
     using System.Drawing.Drawing2D;
     using System.Timers;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Animated Clock.
+	/// </summary>
     public class Clock : Control
     {
         private Bitmap clock = Resources.trad;

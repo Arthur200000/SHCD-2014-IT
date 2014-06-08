@@ -7,7 +7,9 @@
     using System.Runtime.InteropServices;
     using System.Timers;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Crystal button.
+	/// </summary>
     public class CrystalButton : UserControl
     {
         private System.Drawing.Image _image;
@@ -23,7 +25,9 @@
         private const uint WM_LBUTTONDOWN = 0x201;
         private const uint WM_LBUTTONUP = 0x202;
         private const uint WM_MOUSEMOVE = 0x200;
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.Controls.CrystalButton"/> class.
+		/// </summary>
         public CrystalButton()
         {
             this._speed = 10;
@@ -40,7 +44,10 @@
             new Pen(Brushes.Black, 4f);
             this.Cursor = Cursors.Hand;
         }
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.Controls.CrystalButton"/> class.
+		/// </summary>
+		/// <param name="tir">Text-Image Relationship.</param>
         public CrystalButton(TextImageRelation tir)
         {
             this._speed = 10;

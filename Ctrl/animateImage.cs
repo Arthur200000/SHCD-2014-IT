@@ -11,12 +11,17 @@
         private IContainer components;
         private bool currentlyAnimating;
         private string path;
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.Controls.animateImage"/> class, and make it double-buffed.
+		/// </summary>
         public animateImage()
         {
             this.DoubleBuffered = true;
         }
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.Controls.animateImage"/> class, and make it double-buffed.
+		/// </summary>
+		/// <param name="Path">Path.</param>
         public animateImage(string Path)
         {
             this.path = Path;
@@ -36,7 +41,7 @@
 
         protected override void Dispose(bool disposing)
         {
-            this.distory();
+            this.destory();
             if (disposing && (this.components != null))
             {
                 this.components.Dispose();
@@ -44,7 +49,7 @@
             base.Dispose(disposing);
         }
 
-        public void distory()
+        public void destory()
         {
             this.Stop();
             if (this.animatedImage != null)
@@ -91,8 +96,13 @@
             ImageAnimator.StopAnimate(this.animatedImage, new EventHandler(this.OnFrameChanged));
         }
 
+
         [Description("gif图像的路径"), Localizable(true), Browsable(true), Category("外观"), DefaultValue((string) null), DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public string Path
+		/// <summary>
+		/// Gets or sets the path.
+		/// </summary>
+		/// <value>The path.</value>
+		public string Path
         {
             get
             {

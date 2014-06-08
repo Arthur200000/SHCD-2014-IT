@@ -18,7 +18,12 @@
         private NetworkCredential networkCredential;
 
         public event TextEventHandler Log;
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.FTPClient"/> class.
+		/// </summary>
+		/// <param name="ip">Ip to target, as string.</param>
+		/// <param name="username">Username.</param>
+		/// <param name="password">Password.</param>
         public FTPClient(string ip, string username, string password)
         {
             this.ftpUristring = "ftp://" + ip;
@@ -37,7 +42,10 @@
             {
             }
         }
-
+		/// <summary>
+		/// Changes the dir, FTP cd.
+		/// </summary>
+		/// <param name="newDir">New dir.</param>
         public void changeDir(string newDir)
         {
             if (newDir == "")
@@ -111,7 +119,11 @@
                 return false;
             }
         }
-
+		/// <summary>
+		/// Download the specified fileName from filePath, FTP get.
+		/// </summary>
+		/// <param name="fileName">File name.</param>
+		/// <param name="filePath">File path.</param>
         public bool download(string fileName, string filePath)
         {
             if (!this.FileList.Contains(fileName.PadRight (34, ' ')))
@@ -177,7 +189,9 @@
             }
             return (this.ftpUristring + this.currentDir + "/" + filename);
         }
-
+		/// <summary>
+		/// Login.
+		/// </summary>
         public bool login()
         {
             if (this.ShowFtpFileAndDirectory())
@@ -188,12 +202,17 @@
             this.AddInfo("登录失败");
             return false;
         }
-
+		/// <summary>
+		/// Logout.
+		/// </summary>
         public void logout()
         {
             this.CreateFtpWebRequest(this.ftpUristring, "QUIT");
         }
-
+		/// <summary>
+		/// mkdir.
+		/// </summary>
+		/// <param name="newDir">New dir.</param>
         public void makeDir(string newDir)
         {
             this.ShowFtpFileAndDirectory();
@@ -339,7 +358,10 @@
             }
             return true;
         }
-
+		/// <summary>
+		/// PUT the specified filepath.
+		/// </summary>
+		/// <param name="filepath">Filepath.</param>
         public bool Upload(string filepath)
         {
             if (!System.IO.File.Exists(filepath))

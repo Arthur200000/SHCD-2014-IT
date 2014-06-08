@@ -11,7 +11,9 @@
     using System.Runtime.InteropServices;
     using System.Text;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// IME bar.
+	/// </summary>
     public class imeBar : Control
     {
         private string _CurrentImeHandleStr = "";
@@ -55,7 +57,7 @@
                 }
                 return iMode;
             }
-            iMode = (iMode + 0x7fffffff) + 1;
+            iMode = (iMode + 2147483647) + 1;
             int y = 11;
             while ((iMode - this.Pow(2, y)) >= 0)
             {
@@ -65,10 +67,12 @@
             {
                 iMode -= this.Pow(2, y - 1);
             }
-            iMode = (iMode - 0x7fffffff) - 1;
+            iMode = (iMode - 2147483647) - 1;
             return iMode;
         }
-
+		/// <summary>
+		/// Changes the IME.
+		/// </summary>
         public void ChangeIme()
         {
             this._CurrentImeHandleStr = ImmGetContext(GetFocus()).ToString();
@@ -81,7 +85,10 @@
             }
             this.InputLanauageChangedUI();
         }
-
+		/// <summary>
+		/// Changes the IME.
+		/// </summary>
+		/// <param name="handle">Handle.</param>
         public void ChangeIme(IntPtr handle)
         {
             this._CurrentImeHandleStr = handle.ToString();
@@ -111,28 +118,28 @@
             ImmGetConversionStatus(ptr, ref conversion, ref sentence);
             switch (this.Calc(conversion))
             {
-                case 0x400:
+                case 1024:
                 case -2147482624:
                     this.label1.Text = "英";
                     this.pictureBox2.Image = Resources.Half;
                     this.pictureBox3.Image = Resources.chs;
                     return;
 
-                case 0x401:
+                case 1025:
                 case -2147482623:
                     this.label1.Text = "中";
                     this.pictureBox2.Image = Resources.Half;
                     this.pictureBox3.Image = Resources.chs;
                     return;
 
-                case 0x408:
+                case 1032:
                 case -2147482616:
                     this.label1.Text = "英";
                     this.pictureBox2.Image = Resources.On;
                     this.pictureBox3.Image = Resources.chs;
                     return;
 
-                case 0x409:
+                case 1033:
                 case -2147482615:
                     this.label1.Text = "中";
                     this.pictureBox2.Image = Resources.On;
@@ -196,10 +203,30 @@
         }
 
         [DllImport("Kernel32.dll")]
+		/// <summary>
+		/// Enums the resource names.
+		/// </summary>
+		/// <returns><c>true</c>, if resource names was enumed, <c>false</c> otherwise.</returns>
+		/// <param name="hModule">H module.</param>
+		/// <param name="nType">N type.</param>
+		/// <param name="lpEnumFunc">Lp enum func.</param>
+		/// <param name="lParam">L parameter.</param>
         public static extern bool EnumResourceNames(IntPtr hModule, IntPtr nType, EnumResNameProc lpEnumFunc, int lParam);
         [DllImport("shell32.dll")]
+		/// <summary>
+		/// Extracts the icon.
+		/// </summary>
+		/// <returns>The icon.</returns>
+		/// <param name="hInstance">H instance.</param>
+		/// <param name="sExeFileName">S exe file name.</param>
+		/// <param name="nIconIndex">N icon index.</param>
         public static extern IntPtr ExtractIcon(IntPtr hInstance, string sExeFileName, int nIconIndex);
         [DllImport("Kernel32.dll")]
+		/// <summary>
+		/// Frees the library.
+		/// </summary>
+		/// <returns><c>true</c>, if library was freed, <c>false</c> otherwise.</returns>
+		/// <param name="hModule">H module.</param>
         public static extern bool FreeLibrary(IntPtr hModule);
         private Image GetBitmapFromResource(string sFileName, string sBitmapFlag)
         {
@@ -300,14 +327,47 @@
         }
 
         [DllImport("imm32.dll")]
+		/// <summary>
+		/// Imms the get context.
+		/// </summary>
+		/// <returns>The get context.</returns>
+		/// <param name="hWnd">H window.</param>
         public static extern IntPtr ImmGetContext(IntPtr hWnd);
         [DllImport("imm32.dll")]
+		/// <summary>
+		/// Imms the get conversion status.
+		/// </summary>
+		/// <returns><c>true</c>, if get conversion status was immed, <c>false</c> otherwise.</returns>
+		/// <param name="hIMC">H IM.</param>
+		/// <param name="conversion">Conversion.</param>
+		/// <param name="sentence">Sentence.</param>
         public static extern bool ImmGetConversionStatus(IntPtr hIMC, ref int conversion, ref int sentence);
         [DllImport("Imm32.dll")]
+		/// <summary>
+		/// Imms the get description.
+		/// </summary>
+		/// <returns>The get description.</returns>
+		/// <param name="Hkl">Hkl.</param>
+		/// <param name="sName">S name.</param>
+		/// <param name="nBuffer">N buffer.</param>
         public static extern int ImmGetDescription(IntPtr Hkl, StringBuilder sName, int nBuffer);
         [DllImport("Imm32.dll")]
+		/// <summary>
+		/// Imms the name of the get IME file.
+		/// </summary>
+		/// <returns>The get IME file name.</returns>
+		/// <param name="Hkl">Hkl.</param>
+		/// <param name="sFileName">S file name.</param>
+		/// <param name="nBuffer">N buffer.</param>
         public static extern int ImmGetIMEFileName(IntPtr Hkl, StringBuilder sFileName, int nBuffer);
         [DllImport("imm32.dll")]
+		/// <summary>
+		/// Imms the set conversion status.
+		/// </summary>
+		/// <returns><c>true</c>, if set conversion status was immed, <c>false</c> otherwise.</returns>
+		/// <param name="hIMC">H IM.</param>
+		/// <param name="conversion">Conversion.</param>
+		/// <param name="sentence">Sentence.</param>
         public static extern bool ImmSetConversionStatus(IntPtr hIMC, int conversion, int sentence);
         private void InitializeComponent()
         {
@@ -406,7 +466,9 @@
             }
             this.InputLanauageChangedUI();
         }
-
+		/// <summary>
+		/// Input lanauage changed UI.
+		/// </summary>
         public void InputLanauageChangedUI()
         {
             foreach (imeItem item in this.imeList)
@@ -431,8 +493,8 @@
                 case -2147482615:
                 case -2147483647:
                 case -2147483639:
-                case 0x401:
-                case 0x409:
+                case 1025:
+                case 1033:
                 case 1:
                 case 9:
                     conversion--;
@@ -449,10 +511,33 @@
         }
 
         [DllImport("user32.dll")]
+		/// <summary>
+		/// Loads the icon.
+		/// </summary>
+		/// <returns>The icon.</returns>
+		/// <param name="hInstance">H instance.</param>
+		/// <param name="iID">I ID.</param>
         public static extern IntPtr LoadIcon(IntPtr hInstance, string iID);
         [DllImport("user32.dll")]
+		/// <summary>
+		/// Loads the image.
+		/// </summary>
+		/// <returns>The image.</returns>
+		/// <param name="hInstance">H instance.</param>
+		/// <param name="sID">S ID.</param>
+		/// <param name="nType">N type.</param>
+		/// <param name="cx">Cx.</param>
+		/// <param name="cy">Cy.</param>
+		/// <param name="fuLoad">Fu load.</param>
         public static extern IntPtr LoadImage(IntPtr hInstance, string sID, int nType, int cx, int cy, int fuLoad);
         [DllImport("Kernel32.dll")]
+		/// <summary>
+		/// Loads the library ex.
+		/// </summary>
+		/// <returns>The library ex.</returns>
+		/// <param name="sFileName">S file name.</param>
+		/// <param name="hFile">H file.</param>
+		/// <param name="dwFlags">Dw flags.</param>
         public static extern IntPtr LoadLibraryEx(string sFileName, IntPtr hFile, int dwFlags);
         private IntPtr MAKEINTRESOURCE(int nID)
         {
@@ -487,8 +572,8 @@
                 case -2147482615:
                 case 8:
                 case 9:
-                case 0x408:
-                case 0x409:
+                case 1032:
+                case 1033:
                 {
                     conversion -= 8;
                     Bitmap half = Resources.Half;
@@ -519,10 +604,10 @@
                 case -2147482623:
                 case -2147482616:
                 case -2147482615:
-                case 0x400:
-                case 0x401:
-                case 0x408:
-                case 0x409:
+                case 1024:
+                case 1025:
+                case 1032:
+                case 1033:
                 {
                     conversion -= 0x400;
                     Bitmap eng = Resources.eng;

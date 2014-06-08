@@ -18,7 +18,6 @@
         private Dictionary<string, string> users;
 
         public event TextEventHandler Log;
-
         public FTPServer()
         {
             this.myTcpListener = null;
@@ -42,7 +41,12 @@
 			ThreadPool.SetMaxThreads (1000, 1000);
 			ThreadPool.SetMinThreads (1000, 1000);
         }
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.FTPServer"/> class.
+		/// </summary>
+		/// <param name="username">Username.</param>
+		/// <param name="password">Password.</param>
+		/// <param name="root">Root.</param>
         public FTPServer(string username, string password, string root)
         {
             this.myTcpListener = null;
@@ -54,24 +58,26 @@
             ThreadPool.SetMaxThreads(1000, 1000);
             ThreadPool.SetMinThreads(1000, 1000);
         }
-
-        private void AddInfo(string str)
+		/// <summary>
+		/// Adds something to the info.
+		/// </summary>
+		/// <param name="infoStr">Info string.</param>
+		private void AddInfo(string infoStr)
         {
             try
             {
-                this.Log(this, new MessageEventArgs(str));
+                this.Log(this, new MessageEventArgs(infoStr));
             }
             catch
             {
             }
         }
-
         private void CommandCDUP(User user, string temp)
         {
-            string str = string.Empty;
+            string messageInfo = string.Empty;
             if (user.workDir == this.FTPRoot)
             {
-                str = "502 Directory changed unsuccessfully";
+				messageInfo = "502 Directory changed unsuccessfully";
             }
             else
             {
@@ -83,21 +89,20 @@
                     {
                         user.currentDir = user.currentDir.Substring(0, user.currentDir.LastIndexOf('/') + 1);
                         user.workDir = fullName;
-                        str = "250 Directory changed to '" + user.currentDir + "' successfully";
+                        messageInfo = "250 Directory changed to '" + user.currentDir + "' successfully";
                     }
                     else
                     {
-                        str = "550 Directory '" + user.currentDir + "' does not exist";
+                        messageInfo = "550 Directory '" + user.currentDir + "' does not exist";
                     }
                 }
                 catch
                 {
-                    str = "502 Directory changed unsuccessfully";
+                    messageInfo = "502 Directory changed unsuccessfully";
                 }
             }
-            this.RepleyCommandToUser(user, str);
+            this.RepleyCommandToUser(user, messageInfo);
         }
-
         private void CommandCWD(User user, string temp)
         {
             string str = string.Empty;
@@ -620,7 +625,9 @@
                 fs.Close();
             }
         }
-
+		/// <summary>
+		/// Starts or stops the FTP server.
+		/// </summary>
         public void startFTPServer()
         {
             if (this.myTcpListener == null)

@@ -8,14 +8,27 @@ using System.Security.AccessControl;
 using System.Security.Cryptography;
 using System.Text;
 namespace Qisi.General
-{
+{/// <summary>
+/// Common methods.
+	/// <para>Readxlsx/xls:Reads Microsoft Excel files.
+	/// <c></c>
+/// </summary>
 	public class CommonMethods
 	{
+		/// <summary>
+		/// Gets or sets the last error message.
+		/// </summary>
+		/// <value>The last error message.</value>
 		public static string LastErrorMessage
 		{
 			get;
 			set;
 		}
+		/// <summary>
+		/// Read the specified xlsx file and HDR(bool), Microsoft Excel-dependent.
+		/// </summary>
+		/// <param name="Path">Path to the xlsx file.</param>
+		/// <param name="HDR">If set to <c>true</c>, the first col will be used as col name.</param>
 		public static DataSet Readxlsx(string Path, bool HDR = true)
 		{
 			DataSet dataSet = new DataSet();
@@ -60,6 +73,12 @@ namespace Qisi.General
 			}
 			return dataSet;
 		}
+		/// <summary>
+		/// Readxlsx the specified Path, TableName and HDR.
+		/// </summary>
+		/// <param name="Path">Path to the <c>xlsx</c> file.</param>
+		/// <param name="TableName">Table name.</param>
+		/// <param name="HDR">If set to <c>true</c>, the first col will be used as col name.</param>
 		public static DataTable Readxlsx(string Path, string TableName, bool HDR = true)
 		{
 			DataTable dataTable = new DataTable();
@@ -91,6 +110,10 @@ namespace Qisi.General
 			}
 			return dataTable;
 		}
+		/// <summary>
+		/// Readxlsx the specified Path, TableNames and HDR. See similar functions
+		/// </summary>
+		/// <param name="TableNames">Table names.</param>
 		public static DataSet Readxlsx(string Path, string[] TableNames, bool HDR = true)
 		{
 			DataSet dataSet = new DataSet();
@@ -125,6 +148,9 @@ namespace Qisi.General
 			}
 			return dataSet;
 		}
+		/// <summary>
+		/// See Readxlsx.
+		/// </summary>
 		public static DataSet Readxls(string Path, bool HDR = true)
 		{
 			DataSet dataSet = new DataSet();
@@ -164,6 +190,9 @@ namespace Qisi.General
 			}
 			return dataSet;
 		}
+		/// <summary>
+		/// See Readxlsx.
+		/// </summary>
 		public static DataTable Readxls(string Path, string TableName, bool HDR)
 		{
 			DataTable dataTable = new DataTable();
@@ -195,6 +224,9 @@ namespace Qisi.General
 			}
 			return dataTable;
 		}
+		/// <summary>
+		/// See Readxlsx.
+		/// </summary>
 		public static DataSet Readxls(string Path, string[] TableNames, bool HDR = true)
 		{
 			DataSet dataSet = new DataSet();
@@ -229,6 +261,12 @@ namespace Qisi.General
 			}
 			return dataSet;
 		}
+		/// <summary>
+		/// Copies the folder.
+		/// </summary>
+		/// <param name="sourceFolder">Source folder.</param>
+		/// <param name="destFolder">Destination folder.</param>
+		/// <param name="overwrite">If set to <c>true</c> overwrite destination.</param>
 		public static void CopyFolder(string sourceFolder, string destFolder, bool overwrite = true)
 		{
 			if (Directory.Exists(sourceFolder))
@@ -269,6 +307,12 @@ namespace Qisi.General
 				}
 			}
 		}
+		/// <summary>
+		/// Copies the folder.
+		/// </summary>
+		/// <param name="sourceFolder">Source folder.</param>
+		/// <param name="filter">Filter, split by <c>|</c>.</param>
+		/// <param name="destFolder">Destination folder.</param>
 		public static void CopyFolder(string sourceFolder, string filter, string destFolder)
 		{
 			string[] array = filter.Split(new char[]
@@ -317,6 +361,10 @@ namespace Qisi.General
 				}
 			}
 		}
+		/// <summary>
+		/// Encrypt the specified filePath.
+		/// </summary>
+		/// <param name="filePath">File path.</param>
 		public static bool Ency(string filePath)
 		{
 			FileStream fileStream = new FileInfo(filePath).OpenRead();
@@ -337,6 +385,11 @@ namespace Qisi.General
 			}
 			return result;
 		}
+		/// <summary>
+		/// Encrypt the specified stream and file.
+		/// </summary>
+		/// <param name="stream">Stream. (of what?)</param>
+		/// <param name="file">File.</param>
 		public static bool Ency(FileStream stream, out byte[] file)
 		{
 			file = new byte[stream.Length];
@@ -392,6 +445,13 @@ namespace Qisi.General
 			}
 			return result;
 		}
+		/// <summary>
+		/// Zips the file dictory.
+		/// </summary>
+		/// <returns><c>true</c>, if file dictory was ziped, <c>false</c> otherwise.</returns>
+		/// <param name="FolderToZip">Folder to zip.</param>
+		/// <param name="s">S.</param>
+		/// <param name="ParentFolderName">Parent folder name.</param>
 		private static bool ZipFileDictory(string FolderToZip, ZipOutputStream s, string ParentFolderName)
 		{
 			bool flag = true;
@@ -452,6 +512,13 @@ namespace Qisi.General
 			result = flag;
 			return result;
 		}
+		/// <summary>
+		/// Zips the file dictory.
+		/// </summary>
+		/// <returns><c>true</c>, if file dictory was ziped, <c>false</c> otherwise.</returns>
+		/// <param name="FolderToZip">Folder to zip.</param>
+		/// <param name="ZipedFile">Ziped file.</param>
+		/// <param name="Password">Password.</param>
 		private static bool ZipFileDictory(string FolderToZip, string ZipedFile, string Password)
 		{
 			bool result;
@@ -472,6 +539,13 @@ namespace Qisi.General
 			}
 			return result;
 		}
+		/// <summary>
+		/// Zips the file.
+		/// </summary>
+		/// <returns><c>true</c>, if file was ziped, <c>false</c> otherwise.</returns>
+		/// <param name="FileToZip">File to zip.</param>
+		/// <param name="ZipedFile">Ziped file.</param>
+		/// <param name="Password">Password.</param>
 		private static bool ZipFile(string FileToZip, string ZipedFile, string Password)
 		{
 			bool result;
@@ -540,6 +614,13 @@ namespace Qisi.General
 			}
 			return result;
 		}
+		/// <summary>
+		/// Zip the specified FileToZip, ZipedFile and Password.
+		/// </summary>
+		/// <returns><c>true</c>, if file dictory was ziped, <c>false</c> otherwise.</returns>
+		/// <param name="FileToZip">File to zip.</param>
+		/// <param name="ZipedFile">Ziped file.</param>
+		/// <param name="Password">Password.</param>
 		public static bool Zip(string FileToZip, string ZipedFile, string Password)
 		{
 			bool result;
@@ -585,6 +666,11 @@ namespace Qisi.General
 			result = true;
 			return result;
 		}
+		/// <summary>
+		/// Decrypt the specified filePath and filebuffer.
+		/// </summary>
+		/// <param name="filePath">File path.</param>
+		/// <param name="filebuffer">Filebuffer.</param>
 		public static bool Decy(string filePath, out byte[] filebuffer)
 		{
 			FileStream fileStream = new FileInfo(filePath).OpenRead();
@@ -616,12 +702,17 @@ namespace Qisi.General
 			result = true;
 			return result;
 		}
-		public static bool Decy(byte[] buffer2, out byte[] filebuffer)
+		/// <summary>
+		/// Decrypt the specified buffer and filebuffer.
+		/// </summary>
+		/// <param name="bufferToDecrypt">Buffer.</param>
+		/// <param name="filebuffer">Filebuffer.</param>
+		public static bool Decy(byte[] bufferToDecrypt, out byte[] filebuffer)
 		{
-			filebuffer = new byte[buffer2.Length - 64];
-			for (int i = 0; i < buffer2.Length - 64; i++)
+			filebuffer = new byte[bufferToDecrypt.Length - 64];
+			for (int i = 0; i < bufferToDecrypt.Length - 64; i++)
 			{
-				filebuffer[i] = buffer2[buffer2.Length - 33 - i];
+				filebuffer[i] = bufferToDecrypt[bufferToDecrypt.Length - 33 - i];
 			}
 			MD5CryptoServiceProvider mD5CryptoServiceProvider = new MD5CryptoServiceProvider();
 			byte[] array = mD5CryptoServiceProvider.ComputeHash(filebuffer);
@@ -634,7 +725,7 @@ namespace Qisi.General
 			bool result;
 			for (int i = 0; i < 32; i++)
 			{
-				if (bytes[i] != buffer2[i])
+				if (bytes[i] != bufferToDecrypt[i])
 				{
 					result = false;
 					return result;
@@ -643,10 +734,17 @@ namespace Qisi.General
 			result = true;
 			return result;
 		}
-		public static bool Unzip(string filePath, string path, string password)
+		/// <summary>
+		/// Unzip the specified ZipFile, using outputPath and password.
+		/// </summary>
+		/// <returns><c>true</c>.
+		/// <param name="pathToZipFile">Path to zip file.</param>
+		/// <param name="outputPath">Output path.</param>
+		/// <param name="password">Password.</param>
+		public static bool Unzip(string pathToZipFile, string outputPath, string password)
 		{
 			bool flag = true;
-			FileStream fileStream = new FileInfo(filePath).OpenRead();
+			FileStream fileStream = new FileInfo(pathToZipFile).OpenRead();
 			byte[] buffer = new byte[fileStream.Length];
 			fileStream.Read(buffer, 0, Convert.ToInt32(fileStream.Length));
 			Stream stream = new MemoryStream(buffer);
@@ -658,11 +756,11 @@ namespace Qisi.General
 			{
 				while ((zipEntry = zipInputStream.GetNextEntry()) != null)
 				{
-					string text = Path.Combine(path, zipEntry.Name);
+					string text = Path.Combine(outputPath, zipEntry.Name);
 					if (zipEntry.Name.Contains("\\"))
 					{
 						int length = zipEntry.Name.LastIndexOf("\\");
-						Directory.CreateDirectory(Path.Combine(path, zipEntry.Name.Substring(0, length)));
+						Directory.CreateDirectory(Path.Combine(outputPath, zipEntry.Name.Substring(0, length)));
 					}
 					if (text != string.Empty)
 					{
@@ -717,10 +815,16 @@ namespace Qisi.General
 			}
 			return !flag || flag;
 		}
-		public static bool Unzip(byte[] buffer2, string path, string password)
+		/// <summary>
+		/// Unzip the specified decryptedBuffer, using path and password.
+		/// </summary>
+		/// <param name="decryptedBuffer">Decrypted buffer.</param>
+		/// <param name="path">Path.</param>
+		/// <param name="password">Password.</param>
+		public static bool Unzip(byte[] decryptedBuffer, string path, string password)
 		{
 			bool flag = true;
-			Stream stream = new MemoryStream(buffer2);
+			Stream stream = new MemoryStream(decryptedBuffer);
 			ZipInputStream zipInputStream = new ZipInputStream(stream);
 			ZipEntry zipEntry = null;
 			zipInputStream.Password = password;
@@ -961,6 +1065,11 @@ namespace Qisi.General
 			}
 			return !flag || flag;
 		}
+		/// <summary>
+		/// Clears the directory.
+		/// </summary>
+		/// <returns><c>true</c>, if directory was cleared, <c>false</c> otherwise.</returns>
+		/// <param name="Path">Path to Dir.</param>
 		public static bool ClearDirectory(string Path)
 		{
 			bool result = true;
