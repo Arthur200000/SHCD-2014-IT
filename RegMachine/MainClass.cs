@@ -36,7 +36,7 @@ namespace RegMachine
 				intVerify = Convert.ToInt32((double) ((intListCode[2] * Math.Pow(17.0, (double) intListCode[2])) % 10.0));
 				if (intListCode[3] == (intVerify % 10))
 				{
-					for (i=3; i <= 4; i++) 
+					for (i = 3; i <= 4; i++) 
 					{
 						intVerify += Convert.ToInt32((double) ((intListCode[i] * Math.Pow(17.0, (double) intListCode[i])) % 10.0));
 					}
