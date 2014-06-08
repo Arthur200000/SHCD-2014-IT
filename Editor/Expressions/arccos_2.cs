@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public arccos_2(lineexpression parent, Color color) : base("arccos", parent, color)
         {
-            base.Type = FType.反余弦_2;
+            base.Type = FunctionType.反余弦_2;
         }
     }
 }

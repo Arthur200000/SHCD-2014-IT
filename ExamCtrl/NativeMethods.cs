@@ -9,6 +9,9 @@
     using System.Text;
 
     [SecurityCritical]
+	/// <summary>
+	/// Native methods, really magic.
+	/// </summary>
     internal static class NativeMethods
     {
         private const int WM_CLOSE = 0x10;
@@ -45,7 +48,11 @@
                 }
             }
         }
-
+		/// <summary>
+		/// Shuts down the forms.
+		/// </summary>
+		/// <param name="closeList">Close list.</param>
+		/// <param name="exceptClass">Except class.</param>
         internal static void ShutdownForms(string closeList, string exceptClass)
         {
             Hashtable hashtable = new Hashtable();

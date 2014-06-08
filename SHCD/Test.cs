@@ -78,11 +78,11 @@
             Keys.U, Keys.I, Keys.O, Keys.P, Keys.A, Keys.S, Keys.D, Keys.F, Keys.G, Keys.H, Keys.J, Keys.K, Keys.L, Keys.Z, Keys.X, Keys.C, 
             Keys.V, Keys.B, Keys.N, Keys.M
          };
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
+        private Label Label1;
+        private Label Label2;
+        private Label Label3;
+        private Label Label4;
+        private Label Label5;
         private List<Keys> myList = new List<Keys>();
         private PictureBox pictureBox1;
         private TableLayoutPanel tableLayoutPanel1;
@@ -226,13 +226,13 @@
             this.key60 = new Key();
             this.key58 = new Key();
             this.key50 = new Key();
-            this.label1 = new Label();
+            this.Label1 = new Label();
             this.pictureBox1 = new PictureBox();
             this.tableLayoutPanel1 = new TableLayoutPanel();
-            this.label2 = new Label();
-            this.label3 = new Label();
-            this.label4 = new Label();
-            this.label5 = new Label();
+            this.Label2 = new Label();
+            this.Label3 = new Label();
+            this.Label4 = new Label();
+            this.Label5 = new Label();
             this.button1 = new Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((ISupportInitialize) this.pictureBox1).BeginInit();
@@ -910,15 +910,15 @@
             this.key50.one = false;
             this.key50.Size = new Size(40, 40);
             this.key50.TabIndex = 0x3f;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = Color.Transparent;
-            this.label1.FlatStyle = FlatStyle.Flat;
-            this.label1.Font = new Font("黑体", 14.25f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label1.Location = new Point(0x131, 0x2d);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(0x170, 0x4c);
-            this.label1.TabIndex = 0x40;
-            this.label1.Text = "    现在开始键盘测试。请根据屏幕上\r\n的提示按键，输入对应按键。测试完毕\r\n之后请按下一步。如果键盘某个按键有\r\n问题，请与监考老师联系。";
+            this.Label1.AutoSize = true;
+            this.Label1.BackColor = Color.Transparent;
+            this.Label1.FlatStyle = FlatStyle.Flat;
+            this.Label1.Font = new Font("黑体", 14.25f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label1.Location = new Point(0x131, 0x2d);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new Size(0x170, 0x4c);
+            this.Label1.TabIndex = 0x40;
+            this.Label1.Text = "    现在开始键盘测试。请根据屏幕上\r\n的提示按键，输入对应按键。测试完毕\r\n之后请按下一步。如果键盘某个按键有\r\n问题，请与监考老师联系。";
             this.pictureBox1.BackColor = Color.Transparent;
             this.pictureBox1.Location = new Point(0x13, 0x2d);
             this.pictureBox1.Name = "pictureBox1";
@@ -931,10 +931,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 81.13207f));
             this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18.86792f));
             this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 148f));
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Label3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Label4, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Label5, 2, 1);
             this.tableLayoutPanel1.Location = new Point(0x61, 0x2d);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -944,29 +944,29 @@
             this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20f));
             this.tableLayoutPanel1.Size = new Size(0xba, 0x4c);
             this.tableLayoutPanel1.TabIndex = 0x43;
-            this.label2.Dock = DockStyle.Fill;
-            this.label2.Location = new Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new Size(0x18, 30);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "报名号";
-            this.label2.Click += new EventHandler(this.Label2_Click);
-            this.label3.Dock = DockStyle.Fill;
-            this.label3.Location = new Point(40, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new Size(0x8f, 30);
-            this.label3.TabIndex = 1;
-            this.label4.Dock = DockStyle.Fill;
-            this.label4.Location = new Point(3, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new Size(0x18, 15);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "姓名";
-            this.label5.Dock = DockStyle.Fill;
-            this.label5.Location = new Point(40, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new Size(0x8f, 15);
-            this.label5.TabIndex = 3;
+            this.Label2.Dock = DockStyle.Fill;
+            this.Label2.Location = new Point(3, 0);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new Size(0x18, 30);
+            this.Label2.TabIndex = 0;
+            this.Label2.Text = "报名号";
+            this.Label2.Click += new EventHandler(this.Label2_Click);
+            this.Label3.Dock = DockStyle.Fill;
+            this.Label3.Location = new Point(40, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new Size(0x8f, 30);
+            this.Label3.TabIndex = 1;
+            this.Label4.Dock = DockStyle.Fill;
+            this.Label4.Location = new Point(3, 30);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new Size(0x18, 15);
+            this.Label4.TabIndex = 2;
+            this.Label4.Text = "姓名";
+            this.Label5.Dock = DockStyle.Fill;
+            this.Label5.Location = new Point(40, 30);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new Size(0x8f, 15);
+            this.Label5.TabIndex = 3;
             this.button1.AutoSize = true;
             this.button1.Cursor = Cursors.Hand;
             this.button1.FlatStyle = FlatStyle.Flat;
@@ -986,7 +986,7 @@
             base.Controls.Add(this.button1);
             base.Controls.Add(this.tableLayoutPanel1);
             base.Controls.Add(this.pictureBox1);
-            base.Controls.Add(this.label1);
+            base.Controls.Add(this.Label1);
             base.Controls.Add(this.key50);
             base.Controls.Add(this.key62);
             base.Controls.Add(this.key61);
@@ -1126,11 +1126,11 @@
         {
             get
             {
-                return this.label3.Text;
+                return this.Label3.Text;
             }
             set
             {
-                this.label3.Text = value;
+                this.Label3.Text = value;
             }
         }
 
@@ -1138,11 +1138,11 @@
         {
             get
             {
-                return this.label5.Text;
+                return this.Label5.Text;
             }
             set
             {
-                this.label5.Text = value;
+                this.Label5.Text = value;
             }
         }
     }

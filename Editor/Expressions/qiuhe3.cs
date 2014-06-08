@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public qiuhe3(lineexpression parent, Color color) : base(Resources.qiuhehao, parent, color, false)
         {
-            base.Type = FType.求和3;
+            base.Type = FunctionType.求和3;
         }
     }
 }

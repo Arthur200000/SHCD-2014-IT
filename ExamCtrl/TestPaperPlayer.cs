@@ -28,7 +28,7 @@
         internal static int examTimeLeft;
         internal static int examTotalTime;
         private Panel foot;
-        private FLabelList formulaEditor;
+        private FunctionLabelList formulaEditor;
         internal static int handinTime;
         private Qisi.General.Controls.imeBar imeBar;
         internal static bool inOperate;
@@ -186,7 +186,7 @@
             panel.Controls.Add(box);
             stuBMP = box.Image;
             int num8 = 10;
-            Label label = new Label {
+            Label Label = new Label {
                 Font = new Font("黑体", 15f, FontStyle.Bold, GraphicsUnit.Pixel),
                 Location = new Point(0, box.Bottom + num8),
                 AutoSize = true,
@@ -199,21 +199,21 @@
                 answerINI.WriteValue("ANSWER", "GENDER", information[1]);
                 answerINI.WriteValue("ANSWER", "STUDENTNAME", information[0]);
                 answerINI.WriteValue("ANSWER", "SEATNO", information[2]);
-                label.Text = label.Text + "姓名：" + information[0] + "\r\n";
-                label.Text = label.Text + "性别：" + information[1] + "\r\n";
-                label.Text = label.Text + "座位号：" + information[2] + "\r\n";
-                label.Text = label.Text + keyName + "：" + information[3] + "\r\n";
+                Label.Text = Label.Text + "姓名：" + information[0] + "\r\n";
+                Label.Text = Label.Text + "性别：" + information[1] + "\r\n";
+                Label.Text = Label.Text + "座位号：" + information[2] + "\r\n";
+                Label.Text = Label.Text + keyName + "：" + information[3] + "\r\n";
             }
             else
             {
-                label.Text = label.Text + "姓名：" + answerINI.ReadValue("ANSWER", "STUDENTNAME", "") + "\r\n";
-                label.Text = label.Text + "性别：" + answerINI.ReadValue("ANSWER", "GENDER", "") + "\r\n";
-                label.Text = label.Text + "座位号：" + answerINI.ReadValue("ANSWER", "SEATNO", "") + "\r\n";
-                label.Text = label.Text + keyName + "：" + answerINI.ReadValue("ANSWER", "TESTID", "") + "\r\n";
+                Label.Text = Label.Text + "姓名：" + answerINI.ReadValue("ANSWER", "STUDENTNAME", "") + "\r\n";
+                Label.Text = Label.Text + "性别：" + answerINI.ReadValue("ANSWER", "GENDER", "") + "\r\n";
+                Label.Text = Label.Text + "座位号：" + answerINI.ReadValue("ANSWER", "SEATNO", "") + "\r\n";
+                Label.Text = Label.Text + keyName + "：" + answerINI.ReadValue("ANSWER", "TESTID", "") + "\r\n";
             }
-            label.Text = label.Text + "选考模块：" + subject;
-            panel.Controls.Add(label);
-            stuInfo = label.Text;
+            Label.Text = Label.Text + "选考模块：" + subject;
+            panel.Controls.Add(Label);
+            stuInfo = Label.Text;
             Clock clock = new Clock();
             base.Controls.Add(clock);
             clock.Size = new Size(num3, num3);
@@ -254,7 +254,7 @@
             this.submit.Click += new EventHandler(this.submit_Click);
             if (mode == RunMode.Player)
             {
-                Label label2 = new Label {
+                Label Label2 = new Label {
                     Font = new Font("微软雅黑", 14f, FontStyle.Regular, GraphicsUnit.Pixel),
                     Text = "字体",
                     Location = new Point(0, this.submit.Top - num5),
@@ -262,9 +262,9 @@
                     AutoSize = false,
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                base.Controls.Add(label2);
+                base.Controls.Add(Label2);
                 TrackBar bar = new TrackBar {
-                    Location = new Point(label2.Right, label2.Top),
+                    Location = new Point(Label2.Right, Label2.Top),
                     AutoSize = false,
                     Size = new Size(width - num5, num5),
                     Minimum = 0,
@@ -274,28 +274,28 @@
                     Cursor = Cursors.Hand
                 };
                 base.Controls.Add(bar);
-                Label label3 = new Label {
+                Label Label3 = new Label {
                     Font = new Font("微软雅黑", 14f, FontStyle.Regular, GraphicsUnit.Pixel),
                     Text = "颜色",
-                    Location = new Point(0, label2.Top - num5),
+                    Location = new Point(0, Label2.Top - num5),
                     Size = new Size(num6, num6),
                     AutoSize = false,
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                base.Controls.Add(label3);
+                base.Controls.Add(Label3);
                 int num9 = (width - num6) / 8;
                 Color[] colorArray = new Color[] { Color.FromArgb(0xff, 0xff, 0xff), Color.FromArgb(250, 0xf9, 0xde), Color.FromArgb(0xff, 0xf2, 0xe2), Color.FromArgb(0xfd, 230, 0xe0), Color.FromArgb(0xe3, 0xed, 0xcd), Color.FromArgb(220, 0xe2, 0xf1), Color.FromArgb(0xe9, 0xeb, 0xfe), Color.FromArgb(0xea, 0xea, 0xef) };
                 for (num10 = 0; num10 < colorArray.Length; num10++)
                 {
-                    Label label4 = new Label {
+                    Label Label4 = new Label {
                         Text = "",
                         BorderStyle = BorderStyle.FixedSingle,
                         BackColor = colorArray[num10],
                         Size = new Size(num9, num9),
-                        Location = new Point(label3.Right + (num10 * num9), (label3.Top + (label3.Height / 2)) - (num9 / 2)),
+                        Location = new Point(Label3.Right + (num10 * num9), (Label3.Top + (Label3.Height / 2)) - (num9 / 2)),
                         Cursor = Cursors.Hand
                     };
-                    base.Controls.Add(label4);
+                    base.Controls.Add(Label4);
                 }
             }
             this.paperTree = new QisiTreeView();
@@ -420,7 +420,7 @@
             tickCount = 0;
             if (this.testpaper.formulaEditType != "")
             {
-                this.formulaEditor = new FLabelList(this.testpaper.formulaEditType, mainPanelSize.Width, true);
+                this.formulaEditor = new FunctionLabelList(this.testpaper.formulaEditType, mainPanelSize.Width, true);
                 this.formulaEditor.Visible = false;
                 this.formulaEditor.Location = new Point(width, this.title.Bottom);
                 this.formulaEditor.VisibleChanged += new EventHandler(this.fe_VisibleChanged);

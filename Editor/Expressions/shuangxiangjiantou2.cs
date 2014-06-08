@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public shuangxiangjiantou2(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.双向箭头2;
+            base.Type = FunctionType.双向箭头2;
         }
 
         public override void DrawExpression(Graphics g)

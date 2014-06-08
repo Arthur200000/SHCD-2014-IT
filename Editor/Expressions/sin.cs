@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public sin(lineexpression parent, Color color) : base("sin", parent, color)
         {
-            base.Type = FType.正弦;
+            base.Type = FunctionType.正弦;
         }
     }
 }

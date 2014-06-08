@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public jifen1(lineexpression parent, Color color) : base(Resources.jfhao, parent, color)
         {
-            base.Type = FType.积分1;
+            base.Type = FunctionType.积分1;
         }
     }
 }

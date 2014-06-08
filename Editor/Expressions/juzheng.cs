@@ -20,7 +20,7 @@ using Qisi.Editor.Properties;
             {
                 base.Child.Add(new lineexpression(this.Font));
             }
-            base.Type = FType.矩阵;
+            base.Type = FunctionType.矩阵;
             for (num = 0; num < (P.X * P.Y); num++)
             {
                 base.Child[num].ParentExpression = this;

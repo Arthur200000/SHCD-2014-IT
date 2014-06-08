@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public ln(lineexpression parent, Color color) : base("ln", parent, color)
         {
-            base.Type = FType.自然对数;
+            base.Type = FunctionType.自然对数;
         }
     }
 }

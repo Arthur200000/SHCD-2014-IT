@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public zuoxiangjianshijiantouzaishang(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.左向简式箭头在上;
+            base.Type = FunctionType.左向简式箭头在上;
         }
 
         public override void DrawExpression(Graphics g)

@@ -6,7 +6,9 @@
     using System.Drawing;
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Volume control.
+	/// </summary>
     public class VolumeControl : UserControl
     {
         private IContainer components;
@@ -25,7 +27,9 @@
             }
             base.Dispose(disposing);
         }
-
+		/// <summary>
+		/// Gets the volume.
+		/// </summary>
         private void GetVolume()
         {
             if (Environment.OSVersion.Version.Major >= 6)

@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public lg(lineexpression parent, Color color) : base("lg", parent, color)
         {
-            base.Type = FType.对数10;
+            base.Type = FunctionType.对数10;
         }
     }
 }

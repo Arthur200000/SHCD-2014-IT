@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public sec_2(lineexpression parent, Color color) : base("sec", parent, color)
         {
-            base.Type = FType.正割_2;
+            base.Type = FunctionType.正割_2;
         }
     }
 }

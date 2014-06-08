@@ -13,7 +13,7 @@ using Qisi.Editor.Properties;
         {
             base.Child.Add(new lineexpression(this.Font));
             base.Child.Add(new lineexpression(this.Font));
-            base.Type = FType.分式;
+            base.Type = FunctionType.分式;
             this.Fenzi.ParentExpression = this;
             this.Fenmu.ParentExpression = this;
             this.Fenzi.DownLineExpression = this.Fenmu;

@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public denghao2(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.等号2;
+            base.Type = FunctionType.等号2;
         }
 
         public override void DrawExpression(Graphics g)

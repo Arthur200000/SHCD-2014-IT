@@ -14,7 +14,7 @@
     {
         private Button button1;
         private IContainer components = null;
-        private Label label1;
+        private Label Label1;
         private string mypaper;
         private TextBox textBox1;
 
@@ -93,18 +93,18 @@
 
         private void InitializeComponent()
         {
-            this.label1 = new Label();
+            this.Label1 = new Label();
             this.textBox1 = new TextBox();
             this.button1 = new Button();
             base.SuspendLayout();
-            this.label1.AutoSize = true;
-            this.label1.Font = new Font("宋体", 12f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
-            this.label1.ForeColor = Color.White;
-            this.label1.Location = new Point(1, 0x20);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(0x200, 0x10);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "请输入你的邮箱地址，我们将在2周内，将评估报告发往你填写的邮箱。";
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new Font("宋体", 12f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
+            this.Label1.ForeColor = Color.White;
+            this.Label1.Location = new Point(1, 0x20);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new Size(0x200, 0x10);
+            this.Label1.TabIndex = 0;
+            this.Label1.Text = "请输入你的邮箱地址，我们将在2周内，将评估报告发往你填写的邮箱。";
             this.textBox1.Location = new Point(0x44, 0x43);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new Size(0x180, 0x15);
@@ -124,7 +124,7 @@
             base.ClientSize = new Size(0x1fd, 0xa9);
             base.Controls.Add(this.button1);
             base.Controls.Add(this.textBox1);
-            base.Controls.Add(this.label1);
+            base.Controls.Add(this.Label1);
             base.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             base.Name = "upload";
             base.StartPosition = FormStartPosition.CenterParent;

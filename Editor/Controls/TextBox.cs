@@ -4,7 +4,9 @@
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Text box.
+	/// </summary>
     public class TextBox : UserControl
     {
         private IContainer components = null;
@@ -20,12 +22,16 @@
             this.textBar1.InsertTable += new TextBar.InsertTableEventHandler(this.textBar1_InsertTable);
             this.textBar1.InsertImage += new TextBar.InsertImageEventHandler(this.textBar1_InsertImage);
         }
-
+		/// <summary>
+		/// Clear this instance.
+		/// </summary>
         public void Clear()
         {
             this.superBox1.Clear();
         }
-
+		/// <summary>
+		/// get Content of this instance.
+		/// </summary>
         public void Content()
         {
             this.superBox1.getContent();
@@ -76,7 +82,9 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             base.ResumeLayout(false);
         }
-
+		/// <summary>
+		/// Loads from xml.
+		/// </summary>
         public void LoadFromXml()
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -86,13 +94,18 @@
                 this.superBox1.LoadFromXml(dialog.FileName);
             }
         }
-
+		/// <summary>
+		/// Loads from xml.
+		/// </summary>
+		/// <param name="file">XML File.</param>
         public void LoadFromXml(string file)
         {
             Random random = new Random(DateTime.Now.Millisecond);
             this.superBox1.LoadFromXml(file);
         }
-
+		/// <summary>
+		/// Save this instance.
+		/// </summary>
         public void Save()
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();

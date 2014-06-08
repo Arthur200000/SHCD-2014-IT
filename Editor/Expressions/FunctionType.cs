@@ -5,7 +5,7 @@ using Qisi.Editor.Properties;
 {
     using System;
 
-    internal enum FType
+    internal enum FunctionType
     {
         无,
         分式,

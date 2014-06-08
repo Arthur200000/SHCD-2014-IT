@@ -12,7 +12,7 @@ using Qisi.Editor.Properties;
         {
             base.Child.Add(new lineexpression(this.Font));
             base.Child.Add(new lineexpression(this.Font));
-            base.Type = FType.下标;
+            base.Type = FunctionType.下标;
             this.Benti.ParentExpression = this;
             this.Xiabiao.ParentExpression = this;
         }

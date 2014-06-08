@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public zuojiantou3(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.左箭头3;
+            base.Type = FunctionType.左箭头3;
         }
 
         public override void DrawExpression(Graphics g)

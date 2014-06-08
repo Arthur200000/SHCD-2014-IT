@@ -12,7 +12,7 @@ using Qisi.Editor.Properties;
         private Font _Font;
         private string specialcontent;
 
-        public specialchar(string str, FType f, string c2, lineexpression parent, Color color) : base(str, parent, color)
+        public specialchar(string str, FunctionType f, string c2, lineexpression parent, Color color) : base(str, parent, color)
         {
             this.specialcontent = c2;
             StringFormat genericTypographic = StringFormat.GenericTypographic;

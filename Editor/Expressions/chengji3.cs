@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public chengji3(lineexpression parent, Color color) : base(Resources.chengjihao, parent, color, false)
         {
-            base.Type = FType.乘积3;
+            base.Type = FunctionType.乘积3;
         }
     }
 }

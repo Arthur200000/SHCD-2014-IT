@@ -3,7 +3,9 @@
     using System;
     using System.IO;
     using System.Runtime.CompilerServices;
-
+	/// <summary>
+	/// Memory file.
+	/// </summary>
     internal class MemoryFile
     {
         internal MemoryFile(string filepath)

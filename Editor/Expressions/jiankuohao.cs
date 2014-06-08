@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public jiankuohao(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.尖括号;
+            base.Type = FunctionType.尖括号;
         }
 
         public override void DrawExpression(Graphics g)

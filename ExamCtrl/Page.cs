@@ -10,7 +10,9 @@
     using System.Threading;
     using System.Windows.Forms;
     using System.Xml;
-
+	/// <summary>
+	/// Page.
+	/// </summary>
     internal class Page : IDisposable
     {
         private List<Label> answerLabelList = new List<Label>();
@@ -73,7 +75,7 @@
                 {
                     int num;
                     Question question;
-                    Label label;
+                    Label Label;
                     ReadOnlyRichTextBox box2;
                     if (node.Name == "question")
                     {
@@ -90,34 +92,34 @@
                         this.questionList.Add(question);
                         if (TestPaperPlayer.mode == TestPaperPlayer.RunMode.CDExercise)
                         {
-                            label = new Label {
+                            Label = new Label {
                                 BackColor = Color.Transparent,
                                 Text = "",
                                 AutoSize = false,
                                 Size = new Size(num, num)
                             };
-                            this.pagePanel.Controls.Add(label);
-                            Label label2 = new Label {
+                            this.pagePanel.Controls.Add(Label);
+                            Label Label2 = new Label {
                                 Font = new Font("宋体", 20f, FontStyle.Underline, GraphicsUnit.Pixel),
                                 ForeColor = Color.Blue,
                                 Text = "参考答案",
                                 Cursor = Cursors.Hand
                             };
-                            label2.Click += new EventHandler(this.label_Click);
-                            this.pagePanel.Controls.Add(label2);
-                            this.pagePanel.SetFlowBreak(label2, true);
+                            Label2.Click += new EventHandler(this.Label_Click);
+                            this.pagePanel.Controls.Add(Label2);
+                            this.pagePanel.SetFlowBreak(Label2, true);
                             this.answerList.Add(TestPaperPlayer.stdINI.ReadValue(node.Attributes["id"].Value, "std", ""));
-                            this.answerLabelList.Add(label2);
+                            this.answerLabelList.Add(Label2);
                         }
                         else if (TestPaperPlayer.mode == TestPaperPlayer.RunMode.CDAnalysis)
                         {
-                            label = new Label {
+                            Label = new Label {
                                 BackColor = Color.Transparent,
                                 Text = "",
                                 AutoSize = false,
                                 Size = new Size(num, num)
                             };
-                            this.pagePanel.Controls.Add(label);
+                            this.pagePanel.Controls.Add(Label);
                             string optionAnswer = TestPaperPlayer.stdINI.ReadValue(node.Attributes["id"].Value, "std", "");
                             if (optionAnswer.EndsWith(".rtf"))
                             {
@@ -181,13 +183,13 @@
                             this.questionList.Add(question);
                             if (TestPaperPlayer.mode == TestPaperPlayer.RunMode.CDExercise)
                             {
-                                label = new Label {
+                                Label = new Label {
                                     BackColor = Color.Transparent,
                                     Text = "",
                                     AutoSize = false,
                                     Size = new Size(num, num)
                                 };
-                                this.pagePanel.Controls.Add(label);
+                                this.pagePanel.Controls.Add(Label);
                                 box2 = new ReadOnlyRichTextBox();
                                 box2.LoadFile(Path.Combine(TestPaperPlayer.stdAnswerDir, TestPaperPlayer.stdINI.ReadValue(node.Attributes["id"].Value, "std", "")));
                                 this.pagePanel.Controls.Add(box2);
@@ -237,7 +239,7 @@
             }
         }
 
-        private void label_Click(object sender, EventArgs e)
+        private void Label_Click(object sender, EventArgs e)
         {
             if (sender is Label)
             {

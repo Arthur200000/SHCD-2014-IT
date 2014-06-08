@@ -65,7 +65,7 @@ using Qisi.Editor.Properties;
 
         public SizeF Region { get; set; }
 
-        public FType Type { get; set; }
+        public FunctionType Type { get; set; }
     }
 }
 

@@ -8,13 +8,19 @@
     using System.Drawing.Text;
     using System.Runtime.InteropServices;
     using System.Text;
-
+	/// <summary>
+	/// Common methods, and expression lookup.
+	/// </summary>
     internal static class CommonMethods
     {
         internal static int height = 0x23;
         private static MemoryIniFile ini = null;
         internal static PrivateFontCollection pfc = null;
-
+		/// <summary>
+		/// Calculates the ascent pixel.
+		/// </summary>
+		/// <returns>The ascent pixel.</returns>
+		/// <param name="font">Font.</param>
         internal static float CalcAscentPixel(Font font)
         {
             FontFamily fontFamily = font.FontFamily;
@@ -547,11 +553,14 @@
                 case "左双线箭头":
                 case "右双线箭头":
                 case "左右双线箭头":
-                    return new specialchar(GetSpecialChar(type), (FType) Enum.Parse(typeof(FType), type, true), ExprToString(type), parent, color);
+                    return new specialchar(GetSpecialChar(type), (FunctionType) Enum.Parse(typeof(FunctionType), type, true), ExprToString(type), parent, color);
             }
             return new charexpression(content, parent, color);
         }
-
+		/// <summary>
+		/// Finds the Expression called Key.
+		/// </summary>
+		/// <param name="key">Key.</param>
         internal static string Exprs(string key)
         {
             if (ini == null)
@@ -561,7 +570,11 @@
             }
             return ini.ReadValue("Group", key, "");
         }
-
+		/// <summary>
+		/// Expression to string.
+		/// </summary>
+		/// <returns>The string.</returns>
+		/// <param name="key">Key.</param>
         internal static string ExprToString(string key)
         {
             if (ini == null)
@@ -571,8 +584,13 @@
             }
             return ini.ReadValue("Expr", key, "");
         }
-
-        public static Font GetCambriaFont(float fontsize = 12f, FontStyle FS = 0)
+		/// <summary>
+		/// Gets the cambria font.
+		/// </summary>
+		/// <returns>The cambria font.</returns>
+		/// <param name="fontsize">Fontsize.</param>
+		/// <param name="fontstyle">Fontstyle.</param>
+        public static Font GetCambriaFont(float fontsize = 12f, FontStyle fontstyle = 0)
         {
             if (pfc == null)
             {
@@ -604,7 +622,7 @@
                 {
                     if (pfc.Families[i].Name == "Cambria")
                     {
-                        return new Font(pfc.Families[i], fontsize, FS, GraphicsUnit.Pixel);
+                        return new Font(pfc.Families[i], fontsize, fontstyle, GraphicsUnit.Pixel);
                     }
                 }
             }

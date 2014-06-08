@@ -11,8 +11,8 @@
         private Button button1;
         private Button button2;
         private IContainer components;
-        private Label label1;
-        private Label label2;
+        private Label Label1;
+        private Label Label2;
         private TextBox textBox1;
 
         public event EventHandler Exit;
@@ -29,7 +29,7 @@
         {
             this.components = null;
             this.InitializeComponent();
-            this.label2.Text = this.label2.Text + text;
+            this.Label2.Text = this.Label2.Text + text;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,30 +66,30 @@
 
         private void InitializeComponent()
         {
-            this.label1 = new Label();
-            this.label2 = new Label();
+            this.Label1 = new Label();
+            this.Label2 = new Label();
             this.textBox1 = new TextBox();
             this.button1 = new Button();
             this.button2 = new Button();
             base.SuspendLayout();
-            this.label1.BackColor = Color.Transparent;
-            this.label1.Font = new Font("Microsoft Sans Serif", 14.25f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label1.ForeColor = Color.SteelBlue;
-            this.label1.Location = new Point(0xa1, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(160, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "考试系统登录";
-            this.label1.TextAlign = ContentAlignment.MiddleCenter;
-            this.label2.BackColor = Color.Transparent;
-            this.label2.Font = new Font("Microsoft Sans Serif", 14.25f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label2.ForeColor = Color.Black;
-            this.label2.Location = new Point(0, 0x4c);
-            this.label2.Name = "label2";
-            this.label2.Size = new Size(0x1d0, 0x18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "请输入报名号";
-            this.label2.TextAlign = ContentAlignment.MiddleCenter;
+            this.Label1.BackColor = Color.Transparent;
+            this.Label1.Font = new Font("Microsoft Sans Serif", 14.25f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label1.ForeColor = Color.SteelBlue;
+            this.Label1.Location = new Point(0xa1, 20);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new Size(160, 40);
+            this.Label1.TabIndex = 0;
+            this.Label1.Text = "考试系统登录";
+            this.Label1.TextAlign = ContentAlignment.MiddleCenter;
+            this.Label2.BackColor = Color.Transparent;
+            this.Label2.Font = new Font("Microsoft Sans Serif", 14.25f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label2.ForeColor = Color.Black;
+            this.Label2.Location = new Point(0, 0x4c);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new Size(0x1d0, 0x18);
+            this.Label2.TabIndex = 2;
+            this.Label2.Text = "请输入报名号";
+            this.Label2.TextAlign = ContentAlignment.MiddleCenter;
             this.textBox1.Font = new Font("黑体", 14.25f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
             this.textBox1.ImeMode = ImeMode.Off;
             this.textBox1.Location = new Point(0x2f, 0x71);
@@ -124,8 +124,8 @@
             base.Controls.Add(this.button2);
             base.Controls.Add(this.button1);
             base.Controls.Add(this.textBox1);
-            base.Controls.Add(this.label2);
-            base.Controls.Add(this.label1);
+            base.Controls.Add(this.Label2);
+            base.Controls.Add(this.Label1);
             base.Name = "Login";
             base.ResumeLayout(false);
             base.PerformLayout();

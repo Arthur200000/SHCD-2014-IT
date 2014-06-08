@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public bing25(lineexpression parent, Color color) : base(Resources.bing2, parent, color)
         {
-            base.Type = FType.并25;
+            base.Type = FunctionType.并25;
         }
     }
 }

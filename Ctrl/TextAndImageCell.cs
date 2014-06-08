@@ -4,7 +4,9 @@
     using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Text and image cell.
+	/// </summary>
     public class TextAndImageCell : DataGridViewTextBoxCell
     {
         private System.Drawing.Color ColorValue = System.Drawing.Color.Transparent;
@@ -13,7 +15,9 @@
         {
             base.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
-
+		/// <summary>
+		/// Clone this instance.
+		/// </summary>
         public override object Clone()
         {
             TextAndImageCell cell = (TextAndImageCell) base.Clone();
@@ -34,7 +38,10 @@
             graphics.DrawString(value.ToString(), cellStyle.Font, brush, (float) (image.Width - 8), (cellBounds.Height - ef.Height) / 2f);
             graphics.EndContainer(container);
         }
-
+		/// <summary>
+		/// Gets or sets the color.
+		/// </summary>
+		/// <value>The color.</value>
         public System.Drawing.Color Color
         {
             get

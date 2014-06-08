@@ -12,7 +12,7 @@ using Qisi.Editor.Properties;
         public xiafangdakuohao(lineexpression parent, Color color) : base(parent, color, true)
         {
             base.Child.Add(new lineexpression(this.Font));
-            base.Type = FType.下方大括号;
+            base.Type = FunctionType.下方大括号;
             this.Benti.ParentExpression = this;
         }
 

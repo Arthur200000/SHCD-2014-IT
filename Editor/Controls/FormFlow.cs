@@ -9,7 +9,9 @@
     using System.Runtime.CompilerServices;
     using System.Timers;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Form flow.
+	/// </summary>
     internal class FormFlow : Form
     {
         private int backcount;
@@ -36,7 +38,18 @@
         private ToolStripStatusLabel toolStripStatusLabel2;
         private ToolStripStatusLabel toolStripStatusLabel3;
         private const int WM_SYSCOMMAND = 0x112;
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.Editor.Controls.FormFlow"/> class.
+		/// </summary>
+		/// <param name="stuImg">Student image.</param>
+		/// <param name="stuInfo">Student info.</param>
+		/// <param name="rtfPath">Rtf path.</param>
+		/// <param name="dataPath">Data path.</param>
+		/// <param name="examLeftTime">Time Left.</param>
+		/// <param name="endtiptime">End-tip time.</param>
+		/// <param name="answerPath">Answer path.</param>
+		/// <param name="gifPath">GIF path.</param>
+		/// <param name="countMode">Count mode.</param>
         internal FormFlow(Image stuImg, string stuInfo, string rtfPath, string dataPath, int examLeftTime, int endtiptime, string answerPath, string gifPath, int countMode)
         {
             TabPage page;
@@ -68,14 +81,14 @@
             box.Size = new Size(100, 0x84);
             this.panel1.Controls.Add(box);
             box.Location = new Point(0, 0);
-            Label label = new Label {
+            Label Label = new Label {
                 Text = stuInfo,
                 Font = new Font("黑体", 9f, FontStyle.Bold),
                 Visible = true,
                 AutoSize = true
             };
-            this.panel1.Controls.Add(label);
-            label.Top = box.Bottom + 10;
+            this.panel1.Controls.Add(Label);
+            Label.Top = box.Bottom + 10;
             FileStream data = File.OpenRead(rtfPath);
             this.readOnlyRichTextBox1.LoadFile(data, RichTextBoxStreamType.RichText);
             data.Close();
@@ -146,7 +159,11 @@
         {
             base.Close();
         }
-
+		/// <summary>
+		/// Starts cmd.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">Event Arguments.</param>
         private void button2_Click(object sender, EventArgs e)
         {
             Process process = new Process {

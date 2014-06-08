@@ -11,7 +11,7 @@ using Qisi.Editor.Properties;
     {
         public chengmihao(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.乘幂号;
+            base.Type = FunctionType.乘幂号;
         }
 
         public override void DrawExpression(Graphics g)

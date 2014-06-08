@@ -7,12 +7,14 @@
     using System.Drawing;
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
-
-    public class FLabelList : Control
+	/// <summary>
+	/// Function label list.
+	/// </summary>
+    public class FunctionLabelList : Control
     {
         private int clickregion;
         private int clickregionfoot;
-        private int flabelheight;
+        private int fLabelheight;
         private const int head = 20;
         private const int initlines = 3;
         private Size initsize;
@@ -20,14 +22,21 @@
         private Keys[] keyslist;
         private int moveleft;
         private int moveright;
-        private List<List<FLabel>> mylist;
+        private List<List<FunctionLabel>> mylist;
         private List<bool> rightout;
-
-        public FLabelList() : this("其他", 500, true)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.Editor.Controls.FunctionLabelList"/> class.
+		/// </summary>
+        public FunctionLabelList() : this("其他", 500, true)
         {
         }
-
-        public FLabelList(string subject, int width, bool hashotkey = true)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.Editor.Controls.FunctionLabelList"/> class.
+		/// </summary>
+		/// <param name="subject">Subject.</param>
+		/// <param name="width">Width.</param>
+		/// <param name="hashotkey">Whether Label has hot keys. If set to <c>true</c>, fLabelheight = CommonMethods.height + (CommonMethods.height / 2); otherwise Labelheight = CommonMethods.height.</param>
+        public FunctionLabelList(string subject, int width, bool hashotkey = true)
         {
             int num;
             this.keyslist = new Keys[] { 
@@ -38,29 +47,29 @@
             base.TabStop = true;
             this.Font = new Font("微软雅黑", 10f, FontStyle.Regular, GraphicsUnit.Pixel, 0x86);
             this.DoubleBuffered = true;
-            this.mylist = new List<List<FLabel>>();
+            this.mylist = new List<List<FunctionLabel>>();
             this.rightout = new List<bool>();
             string[] strArray = CommonMethods.Groups(subject).Split(new char[] { ',' });
             foreach (string str in strArray)
             {
                 this.rightout.Add(false);
-                List<FLabel> item = new List<FLabel>();
+                List<FunctionLabel> item = new List<FunctionLabel>();
                 string[] strArray2 = CommonMethods.Exprs(str).Split(new char[] { ',' });
                 num = 0;
                 while (num < strArray2.Length)
                 {
-                    item.Add(new FLabel((FunctionType) Enum.Parse(typeof(FunctionType), strArray2[num], true), hashotkey));
+                    item.Add(new FunctionLabel((FunctionType) Enum.Parse(typeof(FunctionType), strArray2[num], true), hashotkey));
                     num++;
                 }
                 this.mylist.Add(item);
             }
             if (hashotkey)
             {
-                this.flabelheight = CommonMethods.height + (CommonMethods.height / 2);
+                this.fLabelheight = CommonMethods.height + (CommonMethods.height / 2);
             }
             else
             {
-                this.flabelheight = CommonMethods.height;
+                this.fLabelheight = CommonMethods.height;
             }
             int index = 0;
             for (num = 0; num < this.mylist.Count; num++)
@@ -69,12 +78,12 @@
                 for (int i = 0; i < this.mylist[num].Count; i++)
                 {
                     base.Controls.Add(this.mylist[num][i]);
-                    this.mylist[num][i].Location = new Point(CommonMethods.height * i, (this.flabelheight * num) + 20);
+                    this.mylist[num][i].Location = new Point(CommonMethods.height * i, (this.fLabelheight * num) + 20);
                     if ((CommonMethods.height * i) > width)
                     {
                         this.rightout[num] = true;
                     }
-                    this.mylist[num][i].AppendExpression += new FLabel.AppendExpressionHandler(this.FLabelList_AppenExpression);
+                    this.mylist[num][i].AppendExpression += new FunctionLabel.AppendExpressionHandler(this.FLabelList_AppenExpression);
                     if (num >= 3)
                     {
                         this.mylist[num][i].Visible = false;
@@ -104,8 +113,8 @@
             Qisi.Editor.NativeMethods.RegisterHotKey(base.Handle, this.moveleft, Qisi.Editor.NativeMethods.KeyModifiers.Alt, Keys.Left);
             this.moveright = Qisi.Editor.NativeMethods.GlobalAddAtom(Guid.NewGuid().ToString());
             Qisi.Editor.NativeMethods.RegisterHotKey(base.Handle, this.moveright, Qisi.Editor.NativeMethods.KeyModifiers.Alt, Keys.Right);
-            this.initsize = new Size(width, (Math.Min(this.mylist.Count, 3) * this.flabelheight) + 40);
-            base.Size = new Size(width, (Math.Min(this.mylist.Count, 3) * this.flabelheight) + 40);
+            this.initsize = new Size(width, (Math.Min(this.mylist.Count, 3) * this.fLabelheight) + 40);
+            base.Size = new Size(width, (Math.Min(this.mylist.Count, 3) * this.fLabelheight) + 40);
             base.Click += new EventHandler(this.FLabelList_Click);
             base.MouseMove += new MouseEventHandler(this.FLabelList_MouseMove);
         }
@@ -168,13 +177,13 @@
                 }
                 if (this.isexpanded)
                 {
-                    this.initsize = new Size(base.Width, (3 * this.flabelheight) + 40);
-                    base.Size = new Size(base.Width, (3 * this.flabelheight) + 40);
+                    this.initsize = new Size(base.Width, (3 * this.fLabelheight) + 40);
+                    base.Size = new Size(base.Width, (3 * this.fLabelheight) + 40);
                 }
                 else
                 {
-                    this.initsize = new Size(base.Width, (this.mylist.Count * this.flabelheight) + 40);
-                    base.Size = new Size(base.Width, (this.mylist.Count * this.flabelheight) + 40);
+                    this.initsize = new Size(base.Width, (this.mylist.Count * this.fLabelheight) + 40);
+                    base.Size = new Size(base.Width, (this.mylist.Count * this.fLabelheight) + 40);
                 }
                 this.isexpanded = !this.isexpanded;
                 base.Invalidate();
@@ -315,25 +324,25 @@
                 }
                 else
                 {
-                    foreach (List<FLabel> list in this.mylist)
+                    foreach (List<FunctionLabel> list in this.mylist)
                     {
-                        foreach (FLabel label in list)
+                        foreach (FunctionLabel Label in list)
                         {
-                            if (label.HotKeyId == ((int) m.WParam))
+                            if (Label.HotKeyId == ((int) m.WParam))
                             {
                                 Form form = base.FindForm();
                                 if ((form != null) && (form.ActiveControl != null))
                                 {
                                     if (form.ActiveControl.GetType().ToString() == "Qisi.Editor.Controls.SuperBox")
                                     {
-                                        ((SuperBox) form.ActiveControl).AppendF(label.Ftype);
+                                        ((SuperBox) form.ActiveControl).AppendF(Label.Ftype);
                                     }
                                     else
                                     {
                                         Control control = this.ActiveSuperBox(form.ActiveControl);
                                         if (control != null)
                                         {
-                                            ((SuperBox) control).AppendF(label.Ftype);
+                                            ((SuperBox) control).AppendF(Label.Ftype);
                                         }
                                     }
                                 }

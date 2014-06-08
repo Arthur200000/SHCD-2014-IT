@@ -11,7 +11,7 @@ using Qisi.Editor.Properties;
     {
         public ehuafu(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.颚化符;
+            base.Type = FunctionType.颚化符;
         }
 
         public override void DrawExpression(Graphics g)

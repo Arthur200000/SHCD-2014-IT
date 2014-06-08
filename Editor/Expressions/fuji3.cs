@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public fuji3(lineexpression parent, Color color) : base(Resources.fujihao, parent, color, false)
         {
-            base.Type = FType.副积3;
+            base.Type = FunctionType.副积3;
         }
     }
 }

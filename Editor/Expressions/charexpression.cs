@@ -16,7 +16,7 @@ using Qisi.Editor.Properties;
         {
             this.content = "";
             this.content = Document.FromEscape(str);
-            base.Type = FType.字符;
+            base.Type = FunctionType.字符;
         }
 
         public override void DrawExpression(Graphics g)

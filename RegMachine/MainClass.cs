@@ -211,7 +211,7 @@ namespace RegMachine
 
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("CLI RegMachine for SHCD-2014\nBy Arthur200000, Released under GPLv2.\nSource Code Available at https://github.com/Arthur200000/SHCD-2014-IT.");
+			Console.WriteLine ("CLI RegMachine for SHCD-2014\nBy Arthur200000, Released under GPLv2.\nSource Code AvaiLabel at https://github.com/Arthur200000/SHCD-2014-IT.");
 			string machCode = GenerateMachineCode ();
 			string listCode = "";
 			Console.WriteLine ("Using {0} as machine code.", machCode);

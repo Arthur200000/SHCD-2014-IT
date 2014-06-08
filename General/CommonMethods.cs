@@ -8,11 +8,14 @@ using System.Security.AccessControl;
 using System.Security.Cryptography;
 using System.Text;
 namespace Qisi.General
-{/// <summary>
-/// Common methods.
-	/// <para>Readxlsx/xls:Reads Microsoft Excel files.
-	/// <c></c>
-/// </summary>
+{
+	/// <summary>
+	/// Common methods.
+	/// </summary>
+	/// <remarks>
+	/// <para>Readxls(x): Reads Microsoft Excel files.</para>
+	/// <para>Zip, Unzip, Ency, Decy: Zip, Unzip, encrypt or decrypt.</para>
+	/// </remarks>
 	public class CommonMethods
 	{
 		/// <summary>

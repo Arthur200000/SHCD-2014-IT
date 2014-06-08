@@ -8,7 +8,7 @@
     public class CountDown : MdiBase
     {
         private IContainer components = null;
-        private Label label1;
+        private Label Label1;
 
         public CountDown()
         {
@@ -26,19 +26,19 @@
 
         private void InitializeComponent()
         {
-            this.label1 = new Label();
+            this.Label1 = new Label();
             base.SuspendLayout();
-            this.label1.AutoSize = true;
-            this.label1.BackColor = Color.Transparent;
-            this.label1.Font = new Font("宋体", 14.25f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label1.Location = new Point(60, 0xcc);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(0xad, 0x13);
-            this.label1.TabIndex = 0x11;
-            this.label1.Text = "正在打开试卷....";
+            this.Label1.AutoSize = true;
+            this.Label1.BackColor = Color.Transparent;
+            this.Label1.Font = new Font("宋体", 14.25f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label1.Location = new Point(60, 0xcc);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new Size(0xad, 0x13);
+            this.Label1.TabIndex = 0x11;
+            this.Label1.Text = "正在打开试卷....";
             base.AutoScaleDimensions = new SizeF(6f, 12f);
             base.AutoScaleMode = AutoScaleMode.Font;
-            base.Controls.Add(this.label1);
+            base.Controls.Add(this.Label1);
             base.Name = "CountDown";
             base.ResumeLayout(false);
             base.PerformLayout();
@@ -48,7 +48,7 @@
         {
             set
             {
-                this.label1.Text = value;
+                this.Label1.Text = value;
             }
         }
     }

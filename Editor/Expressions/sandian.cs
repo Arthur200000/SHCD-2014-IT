@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public sandian(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.三点;
+            base.Type = FunctionType.三点;
         }
 
         public override void DrawExpression(Graphics g)

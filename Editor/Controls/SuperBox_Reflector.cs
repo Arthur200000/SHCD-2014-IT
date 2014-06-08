@@ -20,6 +20,9 @@
     using Qisi.Editor.Properties;
 
     [ComVisible(true)]
+	/// <summary>
+	/// The super box.
+	/// </summary>
     public class SuperBox : Control
     {
         private object beginSelectContainer;
@@ -39,7 +42,7 @@
         private bool hasCaret;
         private const string inputableChars = "，。“”‘’、…：；！？";
         private Queue<char> inputChars;
-        private Queue<FType> inputExpressions;
+        private Queue<FunctionType> inputExpressions;
         private Queue<Image> inputImages;
         private Queue<Point> inputTables;
         private long leftArrowTime;
@@ -66,14 +69,17 @@
         public SuperBox() : this(200)
         {
         }
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.Editor.Controls.SuperBox"/> class.
+		/// </summary>
+		/// <param name="width">Width.</param>
         public SuperBox(int width)
         {
             this.selectedTextLast = new List<int>();
             this.selectedTextNew = new List<int>();
             this.selectedContainers = new List<object>();
             this.inputChars = new Queue<char>();
-            this.inputExpressions = new Queue<FType>();
+            this.inputExpressions = new Queue<FunctionType>();
             this.inputImages = new Queue<Image>();
             this.inputTables = new Queue<Point>();
             base.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -108,18 +114,24 @@
         {
         }
 
-        internal void AppendF(FType type)
+        internal void AppendF(FunctionType type)
         {
             this.inputExpressions.Enqueue(type);
             this.Insert();
         }
-
+		/// <summary>
+		/// Appends the image.
+		/// </summary>
+		/// <param name="img">Image.</param>
         public void AppendImage(Image img)
         {
             this.inputImages.Enqueue(img);
             this.Insert();
         }
-
+		/// <summary>
+		/// Appends the t.
+		/// </summary>
+		/// <param name="p">Point.</param>
         public void AppendT(Point p)
         {
             this.inputTables.Enqueue(p);
@@ -137,7 +149,9 @@
             this.selectedTextLast = new List<int>();
             this.selectedTextNew = new List<int>();
         }
-
+		/// <summary>
+		/// Clear this instance.
+		/// </summary>
         public void Clear()
         {
             this.selectedContainers = new List<object>();
@@ -164,7 +178,16 @@
             }
             base.Dispose(disposing);
         }
-
+		/// <summary>
+		/// Does the operate.
+		/// </summary>
+		/// <param name="obj">Object.</param>
+		/// <param name="stuImg">Student image.</param>
+		/// <param name="stuInfo">Student info.</param>
+		/// <param name="dataPath">Data path.</param>
+		/// <param name="examLeftTime">Time Left.</param>
+		/// <param name="tipTime">Tip time.</param>
+		/// <param name="stdanswer">Standard answer.</param>
         public void DoOperate(object obj, Image stuImg, string stuInfo, string dataPath, int examLeftTime, int tipTime, string stdanswer)
         {
             if ((obj != null) && (obj is OperationInfo))
@@ -172,13 +195,20 @@
                 (obj as OperationInfo).Do(stuImg, stuInfo, dataPath, examLeftTime, tipTime, stdanswer);
             }
         }
-
+		/// <summary>
+		/// Draw this instance.
+		/// </summary>
         public void Draw()
         {
             Graphics g = base.CreateGraphics();
             this.mainDocument.Draw(g);
         }
-
+		/// <summary>
+		/// Fills in.
+		/// </summary>
+		/// <param name="strs">Strings.</param>
+		/// <param name="filepath">Filepath.</param>
+		/// <param name="id">Identifier.</param>
         public void FillIn(string[] strs, string filepath, string id)
         {
             this.mainDocument.FillIn(strs, filepath, id);
@@ -1430,12 +1460,18 @@
                 }
             }
         }
-
+		/// <summary>
+		/// Gets the content.
+		/// </summary>
+		/// <returns>The content.</returns>
         public string getContent()
         {
             return this.mainDocument.getContent();
         }
-
+		/// <summary>
+		/// Gets the content xml.
+		/// </summary>
+		/// <returns>The content xml.</returns>
         public string getContentXml()
         {
             return this.mainDocument.getContentXml();
@@ -1624,7 +1660,7 @@
             {
                 structexpression structexpression;
                 flag = true;
-                FType type = this.inputExpressions.Peek();
+                FunctionType type = this.inputExpressions.Peek();
                 if (this.caretContainer is Document)
                 {
                     caretContainer = this.caretContainer as Document;
@@ -1828,41 +1864,43 @@
                             }
                         }
                         else
-                        {
+						{
                             for (int i = this.selectedContainers.Count - 1; i >= 0; i--)
                             {
-                                int num5;
+								int textNumber;
                                 List<int> list;
-                                int num6;
+								int num6;
                                 num = Math.Min(this.selectedTextLast[i], this.selectedTextNew[i]);
                                 num2 = Math.Max(this.selectedTextLast[i], this.selectedTextNew[i]);
                                 if (this.selectedContainers[i] is Document)
                                 {
                                     caretContainer = this.selectedContainers[i] as Document;
                                     int num4 = caretContainer.DeleteElement(num, num2 - num, this.ReadOnly);
-                                    num5 = 0;
-                                    while (num5 < i)
+                                    textNumber = 0;
+                                    while (textNumber < i)
                                     {
-                                        if (this.selectedContainers[num5] == this.selectedContainers[i])
+                                        if (this.selectedContainers[textNumber] == this.selectedContainers[i])
                                         {
-                                            if (this.selectedTextLast[num5] >= num2)
+                                            if (this.selectedTextLast[textNumber] >= num2)
                                             {
-												(list = this.selectedTextLast)[num6 = num5] = list[num6] - ((num2 - num) - num4); // Why! Look at line 1835!
+												list = this.selectedTextLast;
+												list[textNumber] = list[textNumber] - ((num2 - num) - num4); // Why! Look at line 1835!
                                             }
-                                            else if (this.selectedTextLast[num5] >= num)
+                                            else if (this.selectedTextLast[textNumber] >= num)
                                             {
-                                                this.selectedTextLast[num5] = num;
+                                                this.selectedTextLast[textNumber] = num;
                                             }
-                                            if (this.selectedTextNew[num5] >= num2)
+                                            if (this.selectedTextNew[textNumber] >= num2)
                                             {
-                                                (list = this.selectedTextNew)[num6 = num5] = list[num6] - ((num2 - num) - num4);
+												list = this.selectedTextLast;
+												list[textNumber] = list[textNumber] - ((num2 - num) - num4);
                                             }
-                                            else if (this.selectedTextNew[num5] >= num)
+                                            else if (this.selectedTextNew[textNumber] >= num)
                                             {
-                                                this.selectedTextNew[num5] = num;
+                                                this.selectedTextNew[textNumber] = num;
                                             }
                                         }
-                                        num5++;
+                                        textNumber++;
                                     }
                                     this.caretContainer = caretContainer;
                                     this.caretIndex = num + num4;
@@ -1872,11 +1910,11 @@
                                     TableInfo info3 = this.selectedContainers[i] as TableInfo;
                                     if (info3.InBlank || !this.ReadOnly)
                                     {
-                                        num5 = num;
-                                        while (num5 < num2)
+                                        textNumber = num;
+                                        while (textNumber < num2)
                                         {
-                                            info3.Items[num5].ClearAll();
-                                            num5++;
+                                            info3.Items[textNumber].ClearAll();
+                                            textNumber++;
                                         }
                                         this.caretContainer = info3.Items[num];
                                         this.caretIndex = 0;
@@ -1887,11 +1925,11 @@
                                     PictureInfo info4 = this.selectedContainers[i] as PictureInfo;
                                     if (info4.InBlank || !this.ReadOnly)
                                     {
-                                        num5 = num;
-                                        while (num5 < num2)
+                                        textNumber = num;
+                                        while (textNumber < num2)
                                         {
-                                            ((PictureInfo) this.selectedContainers[i]).Documents[num5].ClearAll();
-                                            num5++;
+                                            ((PictureInfo) this.selectedContainers[i]).Documents[textNumber].ClearAll();
+                                            textNumber++;
                                         }
                                         this.caretContainer = info4.Documents[0];
                                         this.caretIndex = 0;
@@ -1913,25 +1951,27 @@
                                         {
                                             lineexpression2.Child.RemoveRange(num, num2 - num);
                                         }
-                                        for (num5 = 0; num5 < i; num5++)
+                                        for (textNumber = 0; textNumber < i; textNumber++)
                                         {
-                                            if (this.selectedContainers[num5] == this.selectedContainers[i])
+                                            if (this.selectedContainers[textNumber] == this.selectedContainers[i])
                                             {
-                                                if (this.selectedTextLast[num5] >= num2)
+                                                if (this.selectedTextLast[textNumber] >= num2)
                                                 {
-                                                    (list = this.selectedTextLast)[num6 = num5] = list[num6] - (num2 - num);
+													list = this.selectedTextLast;
+													list[textNumber] = list[textNumber] - (num2 - num);
                                                 }
-                                                else if (this.selectedTextLast[num5] >= num)
+                                                else if (this.selectedTextLast[textNumber] >= num)
                                                 {
-                                                    this.selectedTextLast[num5] = num;
+                                                    this.selectedTextLast[textNumber] = num;
                                                 }
-                                                if (this.selectedTextNew[num5] >= num2)
+                                                if (this.selectedTextNew[textNumber] >= num2)
                                                 {
-                                                    (list = this.selectedTextNew)[num6 = num5] = list[num6] - (num2 - num);
+													list = this.selectedTextNew;
+													list[textNumber] = list[textNumber] - (num2 - num);
                                                 }
-                                                else if (this.selectedTextNew[num5] >= num)
+                                                else if (this.selectedTextNew[textNumber] >= num)
                                                 {
-                                                    this.selectedTextNew[num5] = num;
+                                                    this.selectedTextNew[textNumber] = num;
                                                 }
                                             }
                                         }
@@ -2093,7 +2133,7 @@
             bool flag = false;
             if ((((e.InputLocation.X <= p.X) && (p.X <= (e.InputLocation.X + e.Region.Width))) && (e.InputLocation.Y <= p.Y)) && (p.Y <= (e.InputLocation.Y + e.Region.Height)))
             {
-                if (e.Type == FType.矩阵)
+                if (e.Type == FunctionType.矩阵)
                 {
                     if (e.Child == null)
                     {
@@ -2121,7 +2161,10 @@
             }
             return flag;
         }
-
+		/// <summary>
+		/// Loads from xml.
+		/// </summary>
+		/// <param name="File">XML file.</param>
         public void LoadFromXml(string File)
         {
             this.selectedContainers = new List<object>();
@@ -2135,7 +2178,10 @@
             this.mainDocument.LoadXmlFromFile(File);
             this.Draw();
         }
-
+		/// <summary>
+		/// Loads the Standard Option.
+		/// </summary>
+		/// <param name="answer">Answer.</param>
         public void LoadOptionSTD(string answer)
         {
             this.mainDocument.LoadOptionSTD(answer);
@@ -3364,7 +3410,10 @@
         Label_0406:
             return true;
         }
-
+		/// <summary>
+		/// Save the specified file
+		/// </summary>
+		/// <param name="PathtoSave">Path to file.</param>
         public void Save(string PathtoSave)
         {
             string contents = this.mainDocument.toXml(PathtoSave);
@@ -3493,7 +3542,10 @@
                 int selectdindex = select.selectdindex;
             }
         }
-
+		/// <summary>
+		/// Sets the font.
+		/// </summary>
+		/// <param name="F">Font.</param>
         public void setFont(Font F)
         {
             this.Font = F;
@@ -4631,9 +4683,17 @@
         }
 
         [DefaultValue(true), Description("限制输入"), DisplayName("InputLimited"), DesignerSerializationVisibility(DesignerSerializationVisibility.Visible), Browsable(true), Category("Text"), Localizable(true)]
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="Qisi.Editor.Controls.SuperBox"/> input is limited.
+		/// </summary>
+		/// <value><c>true</c> if input is limited; otherwise, <c>false</c>.</value>
         public bool InputLimited { get; set; }
 
         [DefaultValue(false), Category("Text"), Browsable(true), DesignerSerializationVisibility(DesignerSerializationVisibility.Visible), Localizable(true), Description("只读"), DisplayName("ReadOnly")]
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="Qisi.Editor.Controls.SuperBox"/> is read only.
+		/// </summary>
+		/// <value><c>true</c> if is read only; otherwise, <c>false</c>.</value>
         public bool ReadOnly { get; set; }
 
         private ToolStripMenuType ToolStripState

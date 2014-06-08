@@ -11,7 +11,7 @@ using Qisi.Editor.Properties;
     {
         public jianyinfuhao(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.尖音符号;
+            base.Type = FunctionType.尖音符号;
         }
 
         public override void DrawExpression(Graphics g)

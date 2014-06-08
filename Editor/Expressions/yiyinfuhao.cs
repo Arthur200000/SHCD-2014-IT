@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public yiyinfuhao(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.抑音符号;
+            base.Type = FunctionType.抑音符号;
         }
 
         public override void DrawExpression(Graphics g)

@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public cot_2(lineexpression parent, Color color) : base("cot", parent, color)
         {
-            base.Type = FType.余切_2;
+            base.Type = FunctionType.余切_2;
         }
     }
 }

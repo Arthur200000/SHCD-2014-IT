@@ -11,8 +11,10 @@
     using System.Runtime.InteropServices;
     using System.Threading;
     using System.Windows.Forms;
-
-    internal class FLabel : Control
+	/// <summary>
+	/// Function label.
+	/// </summary>
+	internal class FunctionLabel : Control
     {
         private FunctionType _ftype;
         private Image image;
@@ -21,11 +23,11 @@
 
         internal event AppendExpressionHandler AppendExpression;
 
-        public FLabel() : this(FunctionType.包含, false)
+        public FunctionLabel() : this(FunctionType.包含, false)
         {
         }
 
-        internal FLabel(FunctionType f, bool hotkey = false)
+        internal FunctionLabel(FunctionType f, bool hotkey = false)
         {
             base.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             this.recttodraw = new Rectangle(0, 0, CommonMethods.height, CommonMethods.height);
@@ -72,7 +74,9 @@
         {
             this.BackColor = Color.Transparent;
         }
-
+		/// <summary>
+		/// Fresh Image.
+		/// </summary>
         public void freshimage()
         {
             if (this.image.Width > this.image.Height)
@@ -132,6 +136,10 @@
         }
 
         [DefaultValue(""), DesignerSerializationVisibility(DesignerSerializationVisibility.Visible), Browsable(true), Localizable(true), Description("公式的类别"), DisplayName("FType"), Category("Text")]
+		/// <summary>
+		/// Gets or sets the function type.
+		/// </summary>
+		/// <value>The function type.</value>
         public FunctionType Ftype
         {
             get
@@ -143,7 +151,7 @@
                 if (this._ftype != value)
                 {
                     this._ftype = value;
-                    string specialChar = CommonMethods.GetSpecialChar(this._ftype.ToString());
+					string specialChar = CommonMethods.GetSpecialChar(this._ftype.ToString());
                     if (string.IsNullOrEmpty(specialChar))
                     {
                         ResourceManager resourceManager = Resources.ResourceManager;
@@ -161,9 +169,15 @@
                 }
             }
         }
-
+		/// <summary>
+		/// Gets or sets the hot key.
+		/// </summary>
+		/// <value>The hot key.</value>
         public Keys HotKey { get; set; }
-
+		/// <summary>
+		/// Gets or sets the hot key identifier.
+		/// </summary>
+		/// <value>The hot key identifier.</value>
         public int HotKeyId { get; set; }
 
         internal delegate void AppendExpressionHandler(object sender, ExpressionEventArgs e);

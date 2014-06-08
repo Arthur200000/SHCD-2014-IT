@@ -13,7 +13,7 @@ using Qisi.Editor.Properties;
         public danbiandakuohao(lineexpression parent, Color color) : base(parent, color, true)
         {
             base.Child.Add(new lineexpression(this.Font));
-            base.Type = FType.单边大括号;
+            base.Type = FunctionType.单边大括号;
             this.Benti.ParentExpression = this;
         }
 

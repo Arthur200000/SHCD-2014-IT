@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public shuangdian(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.双点;
+            base.Type = FunctionType.双点;
         }
 
         public override void DrawExpression(Graphics g)

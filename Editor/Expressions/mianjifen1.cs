@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public mianjifen1(lineexpression parent, Color color) : base(Resources.mjhao, parent, color)
         {
-            base.Type = FType.面积分1;
+            base.Type = FunctionType.面积分1;
         }
     }
 }

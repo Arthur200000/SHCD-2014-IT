@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public cos_2(lineexpression parent, Color color) : base("cos", parent, color)
         {
-            base.Type = FType.余弦_2;
+            base.Type = FunctionType.余弦_2;
         }
     }
 }

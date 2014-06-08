@@ -3,7 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.Xml;
-
+	/// <summary>
+	/// Part.
+	/// </summary>
     internal class Part
     {
         private XmlNode myNode;

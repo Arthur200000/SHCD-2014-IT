@@ -1,6 +1,6 @@
 ﻿namespace SHCD
 {
-    using SHCD.Properties;
+	using SHCD.Properties;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;

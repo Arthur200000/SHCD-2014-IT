@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public qiuhe5(lineexpression parent, Color color) : base(Resources.qiuhehao, parent, color)
         {
-            base.Type = FType.求和5;
+            base.Type = FunctionType.求和5;
         }
     }
 }

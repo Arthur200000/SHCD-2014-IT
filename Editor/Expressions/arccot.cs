@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public arccot(lineexpression parent, Color color) : base("arccot", parent, color)
         {
-            base.Type = FType.反余切;
+            base.Type = FunctionType.反余切;
         }
     }
 }

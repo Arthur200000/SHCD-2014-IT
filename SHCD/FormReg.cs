@@ -16,11 +16,11 @@ namespace SHCD
     {
         private Button button1;
         private IContainer components = null;
-        private Label label10;
-        private Label label11;
-        private Label label12;
-        private Label label5;
-        private Label label9;
+        private Label Label10;
+        private Label Label11;
+        private Label Label12;
+        private Label Label5;
+        private Label Label9;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private ReadOnlyRichTextBox readOnlyRichTextBox1;
@@ -35,9 +35,9 @@ namespace SHCD
             this.readOnlyRichTextBox1.LoadFile(Path.Combine(Application.StartupPath, "SHCD.inf"));
             this.readOnlyRichTextBox1.ReadOnly = true;
             this.radioButton1.Checked = true;
-            this.label10.Visible = false;
-            this.label9.Visible = false;
-            this.label5.Visible = false;
+            this.Label10.Visible = false;
+            this.Label9.Visible = false;
+            this.Label5.Visible = false;
             this.textBox5.Visible = false;
             this.textBox6.Visible = false;
             this.textBox6.Text = Program.doString(Program.getCpuId()).PadLeft(2, '0') + Program.doString(Program.getBaseBoardId()).PadLeft(2, '0') + Program.doString(Program.getBIOSId()).PadLeft(2, '0') + Program.doString(Program.getPhysicalMediaId()).PadLeft(2, '0');
@@ -137,11 +137,11 @@ namespace SHCD
             this.textBox5 = new TextBox();
             this.textBox6 = new TextBox();
             this.textBox7 = new TextBox();
-            this.label5 = new Label();
-            this.label9 = new Label();
-            this.label10 = new Label();
-            this.label11 = new Label();
-            this.label12 = new Label();
+            this.Label5 = new Label();
+            this.Label9 = new Label();
+            this.Label10 = new Label();
+            this.Label11 = new Label();
+            this.Label12 = new Label();
             this.button1 = new Button();
             this.radioButton1 = new RadioButton();
             this.radioButton2 = new RadioButton();
@@ -168,47 +168,47 @@ namespace SHCD
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new Size(0x12b, 0x15);
             this.textBox7.TabIndex = 0x15;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = Color.Transparent;
-            this.label5.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label5.Location = new Point(0x184, 0x16a);
-            this.label5.Name = "label5";
-            this.label5.Size = new Size(0xac, 14);
-            this.label5.TabIndex = 0x19;
-            this.label5.Text = "（客服电话返回注册码）";
-            this.label9.AutoSize = true;
-            this.label9.BackColor = Color.Transparent;
-            this.label9.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label9.Location = new Point(11, 0x16a);
-            this.label9.Name = "label9";
-            this.label9.Size = new Size(0x43, 14);
-            this.label9.TabIndex = 0x18;
-            this.label9.Text = "注册码：";
-            this.label10.AutoSize = true;
-            this.label10.BackColor = Color.Transparent;
-            this.label10.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label10.Location = new Point(11, 0x14c);
-            this.label10.Name = "label10";
-            this.label10.Size = new Size(0x52, 14);
-            this.label10.TabIndex = 0x16;
-            this.label10.Text = "基础信息：";
-            this.label10.Click += new EventHandler(this.label10_Click);
-            this.label11.AutoSize = true;
-            this.label11.BackColor = Color.Transparent;
-            this.label11.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label11.Location = new Point(0x184, 0x12e);
-            this.label11.Name = "label11";
-            this.label11.Size = new Size(0x142, 14);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "（输入光盘包装内侧印刷的密码（需要刮开））";
-            this.label12.AutoSize = true;
-            this.label12.BackColor = Color.Transparent;
-            this.label12.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label12.Location = new Point(12, 0x12e);
-            this.label12.Name = "label12";
-            this.label12.Size = new Size(0x34, 14);
-            this.label12.TabIndex = 0x13;
-            this.label12.Text = "密码：";
+            this.Label5.AutoSize = true;
+            this.Label5.BackColor = Color.Transparent;
+            this.Label5.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label5.Location = new Point(0x184, 0x16a);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new Size(0xac, 14);
+            this.Label5.TabIndex = 0x19;
+            this.Label5.Text = "（客服电话返回注册码）";
+            this.Label9.AutoSize = true;
+            this.Label9.BackColor = Color.Transparent;
+            this.Label9.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label9.Location = new Point(11, 0x16a);
+            this.Label9.Name = "Label9";
+            this.Label9.Size = new Size(0x43, 14);
+            this.Label9.TabIndex = 0x18;
+            this.Label9.Text = "注册码：";
+            this.Label10.AutoSize = true;
+            this.Label10.BackColor = Color.Transparent;
+            this.Label10.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label10.Location = new Point(11, 0x14c);
+            this.Label10.Name = "Label10";
+            this.Label10.Size = new Size(0x52, 14);
+            this.Label10.TabIndex = 0x16;
+            this.Label10.Text = "基础信息：";
+            this.Label10.Click += new EventHandler(this.Label10_Click);
+            this.Label11.AutoSize = true;
+            this.Label11.BackColor = Color.Transparent;
+            this.Label11.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label11.Location = new Point(0x184, 0x12e);
+            this.Label11.Name = "Label11";
+            this.Label11.Size = new Size(0x142, 14);
+            this.Label11.TabIndex = 20;
+            this.Label11.Text = "（输入光盘包装内侧印刷的密码（需要刮开））";
+            this.Label12.AutoSize = true;
+            this.Label12.BackColor = Color.Transparent;
+            this.Label12.Font = new Font("黑体", 10.5f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label12.Location = new Point(12, 0x12e);
+            this.Label12.Name = "Label12";
+            this.Label12.Size = new Size(0x34, 14);
+            this.Label12.TabIndex = 0x13;
+            this.Label12.Text = "密码：";
             this.button1.Cursor = Cursors.Hand;
             this.button1.FlatStyle = FlatStyle.Flat;
             this.button1.Location = new Point(0x151, 0x192);
@@ -252,11 +252,11 @@ namespace SHCD
             base.Controls.Add(this.textBox5);
             base.Controls.Add(this.textBox6);
             base.Controls.Add(this.textBox7);
-            base.Controls.Add(this.label5);
-            base.Controls.Add(this.label9);
-            base.Controls.Add(this.label10);
-            base.Controls.Add(this.label11);
-            base.Controls.Add(this.label12);
+            base.Controls.Add(this.Label5);
+            base.Controls.Add(this.Label9);
+            base.Controls.Add(this.Label10);
+            base.Controls.Add(this.Label11);
+            base.Controls.Add(this.Label12);
             base.Controls.Add(this.readOnlyRichTextBox1);
             this.DoubleBuffered = true;
             base.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -270,7 +270,7 @@ namespace SHCD
             base.PerformLayout();
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void Label10_Click(object sender, EventArgs e)
         {
         }
 
@@ -278,9 +278,9 @@ namespace SHCD
         {
             if (this.radioButton1.Checked)
             {
-                this.label10.Visible = false;
-                this.label9.Visible = false;
-                this.label5.Visible = false;
+                this.Label10.Visible = false;
+                this.Label9.Visible = false;
+                this.Label5.Visible = false;
                 this.textBox5.Visible = false;
                 this.textBox6.Visible = false;
             }
@@ -290,9 +290,9 @@ namespace SHCD
         {
             if (this.radioButton2.Checked)
             {
-                this.label10.Visible = true;
-                this.label9.Visible = true;
-                this.label5.Visible = true;
+                this.Label10.Visible = true;
+                this.Label9.Visible = true;
+                this.Label5.Visible = true;
                 this.textBox5.Visible = true;
                 this.textBox6.Visible = true;
             }

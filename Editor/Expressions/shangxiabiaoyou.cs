@@ -13,7 +13,7 @@ using Qisi.Editor.Properties;
             base.Child.Add(new lineexpression(this.Font));
             base.Child.Add(new lineexpression(this.Font));
             base.Child.Add(new lineexpression(this.Font));
-            base.Type = FType.上下标右;
+            base.Type = FunctionType.上下标右;
             base.Child[0].ParentExpression = this;
             base.Child[1].ParentExpression = this;
             base.Child[2].ParentExpression = this;

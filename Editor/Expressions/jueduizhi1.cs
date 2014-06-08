@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public jueduizhi1(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.绝对值1;
+            base.Type = FunctionType.绝对值1;
         }
 
         public override void DrawExpression(Graphics g)

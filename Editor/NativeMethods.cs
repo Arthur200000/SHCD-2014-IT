@@ -7,7 +7,9 @@
     using System.Security.Cryptography;
     using System.Text;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Native methods, very magic number.
+	/// </summary>
     internal static class NativeMethods
     {
         internal const int ASPECTX = 40;

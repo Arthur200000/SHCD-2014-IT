@@ -5,18 +5,23 @@
     using System.Drawing;
     using System.Windows.Forms;
     using System.Xml;
-
+	/// <summary>
+	/// Section.
+	/// </summary>
     public class Section
     {
         private string commentText = null;
         private XmlNode myNode;
         private List<Page> objPageList = null;
         private bool rand = false;
-
-        public Section(XmlNode xmlnode)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExamClientControlsLibrary.Section"/> class.
+		/// </summary>
+		/// <param name="xmlNodeOfSection">Xml node of section.</param>
+        public Section(XmlNode xmlNodeOfSection)
         {
             this.objPageList = new List<Page>();
-            this.myNode = xmlnode;
+            this.myNode = xmlNodeOfSection;
             if ((this.myNode.Attributes["randomize"] != null) && (this.myNode.Attributes["randomize"].Value == "true"))
             {
                 this.rand = true;
@@ -52,7 +57,7 @@
             }
             if (this.commentText != "")
             {
-                Label label = new Label {
+                Label Label = new Label {
                     Visible = true,
                     Margin = new Padding(50, 10, 0, 30),
                     AutoSize = true,
@@ -60,9 +65,9 @@
                     Font = new Font("宋体", 20f, FontStyle.Regular, GraphicsUnit.Pixel),
                     Text = this.commentText
                 };
-                this.objPageList[0].PagePanel.Controls.Add(label);
-                this.objPageList[0].PagePanel.SetFlowBreak(label, true);
-                this.objPageList[0].PagePanel.Controls.SetChildIndex(label, 0);
+                this.objPageList[0].PagePanel.Controls.Add(Label);
+                this.objPageList[0].PagePanel.SetFlowBreak(Label, true);
+                this.objPageList[0].PagePanel.Controls.SetChildIndex(Label, 0);
             }
         }
 

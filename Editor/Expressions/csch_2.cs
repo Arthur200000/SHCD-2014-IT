@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public csch_2(lineexpression parent, Color color) : base("csch", parent, color)
         {
-            base.Type = FType.双曲余割_2;
+            base.Type = FunctionType.双曲余割_2;
         }
     }
 }

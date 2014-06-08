@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public henggang(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.横杠;
+            base.Type = FunctionType.横杠;
         }
 
         public override void DrawExpression(Graphics g)

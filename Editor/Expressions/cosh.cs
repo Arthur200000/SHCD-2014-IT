@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public cosh(lineexpression parent, Color color) : base("cosh", parent, color)
         {
-            base.Type = FType.双曲余弦;
+            base.Type = FunctionType.双曲余弦;
         }
     }
 }

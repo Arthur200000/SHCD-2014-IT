@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public chengji4(lineexpression parent, Color color) : base(Resources.chengjihao, parent, color)
         {
-            base.Type = FType.乘积4;
+            base.Type = FunctionType.乘积4;
         }
     }
 }

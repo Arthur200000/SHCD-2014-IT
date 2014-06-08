@@ -20,8 +20,8 @@
         private IContainer components = null;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Label label1;
-        private Label label2;
+        private Label Label1;
+        private Label Label2;
         private ListView listView1;
         private ListView listView2;
         private TestPaperPlayer.RunMode mode = TestPaperPlayer.RunMode.CDExercise;
@@ -177,8 +177,8 @@
         private void InitializeComponent()
         {
             ComponentResourceManager manager = new ComponentResourceManager(typeof(FormSel));
-            this.label1 = new Label();
-            this.label2 = new Label();
+            this.Label1 = new Label();
+            this.Label2 = new Label();
             this.listView1 = new ListView();
             this.listView2 = new ListView();
             this.button1 = new Button();
@@ -191,30 +191,30 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             base.SuspendLayout();
-            this.label1.AutoSize = true;
-            this.label1.BackColor = Color.Transparent;
-            this.label1.Font = new Font("微软雅黑", 15f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
-            this.label1.ForeColor = Color.White;
-            this.label1.Location = new Point(1, 11);
-            this.label1.Margin = new Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(340, 0x20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "上海市普通高中学业水平考试";
-            this.label1.MouseDown += new MouseEventHandler(this.label1_MouseDown);
-            this.label1.MouseMove += new MouseEventHandler(this.label1_MouseMove);
-            this.label2.AutoSize = true;
-            this.label2.BackColor = Color.Transparent;
-            this.label2.Font = new Font("微软雅黑", 21.75f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
-            this.label2.ForeColor = Color.White;
-            this.label2.Location = new Point(0x41, 0x38);
-            this.label2.Margin = new Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new Size(0x2a2, 0x30);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "《信息科技》全真模拟练习 2014年专用";
-            this.label2.MouseDown += new MouseEventHandler(this.label2_MouseDown);
-            this.label2.MouseMove += new MouseEventHandler(this.label2_MouseMove);
+            this.Label1.AutoSize = true;
+            this.Label1.BackColor = Color.Transparent;
+            this.Label1.Font = new Font("微软雅黑", 15f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
+            this.Label1.ForeColor = Color.White;
+            this.Label1.Location = new Point(1, 11);
+            this.Label1.Margin = new Padding(4, 0, 4, 0);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new Size(340, 0x20);
+            this.Label1.TabIndex = 0;
+            this.Label1.Text = "上海市普通高中学业水平考试";
+            this.Label1.MouseDown += new MouseEventHandler(this.Label1_MouseDown);
+            this.Label1.MouseMove += new MouseEventHandler(this.Label1_MouseMove);
+            this.Label2.AutoSize = true;
+            this.Label2.BackColor = Color.Transparent;
+            this.Label2.Font = new Font("微软雅黑", 21.75f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
+            this.Label2.ForeColor = Color.White;
+            this.Label2.Location = new Point(0x41, 0x38);
+            this.Label2.Margin = new Padding(4, 0, 4, 0);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new Size(0x2a2, 0x30);
+            this.Label2.TabIndex = 1;
+            this.Label2.Text = "《信息科技》全真模拟练习 2014年专用";
+            this.Label2.MouseDown += new MouseEventHandler(this.Label2_MouseDown);
+            this.Label2.MouseMove += new MouseEventHandler(this.Label2_MouseMove);
             this.listView1.Alignment = ListViewAlignment.Default;
             this.listView1.BackColor = Color.White;
             this.listView1.Cursor = Cursors.Hand;
@@ -332,8 +332,8 @@
             base.Controls.Add(this.button3);
             base.Controls.Add(this.button2);
             base.Controls.Add(this.button1);
-            base.Controls.Add(this.label2);
-            base.Controls.Add(this.label1);
+            base.Controls.Add(this.Label2);
+            base.Controls.Add(this.Label1);
             this.DoubleBuffered = true;
             base.FormBorderStyle = FormBorderStyle.None;
             base.Icon = (Icon) manager.GetObject("$this.Icon");
@@ -348,12 +348,12 @@
             base.PerformLayout();
         }
 
-        private void label1_MouseDown(object sender, MouseEventArgs e)
+        private void Label1_MouseDown(object sender, MouseEventArgs e)
         {
             this.mousePos = e.Location;
         }
 
-        private void label1_MouseMove(object sender, MouseEventArgs e)
+        private void Label1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -362,12 +362,12 @@
             }
         }
 
-        private void label2_MouseDown(object sender, MouseEventArgs e)
+        private void Label2_MouseDown(object sender, MouseEventArgs e)
         {
             this.mousePos = e.Location;
         }
 
-        private void label2_MouseMove(object sender, MouseEventArgs e)
+        private void Label2_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {

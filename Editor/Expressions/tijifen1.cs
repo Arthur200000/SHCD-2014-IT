@@ -11,7 +11,7 @@ using Qisi.Editor.Properties;
     {
         public tijifen1(lineexpression parent, Color color) : base(Resources.tijifenhao, parent, color)
         {
-            base.Type = FType.体积分1;
+            base.Type = FunctionType.体积分1;
         }
     }
 }

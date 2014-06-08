@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public arctan(lineexpression parent, Color color) : base("arctan", parent, color)
         {
-            base.Type = FType.反正切;
+            base.Type = FunctionType.反正切;
         }
     }
 }

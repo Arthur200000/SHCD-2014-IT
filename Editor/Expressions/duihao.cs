@@ -11,7 +11,7 @@ using Qisi.Editor.Properties;
     {
         public duihao(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.对号;
+            base.Type = FunctionType.对号;
         }
 
         public override void DrawExpression(Graphics g)

@@ -346,7 +346,7 @@
             this.Title.Name = "Title";
             this.Title.Size = new Size(0x4c, 0x15);
             this.Title.TabIndex = 0;
-            this.Title.Text = "label1";
+            this.Title.Text = "Label1";
             this.backgroundWorker1.WorkerReportsProgress = true;
             this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new DoWorkEventHandler(this.backgroundWorker1_DoWork);

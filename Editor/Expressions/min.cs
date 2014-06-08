@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public min(lineexpression parent, Color color) : base("min", parent, color)
         {
-            base.Type = FType.最小值;
+            base.Type = FunctionType.最小值;
         }
     }
 }

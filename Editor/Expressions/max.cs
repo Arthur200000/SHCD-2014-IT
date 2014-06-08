@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public max(lineexpression parent, Color color) : base("max", parent, color)
         {
-            base.Type = FType.最大值;
+            base.Type = FunctionType.最大值;
         }
     }
 }

@@ -11,7 +11,7 @@ using Qisi.Editor.Properties;
     {
         public duanyinfuhao(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.短音符号;
+            base.Type = FunctionType.短音符号;
         }
 
         public override void DrawExpression(Graphics g)

@@ -5,7 +5,9 @@
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// RTF Form.
+	/// </summary>
     public class FormRTF : Form
     {
         private IContainer components;
@@ -16,14 +18,20 @@
             this.components = null;
             this.InitializeComponent();
         }
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExamClientControlsLibrary.FormRTF"/> class.
+		/// </summary>
+		/// <param name="rtfPath">RTF path.</param>
         public FormRTF(string rtfPath)
         {
             this.components = null;
             this.InitializeComponent();
             this.readOnlyRichTextBox1.LoadFile(rtfPath);
         }
-
+		/// <summary>
+		/// Appends the text.
+		/// </summary>
+		/// <param name="text">Text.</param>
         public void AppendText(string text)
         {
             this.readOnlyRichTextBox1.AppendText(text);

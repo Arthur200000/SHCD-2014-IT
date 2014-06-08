@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public lim(lineexpression parent, Color color) : base("lim", parent, color)
         {
-            base.Type = FType.极限;
+            base.Type = FunctionType.极限;
         }
     }
 }

@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public dakuohao(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.大括号;
+            base.Type = FunctionType.大括号;
         }
 
         public override void DrawExpression(Graphics g)

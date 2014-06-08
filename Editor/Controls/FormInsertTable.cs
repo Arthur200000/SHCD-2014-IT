@@ -6,19 +6,21 @@
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
-
-    internal class FrmInsertTable : Form
+	/// <summary>
+	/// Form insert table.
+	/// </summary>
+    internal class FormInsertTable : Form
     {
         private Point _tablesize = new Point();
         private IContainer components = null;
         private CrystalButtonLeftRight crystalButtonLeftRight1;
         private CrystalButtonLeftRight crystalButtonLeftRight2;
-        private Label label1;
-        private Label label2;
+        private Label Label1;
+        private Label Label2;
         private NumericUpDown numericUpDown1;
         private NumericUpDown numericUpDown2;
 
-        public FrmInsertTable()
+        public FormInsertTable()
         {
             this.InitializeComponent();
             base.Icon = SystemIcons.Information;
@@ -46,8 +48,8 @@
 
         private void InitializeComponent()
         {
-            this.label1 = new Label();
-            this.label2 = new Label();
+            this.Label1 = new Label();
+            this.Label2 = new Label();
             this.numericUpDown1 = new NumericUpDown();
             this.numericUpDown2 = new NumericUpDown();
             this.crystalButtonLeftRight2 = new CrystalButtonLeftRight();
@@ -55,20 +57,20 @@
             this.numericUpDown1.BeginInit();
             this.numericUpDown2.BeginInit();
             base.SuspendLayout();
-            this.label1.AutoSize = true;
-            this.label1.Font = new Font("微软雅黑", 12f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
-            this.label1.Location = new Point(12, 0x10);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(0x2e, 0x15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "行数:";
-            this.label2.AutoSize = true;
-            this.label2.Font = new Font("微软雅黑", 12f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
-            this.label2.Location = new Point(12, 0x2d);
-            this.label2.Name = "label2";
-            this.label2.Size = new Size(0x2e, 0x15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "列数:";
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new Font("微软雅黑", 12f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
+            this.Label1.Location = new Point(12, 0x10);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new Size(0x2e, 0x15);
+            this.Label1.TabIndex = 0;
+            this.Label1.Text = "行数:";
+            this.Label2.AutoSize = true;
+            this.Label2.Font = new Font("微软雅黑", 12f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
+            this.Label2.Location = new Point(12, 0x2d);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new Size(0x2e, 0x15);
+            this.Label2.TabIndex = 1;
+            this.Label2.Text = "列数:";
             this.numericUpDown1.Font = new Font("微软雅黑", 12f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
             this.numericUpDown1.Location = new Point(0x97, 14);
             this.numericUpDown1.Name = "numericUpDown1";
@@ -118,8 +120,8 @@
             base.Controls.Add(this.crystalButtonLeftRight1);
             base.Controls.Add(this.numericUpDown2);
             base.Controls.Add(this.numericUpDown1);
-            base.Controls.Add(this.label2);
-            base.Controls.Add(this.label1);
+            base.Controls.Add(this.Label2);
+            base.Controls.Add(this.Label1);
             base.FormBorderStyle = FormBorderStyle.FixedDialog;
             base.Name = "FrmInsertTable";
             base.StartPosition = FormStartPosition.CenterParent;
@@ -129,7 +131,10 @@
             base.ResumeLayout(false);
             base.PerformLayout();
         }
-
+		/// <summary>
+		/// Gets the size of the table.
+		/// </summary>
+		/// <value>The size of the table.</value>
         public Point TableSize
         {
             get

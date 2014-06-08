@@ -12,7 +12,7 @@ using Qisi.Editor.Properties;
         public dixian(lineexpression parent, Color color) : base(parent, color, true)
         {
             base.Child.Add(new lineexpression(this.Font));
-            base.Type = FType.底线;
+            base.Type = FunctionType.底线;
             this.Benti.ParentExpression = this;
         }
 

@@ -7,7 +7,9 @@
     using System.Runtime.CompilerServices;
     using System.Text;
     using System.Threading;
-
+	/// <summary>
+	/// FTP client.
+	/// </summary>
     public class FTPClient
     {
         private string currentDir = "/";
@@ -16,7 +18,9 @@
         private const int ftpport = 21;
         private string ftpUristring = null;
         private NetworkCredential networkCredential;
-
+		/// <summary>
+		/// Occurs when log.
+		/// </summary>
         public event TextEventHandler Log;
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Qisi.General.FTPClient"/> class.

@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public sanchongjifen2(lineexpression parent, Color color) : base(Resources.sanchongfuhao, parent, color, true)
         {
-            base.Type = FType.三重积分2;
+            base.Type = FunctionType.三重积分2;
         }
     }
 }

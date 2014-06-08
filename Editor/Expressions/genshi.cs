@@ -14,7 +14,7 @@ using Qisi.Editor.Properties;
         {
             base.Child.Add(new lineexpression(this.Font));
             base.Child.Add(new lineexpression(this.Font));
-            base.Type = FType.一般根式;
+            base.Type = FunctionType.一般根式;
             this.Benti.ParentExpression = this;
             this.Gen.ParentExpression = this;
         }
@@ -87,7 +87,7 @@ using Qisi.Editor.Properties;
             {
                 foreach (expression expression in this.Benti.Child)
                 {
-                    if (((expression.Type == FType.一般根式) || (expression.Type == FType.平方根)) || (expression.Type == FType.立方根))
+                    if (((expression.Type == FunctionType.一般根式) || (expression.Type == FunctionType.平方根)) || (expression.Type == FunctionType.立方根))
                     {
                         this.Gintv = this.GSize.Height / 2f;
                         break;

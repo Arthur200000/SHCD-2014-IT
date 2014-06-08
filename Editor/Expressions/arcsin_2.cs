@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public arcsin_2(lineexpression parent, Color color) : base("arcsin", parent, color)
         {
-            base.Type = FType.反正弦_2;
+            base.Type = FunctionType.反正弦_2;
         }
     }
 }

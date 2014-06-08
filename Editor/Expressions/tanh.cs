@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public tanh(lineexpression parent, Color color) : base("tanh", parent, color)
         {
-            base.Type = FType.双曲正切;
+            base.Type = FunctionType.双曲正切;
         }
     }
 }

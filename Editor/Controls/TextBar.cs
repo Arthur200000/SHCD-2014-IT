@@ -8,7 +8,9 @@
     using System.Runtime.CompilerServices;
     using System.Threading;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Text bar.
+	/// </summary>
     public class TextBar : UserControl
     {
         private System.Drawing.Color _color;
@@ -17,12 +19,12 @@
         private ComboBox comboBox1;
         private ComboBox comboBox2;
         private IContainer components;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
+        private Label Label1;
+        private Label Label2;
+        private Label Label3;
+        private Label Label4;
+        private Label Label5;
+        private Label Label6;
         private OpenFileDialog openFileDialog1;
 
         public event ColorChangedEventHandler ColorChanged;
@@ -32,11 +34,17 @@
         public event InsertImageEventHandler InsertImage;
 
         public event InsertTableEventHandler InsertTable;
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.Editor.Controls.TextBar"/> class.
+		/// </summary>
         public TextBar() : this(new System.Drawing.Font("宋体", 20f, FontStyle.Regular, GraphicsUnit.Pixel), System.Drawing.Color.Black)
         {
         }
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.Editor.Controls.TextBar"/> class.
+		/// </summary>
+		/// <param name="defaultfont">Default Font.</param>
+		/// <param name="color">Color.</param>
         public TextBar(System.Drawing.Font defaultfont, System.Drawing.Color color)
         {
             this._font = null;
@@ -67,19 +75,19 @@
                 this.comboBox2.Items.Add(this.Font.Size.ToString());
             }
             this.comboBox2.Text = this.Font.Size.ToString();
-            this.label1.ForeColor = this._color;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(0x7f, 0xff - this._color.R, 0xff - this._color.G, 0xff - this._color.B);
+            this.Label1.ForeColor = this._color;
+            this.Label1.BackColor = System.Drawing.Color.FromArgb(0x7f, 0xff - this._color.R, 0xff - this._color.G, 0xff - this._color.B);
             if (this.Font.Bold)
             {
-                this.label2.BackColor = System.Drawing.Color.Yellow;
+                this.Label2.BackColor = System.Drawing.Color.Yellow;
             }
             if (this.Font.Italic)
             {
-                this.label3.BackColor = System.Drawing.Color.Yellow;
+                this.Label3.BackColor = System.Drawing.Color.Yellow;
             }
             if (this.Font.Underline)
             {
-                this.label4.BackColor = System.Drawing.Color.Yellow;
+                this.Label4.BackColor = System.Drawing.Color.Yellow;
             }
             this.comboBox1.SelectedIndexChanged += new EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox2.KeyPress += new KeyPressEventHandler(this.comboBox2_KeyPress);
@@ -140,12 +148,12 @@
         {
             this.comboBox1 = new ComboBox();
             this.comboBox2 = new ComboBox();
-            this.label1 = new Label();
-            this.label2 = new Label();
-            this.label3 = new Label();
-            this.label4 = new Label();
-            this.label5 = new Label();
-            this.label6 = new Label();
+            this.Label1 = new Label();
+            this.Label2 = new Label();
+            this.Label3 = new Label();
+            this.Label4 = new Label();
+            this.Label5 = new Label();
+            this.Label6 = new Label();
             this.colorDialog1 = new ColorDialog();
             this.openFileDialog1 = new OpenFileDialog();
             base.SuspendLayout();
@@ -160,69 +168,69 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new Size(0x2d, 20);
             this.comboBox2.TabIndex = 1;
-            this.label1.Cursor = Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label1.ForeColor = SystemColors.ControlText;
-            this.label1.Location = new Point(0xb2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(0x16, 0x16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "A";
-            this.label1.TextAlign = ContentAlignment.MiddleCenter;
-            this.label1.ForeColorChanged += new EventHandler(this.label1_ForeColorChanged);
-            this.label1.Click += new EventHandler(this.label1_Click);
-            this.label2.Cursor = Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label2.Location = new Point(0xce, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new Size(0x16, 0x16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "B";
-            this.label2.TextAlign = ContentAlignment.MiddleCenter;
-            this.label2.Click += new EventHandler(this.label2_Click);
-            this.label3.Cursor = Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Italic | FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label3.Location = new Point(0xea, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new Size(0x16, 0x16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "I";
-            this.label3.TextAlign = ContentAlignment.MiddleCenter;
-            this.label3.Click += new EventHandler(this.label3_Click);
-            this.label4.Cursor = Cursors.Hand;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label4.Location = new Point(0x106, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new Size(0x16, 0x16);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "U";
-            this.label4.TextAlign = ContentAlignment.MiddleCenter;
-            this.label4.Click += new EventHandler(this.label4_Click);
-            this.label5.Cursor = Cursors.Hand;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label5.Image = Resources.picture;
-            this.label5.Location = new Point(0x13e, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new Size(0x16, 0x16);
-            this.label5.TabIndex = 8;
-            this.label5.Click += new EventHandler(this.label5_Click);
-            this.label6.Cursor = Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.label6.Image = Resources.table;
-            this.label6.Location = new Point(290, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new Size(0x16, 0x16);
-            this.label6.TabIndex = 7;
-            this.label6.Click += new EventHandler(this.label6_Click);
+            this.Label1.Cursor = Cursors.Hand;
+            this.Label1.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label1.ForeColor = SystemColors.ControlText;
+            this.Label1.Location = new Point(0xb2, 0);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new Size(0x16, 0x16);
+            this.Label1.TabIndex = 2;
+            this.Label1.Text = "A";
+            this.Label1.TextAlign = ContentAlignment.MiddleCenter;
+            this.Label1.ForeColorChanged += new EventHandler(this.Label1_ForeColorChanged);
+            this.Label1.Click += new EventHandler(this.Label1_Click);
+            this.Label2.Cursor = Cursors.Hand;
+            this.Label2.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label2.Location = new Point(0xce, 0);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new Size(0x16, 0x16);
+            this.Label2.TabIndex = 3;
+            this.Label2.Text = "B";
+            this.Label2.TextAlign = ContentAlignment.MiddleCenter;
+            this.Label2.Click += new EventHandler(this.Label2_Click);
+            this.Label3.Cursor = Cursors.Hand;
+            this.Label3.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Italic | FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label3.Location = new Point(0xea, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new Size(0x16, 0x16);
+            this.Label3.TabIndex = 4;
+            this.Label3.Text = "I";
+            this.Label3.TextAlign = ContentAlignment.MiddleCenter;
+            this.Label3.Click += new EventHandler(this.Label3_Click);
+            this.Label4.Cursor = Cursors.Hand;
+            this.Label4.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label4.Location = new Point(0x106, 0);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new Size(0x16, 0x16);
+            this.Label4.TabIndex = 5;
+            this.Label4.Text = "U";
+            this.Label4.TextAlign = ContentAlignment.MiddleCenter;
+            this.Label4.Click += new EventHandler(this.Label4_Click);
+            this.Label5.Cursor = Cursors.Hand;
+            this.Label5.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label5.Image = Resources.picture;
+            this.Label5.Location = new Point(0x13e, 0);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new Size(0x16, 0x16);
+            this.Label5.TabIndex = 8;
+            this.Label5.Click += new EventHandler(this.Label5_Click);
+            this.Label6.Cursor = Cursors.Hand;
+            this.Label6.Font = new System.Drawing.Font("微软雅黑", 12f, FontStyle.Underline | FontStyle.Bold, GraphicsUnit.Point, 0x86);
+            this.Label6.Image = Resources.table;
+            this.Label6.Location = new Point(290, 0);
+            this.Label6.Name = "Label6";
+            this.Label6.Size = new Size(0x16, 0x16);
+            this.Label6.TabIndex = 7;
+            this.Label6.Click += new EventHandler(this.Label6_Click);
             this.openFileDialog1.FileName = "openFileDialog1";
             base.AutoScaleDimensions = new SizeF(6f, 12f);
             base.AutoScaleMode = AutoScaleMode.Font;
-            base.Controls.Add(this.label5);
-            base.Controls.Add(this.label6);
-            base.Controls.Add(this.label4);
-            base.Controls.Add(this.label3);
-            base.Controls.Add(this.label2);
-            base.Controls.Add(this.label1);
+            base.Controls.Add(this.Label5);
+            base.Controls.Add(this.Label6);
+            base.Controls.Add(this.Label4);
+            base.Controls.Add(this.Label3);
+            base.Controls.Add(this.Label2);
+            base.Controls.Add(this.Label1);
             base.Controls.Add(this.comboBox2);
             base.Controls.Add(this.comboBox1);
             base.Name = "TextBar";
@@ -230,7 +238,7 @@
             base.ResumeLayout(false);
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
             if (this.colorDialog1.ShowDialog(this) == DialogResult.OK)
             {
@@ -238,15 +246,15 @@
             }
         }
 
-        private void label1_ForeColorChanged(object sender, EventArgs e)
+        private void Label1_ForeColorChanged(object sender, EventArgs e)
         {
             if (this.ColorChanged != null)
             {
-                this.ColorChanged(this, new ColorEventArgs(this.label1.ForeColor));
+                this.ColorChanged(this, new ColorEventArgs(this.Label1.ForeColor));
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
             FontStyle regular;
             if (this.Font.Bold)
@@ -272,7 +280,7 @@
             this.Font = new System.Drawing.Font(this.Font.FontFamily, this.Font.Size, regular, GraphicsUnit.Pixel);
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Label3_Click(object sender, EventArgs e)
         {
             FontStyle regular;
             if (this.Font.Italic)
@@ -298,7 +306,7 @@
             this.Font = new System.Drawing.Font(this.Font.FontFamily, this.Font.Size, regular, GraphicsUnit.Pixel);
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Label4_Click(object sender, EventArgs e)
         {
             FontStyle regular;
             if (this.Font.Underline)
@@ -324,7 +332,7 @@
             this.Font = new System.Drawing.Font(this.Font.FontFamily, this.Font.Size, regular, GraphicsUnit.Pixel);
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void Label5_Click(object sender, EventArgs e)
         {
             this.openFileDialog1.Filter = "图片文件(*.jpg,*.gif,*.bmp,*.png)|*.jpg;*.gif;*.bmp;*.png";
             if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -340,9 +348,9 @@
             }
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void Label6_Click(object sender, EventArgs e)
         {
-            FrmInsertTable table = new FrmInsertTable();
+            FormInsertTable table = new FormInsertTable();
             if (table.ShowDialog() == DialogResult.OK)
             {
                 this.InsertTable(this, new TableEventArgs(table.TableSize));
@@ -359,11 +367,14 @@
             set
             {
                 this._color = value;
-                this.label1.ForeColor = this._color;
-                this.label1.BackColor = System.Drawing.Color.FromArgb(0x7f, 0xff - this._color.R, 0xff - this._color.G, 0xff - this._color.B);
+                this.Label1.ForeColor = this._color;
+                this.Label1.BackColor = System.Drawing.Color.FromArgb(0x7f, 0xff - this._color.R, 0xff - this._color.G, 0xff - this._color.B);
             }
         }
-
+		/// <summary>
+		/// Gets or sets the font.
+		/// </summary>
+		/// <value>The font.</value>
         public System.Drawing.Font Font
         {
             get
@@ -379,27 +390,27 @@
                 }
                 if (this.Font.Bold)
                 {
-                    this.label2.BackColor = System.Drawing.Color.Yellow;
+                    this.Label2.BackColor = System.Drawing.Color.Yellow;
                 }
                 else
                 {
-                    this.label2.BackColor = System.Drawing.Color.Transparent;
+                    this.Label2.BackColor = System.Drawing.Color.Transparent;
                 }
                 if (this.Font.Italic)
                 {
-                    this.label3.BackColor = System.Drawing.Color.Yellow;
+                    this.Label3.BackColor = System.Drawing.Color.Yellow;
                 }
                 else
                 {
-                    this.label3.BackColor = System.Drawing.Color.Transparent;
+                    this.Label3.BackColor = System.Drawing.Color.Transparent;
                 }
                 if (this.Font.Underline)
                 {
-                    this.label4.BackColor = System.Drawing.Color.Yellow;
+                    this.Label4.BackColor = System.Drawing.Color.Yellow;
                 }
                 else
                 {
-                    this.label4.BackColor = System.Drawing.Color.Transparent;
+                    this.Label4.BackColor = System.Drawing.Color.Transparent;
                 }
             }
         }

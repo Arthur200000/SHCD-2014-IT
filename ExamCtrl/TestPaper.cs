@@ -9,7 +9,9 @@
     using System.Threading;
     using System.Windows.Forms;
     using System.Xml;
-
+	/// <summary>
+	/// Test paper.
+	/// </summary>
     internal class TestPaper : IDisposable
     {
         internal static bool allowExplorer;
@@ -37,14 +39,17 @@
         public event Question.BoolEventHandler IsDown;
 
         public event EventHandler ShowWindow;
-
-        internal TestPaper(XmlNode xmlnode)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExamClientControlsLibrary.TestPaper"/> class.
+		/// </summary>
+		/// <param name="testPaperXmlNode">Test paper XML node.</param>
+        internal TestPaper(XmlNode testPaperXmlNode)
         {
             string[] strArray;
             int num;
             int num2;
             int num3;
-            this.testpaperNode = xmlnode;
+            this.testpaperNode = testPaperXmlNode;
             if (this.testpaperNode.Attributes["name"] != null)
             {
                 this.testpaperName = this.testpaperNode.Attributes["name"].Value;
@@ -200,7 +205,7 @@
             {
                 TestPaperPlayer.answerINI.WriteValue("Answer", "NUM", (index - 1).ToString());
             }
-            this.t = new Thread(new ThreadStart(this.closeWin));
+            this.t = new Thread(new ThreadStart(this.closeOtherWindow));
             this.t.Start();
             this.threadstarted = true;
             foreach (Page page in this.pageList)
@@ -210,7 +215,7 @@
             }
         }
 
-        private void closeWin()
+        private void closeOtherWindow()
         {
             while (this.threadstarted)
             {

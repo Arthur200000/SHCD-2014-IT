@@ -7,13 +7,15 @@
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Form option info.
+	/// </summary>
     public class FormOptionInfo : Form
     {
         private Button button1;
         private IContainer components = null;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Label label1;
+        private Label Label1;
         private NumericUpDown numericUpDown1;
 		private List<SuperBox> superBoxList = new List<SuperBox>();
 
@@ -38,18 +40,18 @@
 
         private void InitializeComponent()
         {
-            this.label1 = new Label();
+            this.Label1 = new Label();
             this.numericUpDown1 = new NumericUpDown();
             this.flowLayoutPanel1 = new FlowLayoutPanel();
             this.button1 = new Button();
             this.numericUpDown1.BeginInit();
             base.SuspendLayout();
-            this.label1.AutoSize = true;
-            this.label1.Location = new Point(12, 0x13);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(0x2f, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "选项数:";
+            this.Label1.AutoSize = true;
+            this.Label1.Location = new Point(12, 0x13);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new Size(0x2f, 12);
+            this.Label1.TabIndex = 0;
+            this.Label1.Text = "选项数:";
             this.numericUpDown1.Location = new Point(0x41, 0x11);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new Size(0x33, 0x15);
@@ -76,7 +78,7 @@
             base.Controls.Add(this.button1);
             base.Controls.Add(this.flowLayoutPanel1);
             base.Controls.Add(this.numericUpDown1);
-            base.Controls.Add(this.label1);
+            base.Controls.Add(this.Label1);
             base.Name = "FormOptionInfo";
             this.Text = "选项信息";
             this.numericUpDown1.EndInit();

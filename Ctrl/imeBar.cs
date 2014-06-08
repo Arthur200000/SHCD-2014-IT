@@ -23,7 +23,7 @@
         private const int DONT_RESOLVE_DLL_REFERENCES = 1;
         private static readonly int IMAGE_ICON = 1;
         private List<imeItem> imeList;
-        private Label label1;
+        private Label Label1;
         private const int LOAD_LIBRARY_AS_DATAFILE = 2;
         private const int LOAD_WITH_ALTERED_SEARCH_PATH = 8;
         private PictureBox pictureBox1;
@@ -120,56 +120,56 @@
             {
                 case 1024:
                 case -2147482624:
-                    this.label1.Text = "英";
+                    this.Label1.Text = "英";
                     this.pictureBox2.Image = Resources.Half;
                     this.pictureBox3.Image = Resources.chs;
                     return;
 
                 case 1025:
                 case -2147482623:
-                    this.label1.Text = "中";
+                    this.Label1.Text = "中";
                     this.pictureBox2.Image = Resources.Half;
                     this.pictureBox3.Image = Resources.chs;
                     return;
 
                 case 1032:
                 case -2147482616:
-                    this.label1.Text = "英";
+                    this.Label1.Text = "英";
                     this.pictureBox2.Image = Resources.On;
                     this.pictureBox3.Image = Resources.chs;
                     return;
 
                 case 1033:
                 case -2147482615:
-                    this.label1.Text = "中";
+                    this.Label1.Text = "中";
                     this.pictureBox2.Image = Resources.On;
                     this.pictureBox3.Image = Resources.chs;
                     return;
 
                 case 0:
                 case -2147483648:
-                    this.label1.Text = "英";
+                    this.Label1.Text = "英";
                     this.pictureBox2.Image = Resources.Half;
                     this.pictureBox3.Image = Resources.eng;
                     return;
 
                 case 1:
                 case -2147483647:
-                    this.label1.Text = "中";
+                    this.Label1.Text = "中";
                     this.pictureBox2.Image = Resources.Half;
                     this.pictureBox3.Image = Resources.eng;
                     return;
 
                 case 8:
                 case -2147483640:
-                    this.label1.Text = "英";
+                    this.Label1.Text = "英";
                     this.pictureBox2.Image = Resources.On;
                     this.pictureBox3.Image = Resources.eng;
                     return;
 
                 case 9:
                 case -2147483639:
-                    this.label1.Text = "中";
+                    this.Label1.Text = "中";
                     this.pictureBox2.Image = Resources.On;
                     this.pictureBox3.Image = Resources.eng;
                     return;
@@ -302,7 +302,7 @@
             Font font;
             this.pictureBox1.Size = new Size(base.ClientSize.Height, base.ClientSize.Height);
             this.pictureBox1.Location = new Point(0, 0);
-            Graphics graphics = this.label1.CreateGraphics();
+            Graphics graphics = this.Label1.CreateGraphics();
             int num = 1;
             for (font = new Font("宋体", (float) num, FontStyle.Regular, GraphicsUnit.Pixel); ((int) graphics.MeasureString("中", font).Height) < base.Height; font = new Font("宋体", (float) num, FontStyle.Regular, GraphicsUnit.Pixel))
             {
@@ -310,14 +310,14 @@
             }
             num--;
             font = new Font("宋体", (float) num, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.label1.Height = base.ClientSize.Height;
-            this.label1.Width = (int) graphics.MeasureString("中", font).Width;
-            this.label1.Top = 0;
-            this.label1.Left = this.pictureBox1.Right;
-            this.label1.Font = font;
+            this.Label1.Height = base.ClientSize.Height;
+            this.Label1.Width = (int) graphics.MeasureString("中", font).Width;
+            this.Label1.Top = 0;
+            this.Label1.Left = this.pictureBox1.Right;
+            this.Label1.Font = font;
             this.pictureBox2.Size = this.pictureBox1.Size;
             this.pictureBox3.Size = this.pictureBox2.Size;
-            this.pictureBox2.Location = new Point(this.label1.Right, 0);
+            this.pictureBox2.Location = new Point(this.Label1.Right, 0);
             this.pictureBox3.Location = new Point(this.pictureBox2.Right, 0);
             this.comboBox1.Top = 0;
             this.comboBox1.Left = this.pictureBox3.Right;
@@ -373,7 +373,7 @@
         {
             this.components = new Container();
             this.pictureBox1 = new PictureBox();
-            this.label1 = new Label();
+            this.Label1 = new Label();
             this.comboBox1 = new ComboBox();
             this.pictureBox2 = new PictureBox();
             this.pictureBox3 = new PictureBox();
@@ -390,16 +390,16 @@
             this.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.label1.BorderStyle = BorderStyle.FixedSingle;
-            this.label1.Cursor = Cursors.Hand;
-            this.label1.Location = new Point(0x7a, 0x1a);
-            this.label1.Margin = new Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(100, 0x17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
-            this.label1.TextAlign = ContentAlignment.MiddleCenter;
-            this.label1.Click += new EventHandler(this.label1_Click);
+            this.Label1.BorderStyle = BorderStyle.FixedSingle;
+            this.Label1.Cursor = Cursors.Hand;
+            this.Label1.Location = new Point(0x7a, 0x1a);
+            this.Label1.Margin = new Padding(0);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new Size(100, 0x17);
+            this.Label1.TabIndex = 2;
+            this.Label1.Text = "Label1";
+            this.Label1.TextAlign = ContentAlignment.MiddleCenter;
+            this.Label1.Click += new EventHandler(this.Label1_Click);
             this.comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             this.comboBox1.FlatStyle = FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
@@ -434,7 +434,7 @@
             base.Controls.Add(this.pictureBox3);
             base.Controls.Add(this.pictureBox2);
             base.Controls.Add(this.comboBox1);
-            base.Controls.Add(this.label1);
+            base.Controls.Add(this.Label1);
             base.Controls.Add(this.pictureBox1);
             base.Margin = new Padding(0);
             base.Size = new Size(0x145, 0x41);
@@ -481,7 +481,7 @@
             this.changeLabel();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
             IntPtr hIMC = ImmGetContext(GetFocus());
             int conversion = 0x409;

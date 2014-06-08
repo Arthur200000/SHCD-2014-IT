@@ -45,7 +45,6 @@
     <None Include="Properties\Qisi.Editor.Controls.TextBox.resources" />
     <None Include="Properties\Qisi.Editor.Controls.TextBar.resources" />
     <None Include="Properties\Qisi.Editor.Controls.SuperBox.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.FrmInsertTable.resources" />
     <None Include="Properties\Qisi.Editor.Controls.FormulaEditor.resources" />
     <None Include="Properties\Qisi.Editor.Controls.FormOptionInfo.resources" />
     <None Include="Properties\Qisi.Editor.Controls.FormFormatSelect.resources" />
@@ -53,6 +52,7 @@
     <None Include="Properties\Qisi.Editor.Controls.FormBlankInfo.resources" />
     <None Include="Properties\Qisi.Editor.Controls.FLabel.resources" />
     <None Include="Controls\SuperBox_ILSpy.cs" />
+    <None Include="Properties\Qisi.Editor.Controls.FormInsertTable.resources" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\Global.cs" />
@@ -202,7 +202,6 @@
     <Compile Include="Expressions\fenshi.cs" />
     <Compile Include="Expressions\fenzuzifuzaishang.cs" />
     <Compile Include="Expressions\fenzuzifuzaixia.cs" />
-    <Compile Include="Expressions\FType.cs" />
     <Compile Include="Expressions\fuji1.cs" />
     <Compile Include="Expressions\fuji2.cs">
       <DependentUpon>fuji1.cs</DependentUpon>
@@ -369,20 +368,21 @@
     <Compile Include="Documents\Table\Row.cs" />
     <Compile Include="Controls\ColorEventArgs.cs" />
     <Compile Include="Controls\ExpressionEventArgs.cs" />
-    <Compile Include="Controls\FLabel.cs" />
-    <Compile Include="Controls\FLabelList.cs" />
     <Compile Include="Controls\FontEventArgs.cs" />
     <Compile Include="Controls\FormBlankInfo.cs" />
     <Compile Include="Controls\FormFlow.cs" />
     <Compile Include="Controls\FormFormatSelect.cs" />
     <Compile Include="Controls\FormOptionInfo.cs" />
     <Compile Include="Controls\FormulaEditor.cs" />
-    <Compile Include="Controls\FrmInsertTable.cs" />
     <Compile Include="Controls\ImageEventArgs.cs" />
     <Compile Include="Controls\TableEventArgs.cs" />
     <Compile Include="Controls\TextBar.cs" />
     <Compile Include="Controls\TextBox.cs" />
     <Compile Include="Controls\SuperBox_Reflector.cs" />
+    <Compile Include="Expressions\FunctionType.cs" />
+    <Compile Include="Controls\FunctionLabel.cs" />
+    <Compile Include="Controls\FunctionLabelList.cs" />
+    <Compile Include="Controls\FormInsertTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\General\General.csproj">

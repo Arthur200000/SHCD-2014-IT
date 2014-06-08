@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public jiao13(lineexpression parent, Color color) : base(Resources.jiao1, parent, color, false)
         {
-            base.Type = FType.交13;
+            base.Type = FunctionType.交13;
         }
     }
 }

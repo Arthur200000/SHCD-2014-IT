@@ -4,7 +4,9 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Expression info.
+	/// </summary>
     internal class ExpressionInfo : Element
     {
         private containerexpression containerExpr;

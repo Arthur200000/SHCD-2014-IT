@@ -13,7 +13,7 @@ using Qisi.Editor.Properties;
         public daikuanggongshi(lineexpression parent, Color color) : base(parent, color, true)
         {
             base.Child.Add(new lineexpression(this.Font));
-            base.Type = FType.带框公式;
+            base.Type = FunctionType.带框公式;
             this.Benti.ParentExpression = this;
         }
 

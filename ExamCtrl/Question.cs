@@ -10,14 +10,16 @@
     using System.Threading;
     using System.Windows.Forms;
     using System.Xml;
-
+	/// <summary>
+	/// Question.
+	/// </summary>
     public class Question
     {
         private string answer;
         private string answerid;
         private string id;
         private Label indexLabel = new Label();
-        private int indexlabelfontsize = 12;
+        private int indexLabelfontsize = 12;
         private static int questionChangeTime;
         private SuperBox superbox;
 
@@ -28,17 +30,22 @@
         public event BoolEventHandler isDone;
 
         public event EventHandler ShowWindow;
-
-        public Question(XmlNode xmlnode, int panelwidth, int QindexWidth)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExamClientControlsLibrary.Question"/> class.
+		/// </summary>
+		/// <param name="xmlNode">XML node for question.</param>
+		/// <param name="panelWidth">Panel width.</param>
+		/// <param name="QIndexWidth">Q index width.</param>
+        public Question(XmlNode xmlNode, int panelWidth, int QIndexWidth)
         {
-            this.id = xmlnode.Attributes["id"].Value;
+            this.id = xmlNode.Attributes["id"].Value;
             this.indexLabel.AutoSize = false;
-            this.indexLabel.Font = new Font("黑体", (float) this.indexlabelfontsize, FontStyle.Bold, GraphicsUnit.Pixel);
-            this.indexLabel.Size = new Size(QindexWidth, this.indexlabelfontsize * 3);
+            this.indexLabel.Font = new Font("黑体", (float) this.indexLabelfontsize, FontStyle.Bold, GraphicsUnit.Pixel);
+            this.indexLabel.Size = new Size(QIndexWidth, this.indexLabelfontsize * 3);
             this.indexLabel.TextAlign = ContentAlignment.MiddleRight;
             this.indexLabel.Text = "";
             this.indexLabel.Margin = new Padding(0, 0, 0, 0);
-            this.superbox = new SuperBox(Math.Max(0, panelwidth - 30));
+            this.superbox = new SuperBox(Math.Max(0, panelWidth - 30));
             this.superbox.ReadOnly = true;
             this.superbox.ContentChanged += new EventHandler(this.sb_ContentChanged);
             string file = Path.Combine(Path.Combine(TestPaperPlayer.paperPath, TestPaper.id + "_" + this.id), "Question.xml");
@@ -52,7 +59,7 @@
                 int num = TestPaperPlayer.answerINI.ReadValue("Answer", "NUM", 0);
                 for (int i = 0; i < num; i++)
                 {
-                    if (TestPaperPlayer.answerINI.ReadValue(i.ToString(), "ID", "") == xmlnode.Attributes["id"].Value)
+                    if (TestPaperPlayer.answerINI.ReadValue(i.ToString(), "ID", "") == xmlNode.Attributes["id"].Value)
                     {
                         string str2 = TestPaperPlayer.answerINI.ReadValue(i.ToString(), "AnswerXML", "");
                         if (str2.StartsWith("["))
@@ -74,7 +81,7 @@
             {
                 this.superbox.Enter += new EventHandler(this.QuestionPanel_Enter);
                 this.superbox.Leave += new EventHandler(this.QuestionPanel_Leave);
-                TestPaperPlayer.answerINI.WriteValue(this.answerid, "ID", xmlnode.Attributes["id"].Value);
+                TestPaperPlayer.answerINI.WriteValue(this.answerid, "ID", xmlNode.Attributes["id"].Value);
                 TestPaperPlayer.answerINI.WriteValue(this.answerid, "Answer", "[" + this.superbox.getContent() + "]");
                 TestPaperPlayer.answerINI.WriteValue(this.answerid, "AnswerXML", "[" + this.superbox.getContentXml() + "]");
             }
@@ -256,7 +263,10 @@
         internal bool Done { get; set; }
 
         internal bool IsCurrent { get; set; }
-
+		/// <summary>
+		/// Gets the question.
+		/// </summary>
+		/// <value>The question.</value>
         public SuperBox question
         {
             get
@@ -264,7 +274,10 @@
                 return this.superbox;
             }
         }
-
+		/// <summary>
+		/// Gets the question ID.
+		/// </summary>
+		/// <value>The question ID.</value>
         public Label QuestionID
         {
             get

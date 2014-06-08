@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public dian(lineexpression parent, Color color) : base(parent, color)
         {
-            base.Type = FType.点;
+            base.Type = FunctionType.点;
         }
 
         public override void DrawExpression(Graphics g)

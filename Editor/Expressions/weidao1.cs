@@ -10,7 +10,7 @@ using Qisi.Editor.Properties;
     {
         public weidao1(lineexpression parent, Color color) : base(Resources.wdhao, parent, color)
         {
-            base.Type = FType.围道积分1;
+            base.Type = FunctionType.围道积分1;
         }
     }
 }

@@ -7,14 +7,19 @@
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
-
+	/// <summary>
+	/// Form format select.
+	/// </summary>
     public class FormFormatSelect : Form
     {
         private IContainer components = null;
         private CrystalButtonLeftRight crystalButtonLeftRight1;
         private ListBox listBox1;
         public int selectdindex = -1;
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.Editor.Controls.FormFormatSelect"/> class.
+		/// </summary>
+		/// <param name="strs">Strings.</param>
         public FormFormatSelect(List<string> strs)
         {
             this.InitializeComponent();
