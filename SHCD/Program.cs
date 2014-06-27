@@ -26,7 +26,65 @@ namespace SHCD
         internal static string tempAnswerDir;
         private static uint WM_SETTINGCHANGE = 26;
 
-       
+        internal static bool CheckListCode(string strListCode)
+        {
+            if (strListCode.Length == 18)
+            {
+                int i;
+                if (!strListCode.StartsWith("14"))
+                {
+                    return false;
+                }
+				int[] intListCode = new int[18];
+				for (i = 0; i < strListCode.Length; i++)
+                {
+                    intListCode[i] = Convert.ToInt32(strListCode[i].ToString());
+                }
+				int intVerify = 0;
+                intVerify = Convert.ToInt32((double) ((intListCode[2] * Math.Pow(17.0, (double) intListCode[2])) % 10.0));
+				if (intListCode[3] == (intVerify % 10))
+                {
+					for (i=3; i <= 4; i++) 
+					{
+						intVerify += Convert.ToInt32((double) ((intListCode[i] * Math.Pow(17.0, (double) intListCode[i])) % 10.0));
+					}
+                    if (intListCode[5] == (intVerify % 10))
+                    {
+                        intVerify = 0;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    for (i = 2; i <= 8; i++)
+                    {
+                        intVerify += Convert.ToInt32((double) ((intListCode[i] * Math.Pow(17.0, (double) intListCode[i])) % 10.0));
+                    }
+                    if (intListCode[9] == (intVerify % 10))
+                    {
+                        intVerify = 0;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    for (i = 2; i <= 16; i++)
+                    {
+                        intVerify += Convert.ToInt32((double) ((intListCode[i] * Math.Pow(17.0, (double) intListCode[i])) % 10.0));
+                    }
+                    if (intListCode [17] == (intVerify % 10))
+                    {
+                        intVerify = 0;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
@@ -62,7 +120,74 @@ namespace SHCD
             return num.ToString().PadLeft(2, '0');
         }
 
-       
+        internal static string getBaseBoardId()
+        {
+            try
+            {
+                ManagementObjectCollection instances = new ManagementClass("Win32_BaseBoard").GetInstances();
+                foreach (ManagementObject obj2 in instances)
+                {
+                    return obj2.Properties["SerialNumber"].Value.ToString();
+                }
+                return defaultID;
+            }
+            catch
+            {
+                return defaultID;
+            }
+        }
+
+        internal static string getBIOSId()
+        {
+            try
+            {
+                ManagementObjectCollection instances = new ManagementClass("Win32_BIOS").GetInstances();
+                foreach (ManagementObject obj2 in instances)
+                {
+                    return obj2.Properties["SerialNumber"].Value.ToString();
+                }
+                return defaultID;
+            }
+            catch
+            {
+                return defaultID;
+            }
+        }
+
+        internal static string getCpuId()
+        {
+            try
+            {
+                ManagementObjectCollection instances = new ManagementClass("win32_processor").GetInstances();
+                foreach (ManagementObject obj2 in instances)
+                {
+                    return obj2.Properties["processorid"].Value.ToString();
+                }
+                return defaultID;
+            }
+            catch
+            {
+                return defaultID;
+            }
+        }
+
+        internal static string getPhysicalMediaId()
+        {
+            try
+            {
+                ManagementObjectCollection instances = new ManagementClass("Win32_PhysicalMedia").GetInstances();
+                foreach (ManagementObject obj2 in instances)
+                {
+                    return obj2.Properties["SerialNumber"].Value.ToString();
+                }
+                return defaultID;
+            }
+            catch
+            {
+                return defaultID;
+            }
+        }
+
         [STAThread, SecurityPermission(SecurityAction.Demand, Flags=SecurityPermissionFlag.ControlAppDomain)]
         private static void Main()
         {
@@ -170,12 +295,27 @@ namespace SHCD
                 else
                 {
                     Process process;
+                    FormReg reg;
                     RegistryKey key2;
                     answerDir = Path.Combine(answerDir, "Qisi");
                     if (!Directory.Exists(answerDir))
                     {
                         Directory.CreateDirectory(answerDir);
                     }
+					// REG ABSTRACT:
+					// The base64 string of the Machine's only code is stored in %USERPROFILE%\\SHCD.ini.
+					// When it is converted as ASCII, it meets the following requirements:
+					// 0 1 2 3 ……………………………………………………… 15 16 17| 18 ……………… 25 | 26 … 33 | junk
+					// ListCode, something like a product ID | Machine-Hash | Verify  | ignored
+					// ListCode:
+					// Starts with 14, and Listcode[n] equals to
+					// (Sum(Listcode[x]*(17^Listcode[x]), x=2, n-1) mod 10) ,n={3, 5, 9, 16} (Psuedo-CASIO fx-991es Sum :) )
+					// TODO: I have to find a way to generate a number that meets the requirements. 
+					// Machine-Hash:
+					// doString (getCpuId ()) + doString (getBaseBoardId ()) + doString (getBIOSId ()) + doString (getPhysicalMediaId ())
+					// See Dostring().
+					// Verify:
+					// equals to 1E8 - (Sum(machineHash[x] * 10^(7-x), x=0, 8)).
                     
                     string str9 = "";
                     DriveInfo[] drives = DriveInfo.GetDrives();
