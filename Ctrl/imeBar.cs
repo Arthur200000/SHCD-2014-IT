@@ -637,6 +637,8 @@
 			}
 			if (y >= 1) {
 				return x;
+			} else {
+				throw new NotImplementedException();
 			}
         }
 

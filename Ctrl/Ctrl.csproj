@@ -10,6 +10,8 @@
     <ReleaseVersion>1.0.1.0</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,11 +69,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Qisi.General.Controls.VolumeControl.resources" />
-    <None Include="Properties\Qisi.General.Controls.StartForm.resources" />
-    <None Include="Properties\Qisi.General.Controls.Properties.Resources.resources" />
-    <None Include="Properties\Qisi.General.Controls.imeBar.resources" />
-    <None Include="Properties\Qisi.General.Controls.csproj" />
-    <None Include="Properties\Qisi.General.Controls.CrystalButton.resources" />
+    <EmbeddedResource Include="Properties\Qisi.General.Controls.VolumeControl.resources">
+      <LogicalName>Qisi.General.Controls.VolumeControl.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.General.Controls.StartForm.resources">
+      <LogicalName>Qisi.General.Controls.StartForm.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.General.Controls.Properties.Resources.resources">
+      <LogicalName>Qisi.General.Controls.Properties.Resources.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.General.Controls.imeBar.resources">
+      <LogicalName>Qisi.General.Controls.imeBar.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.General.Controls.CrystalButton.resources">
+      <LogicalName>Qisi.General.Controls.CrystalButton.resources</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

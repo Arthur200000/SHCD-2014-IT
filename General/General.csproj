@@ -11,6 +11,8 @@
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <CodePage>54936</CodePage>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,9 +59,6 @@
     <Compile Include="UserSession.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Qisi.General.Properties.Resources.resources" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
@@ -86,4 +85,9 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Qisi.General.Properties.Resources.resources">
+      <LogicalName>Qisi.General.Properties.Resources.resources</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

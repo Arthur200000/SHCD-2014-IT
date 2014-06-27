@@ -316,74 +316,7 @@ namespace SHCD
 					// See Dostring().
 					// Verify:
 					// equals to 1E8 - (Sum(machineHash[x] * 10^(7-x), x=0, 8)).
-                    if (!File.Exists(Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini"))
-                    {
-                        reg = new FormReg();
-                        if (reg.ShowDialog() != DialogResult.OK)
-                        {
-                            return;
-                        }
-                    }
-                    else
-                    {
-						string cfgPath = Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini";
-						string strCfgKey = "";
-						bool unregistered = false;
-                        try
-                        {
-                            strCfgKey = File.ReadAllText(Environment.GetEnvironmentVariable("USERPROFILE") + @"\SHCD.ini");
-                        }
-                        catch
-                        {
-                            strCfgKey = "";
-                        }
-                        finally
-                        {
-							byte[] keyTmp = Convert.FromBase64String(strCfgKey);
-                            strCfgKey = Encoding.ASCII.GetString(keyTmp);
-                            if (strCfgKey.Length < 34)
-                            {
-                                unregistered = true;
-                            }
-                            else
-                            {
-                                int j;
-								string listCode = strCfgKey.Substring (0, 18);
-								string machineHash = strCfgKey.Substring (18, 8);
-								string verify = strCfgKey.Substring (26, 8);
-                                unregistered = !CheckListCode(listCode);
-                                if (machineHash != (doString(getCpuId()) + doString(getBaseBoardId()) + doString(getBIOSId()) + doString(getPhysicalMediaId())))
-                                {
-                                    unregistered = true;
-                                }
-								int[] intMachineHash = new int[8];
-								for (j = 0; j < 8; j++) // machineHash.Length = 8
-                                {
-                                    intMachineHash[j] = Convert.ToInt32(machineHash[j].ToString());
-								}
-                                Array.Sort<int>(intMachineHash);
-								int machineHashVerify = 0;
-								for (j = 0; j < 8; j++) // intMachineHash.Length = 8
-                                {
-									machineHashVerify += intMachineHash[j] * ((int) Math.Pow(10.0, (double) (7 - j))); // intMachineHash.Length = 8
-                                }
-                                machineHashVerify = 100000000 - machineHashVerify;
-                                long num5 = Convert.ToInt64(listCode.Substring(2)) % ((long) machineHashVerify);
-								if (verify != num5.ToString().PadLeft(8, '0')) //
-                                {
-                                    unregistered = true;
-                                }
-                            }
-                        }
-                        if (unregistered)
-                        {
-                            reg = new FormReg();
-                            if (reg.ShowDialog() != DialogResult.OK)
-                            {
-                                return;
-                            }
-                        }
-                    }
+                    
                     string str9 = "";
                     DriveInfo[] drives = DriveInfo.GetDrives();
                     DriveInfo info = new DriveInfo("C");

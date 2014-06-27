@@ -8,6 +8,8 @@
     <RootNamespace>Editor</RootNamespace>
     <AssemblyName>Editor</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,18 +43,7 @@
     <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Qisi.Editor.Properties.Resources.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.TextBox.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.TextBar.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.SuperBox.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.FormulaEditor.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.FormOptionInfo.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.FormFormatSelect.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.FormFlow.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.FormBlankInfo.resources" />
-    <None Include="Properties\Qisi.Editor.Controls.FLabel.resources" />
     <None Include="Controls\SuperBox_ILSpy.cs" />
-    <None Include="Properties\Qisi.Editor.Controls.FormInsertTable.resources" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\Global.cs" />
@@ -393,5 +384,40 @@
       <Project>{00B7F2EB-EB7B-4201-933D-B6F8ED9CC753}</Project>
       <Name>Ctrl</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Properties.Resources.resources">
+      <LogicalName>Qisi.Editor.Properties.Resources.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.TextBox.resources">
+      <LogicalName>Qisi.Editor.Controls.TextBox.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.TextBar.resources">
+      <LogicalName>Qisi.Editor.Controls.TextBar.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.SuperBox.resources">
+      <LogicalName>Qisi.Editor.Controls.SuperBox.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.FormulaEditor.resources">
+      <LogicalName>Qisi.Editor.Controls.FormulaEditor.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.FormOptionInfo.resources">
+      <LogicalName>Qisi.Editor.Controls.FormOptionInfo.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.FormFormatSelect.resources">
+      <LogicalName>Qisi.Editor.Controls.FormFormatSelect.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.FormFlow.resources">
+      <LogicalName>Qisi.Editor.Controls.FormFlow.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.FormBlankInfo.resources">
+      <LogicalName>Qisi.Editor.Controls.FormBlankInfo.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.FLabel.resources">
+      <LogicalName>Qisi.Editor.Controls.FLabel.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Qisi.Editor.Controls.FormInsertTable.resources">
+      <LogicalName>Qisi.Editor.Controls.FormInsertTable.resources</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

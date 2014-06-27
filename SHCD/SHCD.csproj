@@ -11,6 +11,8 @@
     <ReleaseVersion>1.0.1.0</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <StartupObject>SHCD.Program</StartupObject>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,20 +56,6 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\SHCD.upload.resources" />
-    <None Include="Properties\SHCD.Test.resources" />
-    <None Include="Properties\SHCD.score.resources" />
-    <None Include="Properties\SHCD.Properties.Resources.resources" />
-    <None Include="Properties\SHCD.MdiBase.resources" />
-    <None Include="Properties\SHCD.Login.resources" />
-    <None Include="Properties\SHCD.Key.resources" />
-    <None Include="Properties\SHCD.FormTemplate.resources" />
-    <None Include="Properties\SHCD.FormSel.resources" />
-    <None Include="Properties\SHCD.FormReg.resources" />
-    <None Include="Properties\SHCD.CountDown.resources" />
-    <None Include="Properties\SHCD.ChooseSubject.resources" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Ctrl\Ctrl.csproj">
       <Project>{00B7F2EB-EB7B-4201-933D-B6F8ED9CC753}</Project>
       <Name>Ctrl</Name>
@@ -87,5 +75,43 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\SHCD.upload.resources">
+      <LogicalName>SHCD.upload.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.Test.resources">
+      <LogicalName>SHCD.Test.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.score.resources">
+      <LogicalName>SHCD.score.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.Properties.Resources.resources">
+      <LogicalName>SHCD.Properties.Resources.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.MdiBase.resources">
+      <LogicalName>SHCD.MdiBase.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.Login.resources">
+      <LogicalName>SHCD.Login.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.Key.resources">
+      <LogicalName>SHCD.Key.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.FormTemplate.resources">
+      <LogicalName>SHCD.FormTemplate.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.FormSel.resources">
+      <LogicalName>SHCD.FormSel.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.FormReg.resources">
+      <LogicalName>SHCD.FormReg.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.CountDown.resources">
+      <LogicalName>SHCD.CountDown.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SHCD.ChooseSubject.resources">
+      <LogicalName>SHCD.ChooseSubject.resources</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
