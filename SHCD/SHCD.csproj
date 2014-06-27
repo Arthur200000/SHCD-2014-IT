@@ -44,7 +44,6 @@
     <Compile Include="Key.cs" />
     <Compile Include="FormTemplate.cs" />
     <Compile Include="FormSel.cs" />
-    <Compile Include="FormReg.cs" />
     <Compile Include="CountDown.cs" />
     <Compile Include="ChooseSubject.cs" />
     <Compile Include="Properties\Global.cs" />
