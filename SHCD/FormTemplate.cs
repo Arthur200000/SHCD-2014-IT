@@ -220,14 +220,14 @@
                 fileToZip = fileToZip.EndsWith(@"\") ? fileToZip : (fileToZip + @"\");
                 if (CommonMethods.Zip(fileToZip, Path.Combine(Program.answerDir, this.paperName + ".dat"), "CKKC37F423"))
                 {
-                    CommonMethods.Encrypt(Path.Combine(Program.answerDir, this.paperName + ".dat"));
+                    CommonMethods.Ency(Path.Combine(Program.answerDir, this.paperName + ".dat"));
                 }
             }
         }
 
         private void backgroundWorker3_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Thread.Sleep(0x7d0);
+			Thread.Sleep (2000);
             base.Hide();
             base.Dispose();
         }
@@ -255,8 +255,8 @@
         private void FormInputNo_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-            Color color = Color.FromArgb(0xb9, 220, 0xff);
-            Color color2 = Color.FromArgb(0, 0x80, 0xc0);
+            Color color = Color.FromArgb (185, 220, 255);
+            Color color2 = Color.FromArgb (0, 128, 192);
             Brush brush = new LinearGradientBrush(base.ClientRectangle, color2, color, LinearGradientMode.ForwardDiagonal);
             graphics.FillRectangle(brush, base.ClientRectangle);
         }

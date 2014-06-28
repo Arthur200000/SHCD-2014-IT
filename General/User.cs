@@ -7,13 +7,13 @@
 
     internal class User
     {
-        public UserSeesion commandSession { get; set; }
+        public UserSession commandSession { get; set; }
 
         public string currentDir { get; set; }
 
         public TcpListener dataListener { get; set; }
 
-        public UserSeesion dataSession { get; set; }
+        public UserSession dataSession { get; set; }
 
         public bool isBinary { get; set; }
 

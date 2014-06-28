@@ -495,7 +495,7 @@
                 client = new TcpClient();
                 client.Connect(user.remoteEndPoint);
             }
-            user.dataSession = new UserSeesion(client);
+            user.dataSession = new UserSession(client);
         }
 
         private void ListenClientConnect()
@@ -520,7 +520,7 @@
                     TcpClient client = this.myTcpListener.AcceptTcpClient();
                     this.AddInfo(string.Format("客户端（{0}）与本机（{1}）建立Ftp连接", client.Client.RemoteEndPoint, this.myTcpListener.LocalEndpoint));
                     User state = new User {
-                        commandSession = new UserSeesion(client),
+                        commandSession = new UserSession(client),
                         workDir = this.FTPRoot
                     };
                     ThreadPool.QueueUserWorkItem(new WaitCallback(this.UserProcessing), state);

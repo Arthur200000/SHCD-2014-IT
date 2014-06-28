@@ -12,7 +12,7 @@
     public class VolumeControl : UserControl
     {
         private IContainer components;
-        private TrackBar trackBar1;
+		private TrackBar volumeValue;
 
         public VolumeControl()
         {
@@ -37,11 +37,11 @@
                 try
                 {
                     MMDevice defaultAudioEndpoint = new MMDeviceEnumerator().GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia);
-                    this.trackBar1.Value = (int) (defaultAudioEndpoint.AudioEndpointVolume.MasterVolumeLevelScalar * (this.trackBar1.Maximum - this.trackBar1.Minimum));
+                    this.volumeValue.Value = (int) (defaultAudioEndpoint.AudioEndpointVolume.MasterVolumeLevelScalar * (this.volumeValue.Maximum - this.volumeValue.Minimum));
                 }
                 catch
                 {
-                    this.trackBar1.Value = 0;
+                    this.volumeValue.Value = 0;
                 }
             }
             else
@@ -49,39 +49,39 @@
                 uint num2;
                 uint deviceID = 0;
                 waveOutGetVolume(deviceID, out num2);
-                uint num3 = num2 & 0xffff;
-                uint num4 = (uint) ((num2 & -65536) >> 0x10);
-                this.trackBar1.Value = ((int.Parse(num3.ToString()) | int.Parse(num4.ToString())) * (this.trackBar1.Maximum - this.trackBar1.Minimum)) / 0xffff;
+                uint num3 = num2 & 65535;
+                uint num4 = (uint) ((num2 & -65536) >> 16);
+                this.volumeValue.Value = ((int.Parse (num3.ToString ()) | int.Parse (num4.ToString ())) * (this.volumeValue.Maximum - this.volumeValue.Minimum)) / 65535;
             }
         }
 
         private void InitializeComponent()
         {
-            this.trackBar1 = new TrackBar();
-            this.trackBar1.BeginInit();
+            this.volumeValue = new TrackBar();
+            this.volumeValue.BeginInit();
             base.SuspendLayout();
-            this.trackBar1.AutoSize = false;
-            this.trackBar1.BackColor = Color.White;
-            this.trackBar1.Dock = DockStyle.Fill;
-            this.trackBar1.Location = new Point(0, 0);
-            this.trackBar1.Margin = new Padding(2);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new Size(0x76, 30);
-            this.trackBar1.TabIndex = 0;
-            this.trackBar1.Scroll += new EventHandler(this.trackBar1_Scroll);
+            this.volumeValue.AutoSize = false;
+            this.volumeValue.BackColor = Color.White;
+            this.volumeValue.Dock = DockStyle.Fill;
+            this.volumeValue.Location = new Point(0, 0);
+            this.volumeValue.Margin = new Padding(2);
+            this.volumeValue.Maximum = 100;
+            this.volumeValue.Name = "trackBar1";
+            this.volumeValue.Size = new Size(0x76, 30);
+            this.volumeValue.TabIndex = 0;
+            this.volumeValue.Scroll += new EventHandler(this.trackBar1_Scroll);
             base.AutoScaleDimensions = new SizeF(6f, 12f);
             base.AutoScaleMode = AutoScaleMode.Font;
             this.BackColor = Color.White;
             base.BorderStyle = BorderStyle.FixedSingle;
-            base.Controls.Add(this.trackBar1);
+            base.Controls.Add(this.volumeValue);
             this.Cursor = Cursors.Hand;
             this.DoubleBuffered = true;
             base.Margin = new Padding(2);
             base.Name = "VolumeControl";
             base.Size = new Size(0x76, 30);
             base.Load += new EventHandler(this.VolumeControl_Load);
-            this.trackBar1.EndInit();
+            this.volumeValue.EndInit();
             base.ResumeLayout(false);
         }
 
@@ -92,7 +92,7 @@
                 try
                 {
                     MMDeviceEnumerator enumerator = new MMDeviceEnumerator();
-                    enumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia).AudioEndpointVolume.MasterVolumeLevelScalar = ((float) this.trackBar1.Value) / ((float) (this.trackBar1.Maximum - this.trackBar1.Minimum));
+                    enumerator.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia).AudioEndpointVolume.MasterVolumeLevelScalar = ((float) this.volumeValue.Value) / ((float) (this.volumeValue.Maximum - this.volumeValue.Minimum));
                 }
                 catch
                 {
@@ -100,7 +100,7 @@
             }
             else
             {
-                uint num = (uint) ((65535.0 * this.trackBar1.Value) / ((double) (this.trackBar1.Maximum - this.trackBar1.Minimum)));
+                uint num = (uint) ((65535.0 * this.volumeValue.Value) / ((double) (this.volumeValue.Maximum - this.volumeValue.Minimum)));
                 if (num < 0)
                 {
                     num = 0;

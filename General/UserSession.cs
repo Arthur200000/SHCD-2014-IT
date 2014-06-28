@@ -4,8 +4,10 @@
     using System.IO;
     using System.Net.Sockets;
     using System.Text;
-
-    internal class UserSeesion
+	/// <summary>
+	/// User session.
+	/// </summary>
+    internal class UserSession
     {
         public readonly BinaryReader binaryReader;
         public readonly BinaryWriter binaryWriter;
@@ -14,7 +16,11 @@
         public readonly StreamWriter streamWriter;
         public readonly TcpClient tcpClient;
 
-        public UserSeesion(TcpClient client)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Qisi.General.UserSession"/> class.
+		/// </summary>
+		/// <param name="client">Client.</param>
+        public UserSession(TcpClient client)
         {
             this.tcpClient = client;
             this.networkStream = client.GetStream();
@@ -24,7 +30,9 @@
             this.binaryReader = new BinaryReader(this.networkStream, Encoding.Default);
             this.binaryWriter = new BinaryWriter(this.networkStream, Encoding.Default);
         }
-
+		/// <summary>
+		/// Close this instance.
+		/// </summary>
         public void Close()
         {
             this.networkStream.Close();

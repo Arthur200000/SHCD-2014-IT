@@ -6,14 +6,17 @@
     using System.Drawing;
     using System.Windows.Forms;
 
+	/// <summary>
+	/// Start form.
+	/// </summary>
     public class StartForm : Form
     {
         private IContainer components;
-        private int decrease = 0x5dc;
+        private int decrease = 1500;
         private double deltdecrease;
         private double deltincrease;
-        private int increase = 0x5dc;
-        private int maintence = 0x7d0;
+        private int increase = 1500;
+        private int maintence = 2000;
         private Bitmap mybit;
         private int state;
         private Timer timer1;
@@ -42,7 +45,7 @@
             base.AutoScaleDimensions = new SizeF(6f, 12f);
             base.AutoScaleMode = AutoScaleMode.Font;
             this.BackgroundImage = Resources.logo;
-            base.ClientSize = new Size(0x11c, 0x106);
+            base.ClientSize = new Size (284, 262);
             this.DoubleBuffered = true;
             base.FormBorderStyle = FormBorderStyle.None;
             base.Name = "StartForm";
@@ -99,6 +102,10 @@
             }
         }
 
+		/// <summary>
+		/// Gets or sets the keep opacity milliseconds.
+		/// </summary>
+		/// <value>The keep opacity milliseconds.</value>
         public int KeepOpacityMilliseconds
         {
             get

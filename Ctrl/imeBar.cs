@@ -47,25 +47,25 @@
             if (iMode >= 0)
             {
                 int num = 11;
-                while ((iMode - this.Pow(2, num)) >= 0)
+                while ((iMode - this.ModeHandler(2, num)) >= 0)
                 {
                     num++;
                 }
                 if (num != 11)
                 {
-                    iMode -= this.Pow(2, num - 1);
+                    iMode -= this.ModeHandler(2, num - 1);
                 }
                 return iMode;
             }
             iMode = (iMode + 2147483647) + 1;
             int y = 11;
-            while ((iMode - this.Pow(2, y)) >= 0)
+            while ((iMode - this.ModeHandler(2, y)) >= 0)
             {
                 y++;
             }
             if (y != 11)
             {
-                iMode -= this.Pow(2, y - 1);
+                iMode -= this.ModeHandler(2, y - 1);
             }
             iMode = (iMode - 2147483647) - 1;
             return iMode;
@@ -561,7 +561,7 @@
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             IntPtr hIMC = ImmGetContext(GetFocus());
-            int conversion = 0x409;
+            int conversion = 1033;
             int sentence = 0;
             ImmGetConversionStatus(hIMC, ref conversion, ref sentence);
             switch (this.Calc(conversion))
@@ -595,7 +595,7 @@
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             IntPtr hIMC = ImmGetContext(GetFocus());
-            int conversion = 0x409;
+            int conversion = 1033;
             int sentence = 0;
             ImmGetConversionStatus(hIMC, ref conversion, ref sentence);
             switch (this.Calc(conversion))
@@ -609,13 +609,13 @@
                 case 1032:
                 case 1033:
                 {
-                    conversion -= 0x400;
+					conversion -= 1024;
                     Bitmap eng = Resources.eng;
                     break;
                 }
                 default:
                 {
-                    conversion += 0x400;
+					conversion += 1024;
                     Bitmap chs = Resources.chs;
                     break;
                 }
@@ -626,21 +626,18 @@
             }
         }
 
-        private int Pow(int x, int y)
+        private int ModeHandler(int x, int y)
         {
-            if ((y < 0) || (y > 0x1f))
+            if ((y < 0) || (y > 31))
             {
-                return 0x7fffffff;
-            }
-            switch (y)
-            {
-                case 0:
-                    return 1;
-
-                case 1:
-                    return x;
-            }
-            return (x * this.Pow(x, y - 1));
+				return 2147483647;
+			}
+			if (y == 0) {
+				return 1;
+			}
+			if (y >= 1) {
+				return x;
+			}
         }
 
         private void timer1_Tick(object sender, EventArgs e)
